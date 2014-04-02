@@ -1,3 +1,7 @@
+// Variables
+
+$osoc-green: #229387;
+$osoc-hue: #FFF;
 
 /* =============================
 * CLEARFIX
@@ -19,8 +23,182 @@
 * STYLES
 * ============================== */
 
-.grid-container{
+html{
+  font-family: 'Raleway', 'Helvetica Neue';
+  background-color: #444;
+}
+
+.page{
+  background-color: #FFF;
   max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1, h2, h3{
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.wh{
+  color: #FFF;
+}
+
+.nav{
+  z-index: 999;
+  position: relative;
+  background-color: rgba(35, 153, 141, 0.8);
+  padding: 15px;
+  min-height: 50px;
+  img{
+    float: left;
+    margin-left: 55px;
+  }
+  ul{
+    text-align: center;
+    float: left;
+    margin: 0;
+    padding: 0;
+    margin-top: 15px;
+    margin-left: 75px;
+    li{
+      text-transform: uppercase;
+      float: left;
+      margin-right: 40px;
+      list-style-type: none;
+      a{
+        text-decoration: none;
+        color: #FFF !important;
+      }
+    }
+  }
+}
+
+.hero{
+  margin-top: -80px;
+  padding-top: 50px;
+  padding-bottom: 15px;
+  background: url('assets/hero.png');
+  background-position: center;
+  p.hero-header{
+    margin-top: 385px;
+    margin-left: 55px;
+      z-index: 999;
+      color: #FFF;
+      font-size: 2em;
+      text-transform: uppercase;
+    max-width: 400px;
+  }
+}
+
+.location{
+  min-height: 600px;
+  padding-bottom: 15px;
+  background: url('assets/hero-location.png');
+  h2{
+    margin: 0;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    font-size: 1.7em;
+  }
+  .map{
+    width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cities{
+    top: -30px;
+    color: #FFF;
+    max-width: 700px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    .date, .city, .place{
+      line-height: 0.7em;
+    }
+    .kortrijk{
+      color: #33ef90;
+    }
+    .antwerp{
+      color: #ecea4f;
+    }
+    .ghent{
+      color: #3dd7e9;
+    }
+    .date{
+      text-transform: uppercase;
+      font-size: 1.1em;
+      padding-bottom: 8px;
+    }
+    .city{
+      font-size: 1.7em;
+      font-weight: 600;
+    }
+    .place{
+      font-size: 0.8em;
+text-transform: uppercase;
+    }
+  }
+}
+
+.description{
+  padding-top: 25px;
+  margin-bottom: 40px;
+  p{
+    font-weight: 300;
+    color: #39a89b;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 66%;
+    text-align: center;
+    font-size: 1.35em;
+    line-height: 1.8em;
+  }
+}
+
+.numbers{
+  display: block;
+  color: #FFF;
+  text-align: center;
+  .number-container{
+    background-color: #333;
+    height: 130px;
+    .number-item{
+      width: 25%;
+      float: left;
+    }
+  }
+  .number{
+    font-size: 2.5em;
+    line-height: 0.5em;
+    clear: both;
+  }
+  .word{
+    position: relative;
+    line-height: 0.5em;
+    top: -15px;
+    clear: both;
+  }
+}
+
+.students{
+  .students-gallery{
+    .grid-25{
+      p{
+        text-align: center;
+      }
+      img.round{
+        display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 100px;
+        height: 100px;
+        border-radius: 250px;
+      }
+    }
+  }
 }
 
 /* =============================
@@ -29,7 +207,25 @@
 
 /* Smartphones */
 @media screen and (max-width: 480px){
-
+  .hero-header{
+    margin-left: 15px !important;
+  }
+  .location{
+    .grid-33{
+      padding-bottom: 15px;
+    }
+    .date, .city, .place{
+      margin: 15px !important;
+      padding: 0 !important;
+    }
+    min-height: 700px;
+  }
+  .map{
+    width: 95% !important;
+    img{
+      width: inherit;
+    }
+  }
 }
 
 /* Medium sized smartphones + tablets */
