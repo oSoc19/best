@@ -229,18 +229,19 @@ h1, h2, h3 {
     .nav img {
       margin: 0; }
     .nav ul {
+      margin-left: 5px;
       top: -7px;
       float: none;
-      margin-top: -10px;
-      line-height: 3.5em; }
+      margin-top: -3px;
+      line-height: 3.0em; }
       .nav ul li {
         float: none;
-        display: block;
+        font-size: 0.9em;
         display: inline;
         margin: 0;
         margin-left: 5px; }
         .nav ul li a {
-          padding: 15px 15px;
+          padding: 10px 10px;
           background-color: rgba(255, 255, 255, 0.1); } }
 /* Large tablet up until 960px (desktop res) */
 /* Desktop size (960px and up) */

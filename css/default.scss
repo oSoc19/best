@@ -293,17 +293,19 @@ text-transform: uppercase;
     margin: 0;
   }
   ul{
+    margin-left: 5px;
     top: -7px;
     float: none;
-    margin-top: -10px;
-    line-height: 3.5em;
+    margin-top: -3px;
+    line-height: 3.0em;
     li{
       float: none;
+      font-size: 0.9em;
       display: inline;
       margin: 0;
       margin-left: 5px;
       a{
-        padding: 15px 15px;
+        padding: 10px 10px;
         background-color: rgba(255, 255, 255, 0.1);
       }
     }
