@@ -28,9 +28,19 @@ html{
   background-color: #444;
 }
 
+a{
+  color: #23998d;
+}
+
+.constraint{
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .page{
   background-color: #FFF;
-  max-width: 960px;
+
   margin-left: auto;
   margin-right: auto;
 }
@@ -83,6 +93,7 @@ h1, h2, h3{
   padding-top: 50px;
   padding-bottom: 15px;
   background: url('assets/hero.png');
+  background-size: cover;
   background-position: center;
   p.hero-header{
     margin-top: 385px;
@@ -98,6 +109,7 @@ h1, h2, h3{
 .location{
   padding-bottom: 45px;
   background: url('assets/hero-location.png');
+  background-size: cover;
   h2{
     margin: 0;
     padding-top: 50px;
@@ -164,6 +176,7 @@ text-transform: uppercase;
   display: block;
   color: #FFF;
   text-align: center;
+  background-color: #333;
   .number-container{
     background-color: #333;
     height: 130px;
@@ -204,9 +217,9 @@ text-transform: uppercase;
         display: block !important;
         margin-left: auto !important;
         margin-right: auto !important;
-        width: 100px;
-        height: 100px;
-        border-radius: 250px;
+        width: 170px;
+        height: 170px;
+        border-radius: 340px;
       }
     }
   }
@@ -219,12 +232,15 @@ text-transform: uppercase;
     padding-bottom: 40px;
   }
   color: #FFF;
-  background: url('assets/hero-location.png');
+  background: url('assets/hero-sponsors.png');
+  background-size: cover;
+  background-position: center;
   padding-bottom: 35px;
   .sponsor{
     display: block;
     margin-left: auto;
     margin-right: auto;
+    min-height: 100px;
   }
 }
 
