@@ -93,13 +93,12 @@ h1, h2, h3{
 }
 
 .location{
-  min-height: 600px;
-  padding-bottom: 15px;
+  padding-bottom: 45px;
   background: url('assets/hero-location.png');
   h2{
     margin: 0;
-    padding-top: 35px;
-    padding-bottom: 35px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     font-size: 1.7em;
   }
   .map{
@@ -184,6 +183,11 @@ text-transform: uppercase;
 }
 
 .students{
+  padding-bottom: 25px;
+  h2{
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
   .students-gallery{
     .grid-25{
       p{
@@ -199,6 +203,10 @@ text-transform: uppercase;
       }
     }
   }
+}
+
+.partners{
+  background: url('assets/hero-location.png');
 }
 
 /* =============================
