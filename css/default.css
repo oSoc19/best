@@ -56,7 +56,9 @@ h1, h2, h3 {
       list-style-type: none; }
       .nav ul li a {
         text-decoration: none;
-        color: #FFF !important; }
+        color: #FFF; }
+      .nav ul li a:hover {
+        color: #EEE; }
 
 .hero {
   margin-top: -80px;
@@ -133,8 +135,11 @@ h1, h2, h3 {
     background-color: #333;
     height: 130px; }
     .numbers .number-container .number-item {
-      width: 25%;
-      float: left; }
+      width: 24.5%;
+      float: left;
+      border-right: 1px solid #555; }
+    .numbers .number-container .number-item:last-of-type {
+      border: none; }
   .numbers .number {
     font-size: 2.5em;
     line-height: 0.5em;
@@ -175,6 +180,8 @@ h1, h2, h3 {
 
 .contact {
   padding-bottom: 35px; }
+  .contact .contact-buttons {
+    max-width: 50%; }
   .contact h2 {
     padding-top: 20px;
     padding-bottom: 20px; }

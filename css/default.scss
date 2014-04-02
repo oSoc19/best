@@ -69,7 +69,10 @@ h1, h2, h3{
       list-style-type: none;
       a{
         text-decoration: none;
-        color: #FFF !important;
+        color: #FFF;
+      }
+      a:hover{
+        color: #EEE;
       }
     }
   }
@@ -165,8 +168,12 @@ text-transform: uppercase;
     background-color: #333;
     height: 130px;
     .number-item{
-      width: 25%;
+      width: 24.5%;
       float: left;
+      border-right: 1px solid #555;
+    }
+    .number-item:last-of-type{
+      border: none;
     }
   }
   .number{
@@ -222,6 +229,9 @@ text-transform: uppercase;
 }
 
 .contact{
+  .contact-buttons{
+    max-width: 50%;
+  }
   h2{
     padding-top: 20px;
     padding-bottom: 20px;
