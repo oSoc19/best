@@ -206,7 +206,54 @@ text-transform: uppercase;
 }
 
 .partners{
+  h2{
+    color: #FFF;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  color: #FFF;
   background: url('assets/hero-location.png');
+  padding-bottom: 35px;
+  .sponsor{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.contact{
+  h2{
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  padding-bottom: 35px;
+  .grid-33{
+    text-align: center;
+    p{
+      padding-bottom: 25px;
+    }
+    a{
+      text-decoration: none;
+      font-size: 1.2em;
+      font-weight: 500;
+      padding: 15px;
+      background-color: #229387;
+      color: #FFF;
+      text-transform: uppercase;
+      border-radius: 10px;
+    }
+  }
+}
+
+.footer{
+    background-color: #333;
+  padding-bottom: 2px;
+  p{
+    font-size: 0.9em;
+    padding-top: 15px;
+    color: #FFF;
+    margin-left: 55px;
+  }
 }
 
 /* =============================
