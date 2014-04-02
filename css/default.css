@@ -1,0 +1,28 @@
+/* =============================
+* CLEARFIX
+* ============================== */
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table; }
+
+.clearfix:after {
+  clear: both; }
+
+.clearfix {
+  *zoom: 1; }
+
+/* =============================
+* STYLES
+* ============================== */
+.grid-container {
+  max-width: 960px; }
+
+/* =============================
+* MEDIA QUERIES
+* ============================== */
+/* Smartphones */
+/* Medium sized smartphones + tablets */
+/* iPad mini w/ low DPI*/
+/* Large tablet up until 960px (desktop res) */
+/* Desktop size (960px and up) */

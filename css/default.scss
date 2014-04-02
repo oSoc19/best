@@ -1,0 +1,55 @@
+
+/* =============================
+* CLEARFIX
+* ============================== */
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}
+
+/* =============================
+* STYLES
+* ============================== */
+
+.grid-container{
+  max-width: 960px;
+}
+
+/* =============================
+* MEDIA QUERIES
+* ============================== */
+
+/* Smartphones */
+@media screen and (max-width: 480px){
+
+}
+
+/* Medium sized smartphones + tablets */
+@media screen and (min-width: 481px) and (max-width: 768px){
+
+}
+
+/* iPad mini w/ low DPI*/
+@media only screen and (width:768px) and (resolution: 163dpi) {
+
+}
+
+/* Large tablet up until 960px (desktop res) */
+@media screen and (min-width: 769px) and (max-width: 960px){
+
+}
+
+/* Desktop size (960px and up) */
+@media screen and (min-width: 961px){
+
+}
+
+
