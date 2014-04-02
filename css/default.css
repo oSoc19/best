@@ -221,7 +221,26 @@ h1, h2, h3 {
     width: 95% !important; }
     .map img {
       width: inherit; } }
-/* Medium sized smartphones + tablets */
-/* iPad mini w/ low DPI*/
+/* Navigation fixes for width < 960 px */
+@media screen and (max-width: 960px) {
+  .nav {
+    background-color: #23998d;
+    height: auto; }
+    .nav img {
+      margin: 0; }
+    .nav ul {
+      top: -7px;
+      float: none;
+      margin-top: -10px;
+      line-height: 3.5em; }
+      .nav ul li {
+        float: none;
+        display: block;
+        display: inline;
+        margin: 0;
+        margin-left: 5px; }
+        .nav ul li a {
+          padding: 15px 15px;
+          background-color: rgba(255, 255, 255, 0.1); } }
 /* Large tablet up until 960px (desktop res) */
 /* Desktop size (960px and up) */

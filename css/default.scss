@@ -283,13 +283,32 @@ text-transform: uppercase;
   }
 }
 
-/* Medium sized smartphones + tablets */
-@media screen and (min-width: 481px) and (max-width: 768px){
+/* Navigation fixes for width < 960 px */
+@media screen and (max-width: 960px){
 
+.nav{
+  background-color: rgba(35, 153, 141, 1);
+  height: auto;
+  img{
+    margin: 0;
+  }
+  ul{
+    top: -7px;
+    float: none;
+    margin-top: -10px;
+    line-height: 3.5em;
+    li{
+      float: none;
+      display: inline;
+      margin: 0;
+      margin-left: 5px;
+      a{
+        padding: 15px 15px;
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
 }
-
-/* iPad mini w/ low DPI*/
-@media only screen and (width:768px) and (resolution: 163dpi) {
 
 }
 
