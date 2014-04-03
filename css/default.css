@@ -16,7 +16,7 @@
 * STYLES
 * ============================== */
 html {
-  font-family: 'Raleway', 'Helvetica Neue';
+  font-family: "ff-enzo-web", 'Helvetica Neue';
   background-color: #444; }
 
 a {
@@ -37,15 +37,25 @@ h1, h2, h3 {
   text-transform: uppercase;
   font-weight: 500; }
 
+h2 {
+  font-size: 2.5em; }
+
 .wh {
   color: #FFF; }
 
+#participate:target, #about:target, #location:target, #students:target, #partners:target {
+  padding-top: 70px; }
+
 .nav {
   z-index: 999;
-  position: relative;
-  background-color: rgba(35, 153, 141, 0.8);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(35, 153, 141, 0.95);
   padding: 15px;
-  min-height: 50px; }
+  min-height: 50px;
+  font-weight: 600; }
   .nav img {
     float: left;
     margin-left: 55px; }
@@ -79,9 +89,9 @@ h1, h2, h3 {
     margin-left: 55px;
     z-index: 999;
     color: #FFF;
-    font-size: 2em;
+    font-size: 3em;
     text-transform: uppercase;
-    max-width: 400px; }
+    max-width: 600px; }
 
 .location {
   padding-bottom: 45px;
@@ -90,8 +100,7 @@ h1, h2, h3 {
   .location h2 {
     margin: 0;
     padding-top: 50px;
-    padding-bottom: 50px;
-    font-size: 1.7em; }
+    padding-bottom: 50px; }
   .location .map {
     width: 550px;
     margin-left: auto;
@@ -133,7 +142,7 @@ h1, h2, h3 {
     margin-right: auto;
     max-width: 66%;
     text-align: center;
-    font-size: 1.35em;
+    font-size: 1.5em;
     line-height: 1.8em; }
 
 .numbers {
@@ -143,7 +152,7 @@ h1, h2, h3 {
   background-color: #333; }
   .numbers .number-container {
     background-color: #333;
-    height: 130px; }
+    height: 135px; }
     .numbers .number-container .number-item {
       width: 24.5%;
       float: left;
@@ -151,10 +160,11 @@ h1, h2, h3 {
     .numbers .number-container .number-item:last-of-type {
       border: none; }
   .numbers .number {
-    font-size: 2.5em;
-    line-height: 0.5em;
+    font-size: 3em;
+    line-height: 0.2em;
     clear: both; }
   .numbers .word {
+    font-size: 1.2em;
     position: relative;
     line-height: 0.5em;
     top: -15px;
@@ -201,23 +211,23 @@ h1, h2, h3 {
   .contact .grid-33 {
     text-align: center; }
     .contact .grid-33 p {
-      padding-bottom: 25px; }
+      padding-top: 15px;
+      padding-bottom: 15px;
+      background-color: #229387;
+      border-radius: 10px; }
     .contact .grid-33 a {
       text-decoration: none;
       font-size: 1.2em;
       font-weight: 500;
-      padding: 15px;
-      background-color: #229387;
       color: #FFF;
-      text-transform: uppercase;
-      border-radius: 10px; }
+      text-transform: uppercase; }
 
 .footer {
   background-color: #333;
-  padding-bottom: 2px; }
+  padding-bottom: 1px; }
   .footer p {
     font-size: 0.9em;
-    padding-top: 15px;
+    padding-top: 5px;
     color: #FFF;
     margin-left: 55px; }
 
@@ -226,6 +236,30 @@ h1, h2, h3 {
 * ============================== */
 /* Smartphones */
 @media screen and (max-width: 480px) {
+  .nav {
+    position: relative !important;
+    width: auto !important; }
+
+  .oSoc-logo {
+    display: inline-block;
+    width: 100% !important; }
+    .oSoc-logo a {
+      display: block;
+      width: 63px;
+      margin-left: auto !important;
+      margin-right: auto !important; }
+    .oSoc-logo img {
+      display: block;
+      text-align: center;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      padding-bottom: 15px !important; }
+
+  p.hero-header {
+    margin-top: 150px !important;
+    font-size: 2em !important;
+    max-width: 400px !important; }
+
   .hero-header {
     margin-left: 15px !important; }
 
@@ -247,7 +281,10 @@ h1, h2, h3 {
     background-color: #23998d;
     height: auto; }
     .nav img {
-      margin: 0; }
+      margin: 0;
+      display: block;
+      text-align: center;
+      clear: both; }
     .nav ul {
       margin-left: 5px;
       top: -7px;

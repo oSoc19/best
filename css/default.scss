@@ -24,7 +24,7 @@ $osoc-hue: #FFF;
 * ============================== */
 
 html{
-  font-family: 'Raleway', 'Helvetica Neue';
+  font-family: "ff-enzo-web", 'Helvetica Neue';
   background-color: #444;
 }
 
@@ -51,16 +51,28 @@ h1, h2, h3{
   font-weight: 500;
 }
 
+h2{
+  font-size: 2.5em;
+}
+
 .wh{
   color: #FFF;
 }
 
+#participate:target, #about:target, #location:target, #students:target, #partners:target {
+  padding-top: 70px;
+}
+
 .nav{
   z-index: 999;
-  position: relative;
-  background-color: rgba(35, 153, 141, 0.8);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(35, 153, 141, 0.95);
   padding: 15px;
   min-height: 50px;
+  font-weight: 600;
   img{
     float: left;
     margin-left: 55px;
@@ -98,11 +110,11 @@ h1, h2, h3{
   p.hero-header{
     margin-top: 385px;
     margin-left: 55px;
-      z-index: 999;
-      color: #FFF;
-      font-size: 2em;
+    z-index: 999;
+    color: #FFF;
+    font-size: 3em;
       text-transform: uppercase;
-    max-width: 400px;
+    max-width: 600px;
   }
 }
 
@@ -114,7 +126,6 @@ h1, h2, h3{
     margin: 0;
     padding-top: 50px;
     padding-bottom: 50px;
-    font-size: 1.7em;
   }
   .map{
     width: 550px;
@@ -167,7 +178,7 @@ text-transform: uppercase;
     margin-right: auto;
     max-width: 66%;
     text-align: center;
-    font-size: 1.35em;
+    font-size: 1.5em;
     line-height: 1.8em;
   }
 }
@@ -179,7 +190,7 @@ text-transform: uppercase;
   background-color: #333;
   .number-container{
     background-color: #333;
-    height: 130px;
+    height: 135px;
     .number-item{
       width: 24.5%;
       float: left;
@@ -190,11 +201,12 @@ text-transform: uppercase;
     }
   }
   .number{
-    font-size: 2.5em;
-    line-height: 0.5em;
+    font-size: 3em;
+    line-height: 0.2em;
     clear: both;
   }
   .word{
+    font-size: 1.2em;
     position: relative;
     line-height: 0.5em;
     top: -15px;
@@ -248,6 +260,9 @@ text-transform: uppercase;
   .contact-buttons{
     max-width: 70%;
   }
+  .button-contact{
+
+  }
   h2{
     padding-top: 20px;
     padding-bottom: 20px;
@@ -256,27 +271,27 @@ text-transform: uppercase;
   .grid-33{
     text-align: center;
     p{
-      padding-bottom: 25px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      background-color: #229387;
+      border-radius: 10px;
     }
     a{
       text-decoration: none;
       font-size: 1.2em;
       font-weight: 500;
-      padding: 15px;
-      background-color: #229387;
       color: #FFF;
       text-transform: uppercase;
-      border-radius: 10px;
     }
   }
 }
 
 .footer{
     background-color: #333;
-  padding-bottom: 2px;
+  padding-bottom: 1px;
   p{
     font-size: 0.9em;
-    padding-top: 15px;
+    padding-top: 5px;
     color: #FFF;
     margin-left: 55px;
   }
@@ -288,6 +303,32 @@ text-transform: uppercase;
 
 /* Smartphones */
 @media screen and (max-width: 480px){
+  .nav{
+    position: relative !important;
+    width: auto !important;
+  }
+  .oSoc-logo{
+    display: inline-block;
+    width: 100% !important;
+    a{
+      display: block;
+      width: 63px;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    img{
+      display: block;
+      text-align: center;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      padding-bottom: 15px !important;
+    }
+  }
+  p.hero-header{
+    margin-top: 150px !important;
+    font-size: 2em !important;
+    max-width: 400px !important;
+  }
   .hero-header{
     margin-left: 15px !important;
   }
@@ -317,6 +358,9 @@ text-transform: uppercase;
   height: auto;
   img{
     margin: 0;
+    display: block;
+    text-align: center;
+    clear: both;
   }
   ul{
     margin-left: 5px;
