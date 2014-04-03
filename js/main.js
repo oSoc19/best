@@ -8,4 +8,11 @@ $(function(){
         }, 700);
     });
 
+    $( '.scrollTop' ).on('click', function(event) {
+        event.preventDefault();
+        $('body').animate({
+            scrollTop: $('body').offset().top
+        }, 700);
+    });
+
 });
