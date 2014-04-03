@@ -240,6 +240,9 @@ h2 {
     position: relative !important;
     width: auto !important; }
 
+  .location {
+    margin-top: 0; }
+
   .oSoc-logo {
     display: inline-block;
     width: 100% !important; }
