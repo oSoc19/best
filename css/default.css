@@ -275,8 +275,8 @@ h2 {
     width: 95% !important; }
     .map img {
       width: inherit; } }
-.fat {
-  font-weight: 800; }
+.bold {
+  font-weight: 700; }
 
 .al-r {
   text-align: right; }
