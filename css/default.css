@@ -275,6 +275,12 @@ h2 {
     width: 95% !important; }
     .map img {
       width: inherit; } }
+.fat {
+  font-weight: 800; }
+
+.al-r {
+  text-align: right; }
+
 /* Navigation fixes for width < 960 px */
 @media screen and (max-width: 960px) {
   .nav {
