@@ -143,10 +143,10 @@ h2{
       color: #33ef90;
     }
     .antwerp{
-      color: #ecea4f;
+      color: #3dd7e9;
     }
     .ghent{
-      color: #3dd7e9;
+      color: #ecea4f;
     }
     .date{
       text-transform: uppercase;
@@ -348,8 +348,9 @@ text-transform: uppercase;
   }
 }
 
-.bold{
+.osoc-bold{
   font-weight: 700;
+  text-transform: none;
 }
 
 .al-r{

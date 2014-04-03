@@ -115,9 +115,9 @@ h2 {
     .location .cities .kortrijk {
       color: #33ef90; }
     .location .cities .antwerp {
-      color: #ecea4f; }
-    .location .cities .ghent {
       color: #3dd7e9; }
+    .location .cities .ghent {
+      color: #ecea4f; }
     .location .cities .date {
       text-transform: uppercase;
       font-size: 1.1em;
@@ -274,8 +274,9 @@ h2 {
     width: 95% !important; }
     .map img {
       width: inherit; } }
-.bold {
-  font-weight: 700; }
+.osoc-bold {
+  font-weight: 700;
+  text-transform: none; }
 
 .al-r {
   text-align: right; }
