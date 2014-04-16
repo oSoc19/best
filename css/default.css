@@ -74,6 +74,9 @@ h2 {
       .nav ul li a:hover {
         color: #EEE; }
 
+#big-video-wrap {
+  position: relative !important; }
+
 .hero {
   margin-top: -80px;
   padding-top: 50px;
@@ -89,6 +92,10 @@ h2 {
     font-size: 3em;
     text-transform: uppercase;
     max-width: 600px; }
+
+.video {
+  margin-top: 25px;
+  margin-bottom: 25px; }
 
 .location {
   padding-bottom: 45px;

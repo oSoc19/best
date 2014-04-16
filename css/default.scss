@@ -96,6 +96,10 @@ h2{
   }
 }
 
+#big-video-wrap{
+  position: relative !important;
+}
+
 .hero{
   margin-top: -80px;
   padding-top: 50px;
@@ -112,6 +116,11 @@ h2{
       text-transform: uppercase;
     max-width: 600px;
   }
+}
+
+.video{
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 .location{
