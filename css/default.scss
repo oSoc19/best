@@ -152,13 +152,18 @@ h2{
 .video{
   padding-top: 15px;
   padding-bottom: 15px;
-  background-color: #000;
+  background-color: #FFF;
   .videowrapper{
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
+    padding-bottom: 53.55%; /* 16:9 */
     padding-top: 25px;
     height: 0;
   }
+
+  .player .video-wrapper{
+    background: #FFF !important;
+  }
+
   iframe{
     position: absolute;
     top: 0;
@@ -226,6 +231,7 @@ p.hero-paragraph{
   text-align: left;
   font-size: 1.3em;
   line-height: 1.8em;
+  margin-bottom: 45px;
 }
 
 .description{
@@ -305,7 +311,6 @@ p.hero-paragraph{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    background-color: #FFF;
     padding: 15px;
     max-height: 100px;
     margin-bottom: 25px;
