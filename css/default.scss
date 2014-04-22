@@ -38,6 +38,36 @@ a{
   margin-right: auto;
 }
 
+.big-participate{
+  font-size: 1.3em;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  background-color: #229387;
+  color: #FFF;
+  padding: 25px;
+  border-radius: 5px;
+  margin-left: 60px;
+  margin-bottom: 20px;
+}
+
+.big-participate:hover{
+  background-color: #23998d;
+}
+
+p.big{
+  text-align: center;
+  font-size: 1.3em;
+  padding-bottom: 10px;
+}
+
+.partner-desc{
+  font-size: 1.2em;
+  line-height: 1.5em;
+  margin-left: 15px;
+}
+
 .page{
   background-color: #FFF;
 
@@ -101,14 +131,15 @@ h2{
 }
 
 .hero{
-  margin-top: -80px;
+  margin-top: -60px;
   padding-top: 50px;
   padding-bottom: 15px;
   background: url('assets/hero.jpg');
   background-size: cover;
   background-position: center;
-  p.hero-header{
-    margin-top: 385px;
+  h1.hero-header{
+    text-align: left;
+    margin-top: 305px;
     margin-left: 55px;
     z-index: 999;
     color: #FFF;
@@ -119,8 +150,22 @@ h2{
 }
 
 .video{
-  margin-top: 25px;
-  margin-bottom: 25px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #000;
+  .videowrapper{
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+  }
+  iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .location{
@@ -173,18 +218,21 @@ text-transform: uppercase;
   }
 }
 
+p.hero-paragraph{
+  font-weight: 300;
+  color: #FFF;
+  margin-left: 60px;
+  margin-right: auto;
+  text-align: left;
+  font-size: 1.3em;
+  line-height: 1.8em;
+}
+
 .description{
   padding-top: 25px;
   margin-bottom: 40px;
   p{
-    font-weight: 300;
-    color: #39a89b;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 66%;
-    text-align: center;
-    font-size: 1.5em;
-    line-height: 1.8em;
+
   }
 }
 
@@ -223,7 +271,7 @@ text-transform: uppercase;
   padding-bottom: 25px;
   h2{
     margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
   }
   .students-gallery{
     .grid-25{
@@ -264,32 +312,38 @@ text-transform: uppercase;
   }
 }
 
+.contact-desc{
+  font-size: 1.3em;
+  line-height: 1.4em;
+  margin-top: 0;
+  padding-top: 0;
+}
+
 .contact{
   .contact-buttons{
-    max-width: 70%;
+    max-width: 90%;
+    margin-bottom: 15px;
   }
   .button-contact{
 
   }
   h2{
     padding-top: 20px;
-    padding-bottom: 20px;
   }
   padding-bottom: 35px;
-  .grid-33{
-    text-align: center;
-    p{
-      padding-top: 15px;
-      padding-bottom: 15px;
-      background-color: #229387;
-      border-radius: 10px;
-    }
+  .grid-25{
+    text-align: left;
     a{
-      text-decoration: none;
+      width: 100%;
       font-size: 1.2em;
       font-weight: 500;
+      background-color: #23998d;
+      padding: 15px;
       color: #FFF;
-      text-transform: uppercase;
+      border-radius: 10px;
+      position: relative;
+      top: 12px;
+      text-decoration: none;
     }
   }
 }
@@ -310,6 +364,11 @@ text-transform: uppercase;
 
 /* Smartphones */
 @media screen and (max-width: 480px){
+  .grid-25{
+    position: relative;
+    top: 0px;
+    margin-bottom: 35px;
+  }
   .nav{
     position: relative !important;
     width: auto !important;
@@ -334,7 +393,7 @@ text-transform: uppercase;
       padding-bottom: 15px !important;
     }
   }
-  p.hero-header{
+  h1.hero-header{
     margin-top: 150px !important;
     font-size: 2em !important;
     max-width: 400px !important;
@@ -371,7 +430,11 @@ text-transform: uppercase;
 
 /* Navigation fixes for width < 960 px */
 @media screen and (max-width: 960px){
-
+  .grid-25{
+    position: relative;
+    top: 0px;
+    margin-bottom: 35px;
+  }
 .nav{
   background-color: rgba(35, 153, 141, 1);
   height: auto;
@@ -414,4 +477,7 @@ text-transform: uppercase;
 
 }
 
+html{
+  padding: 0 !important;
+}
 

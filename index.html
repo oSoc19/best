@@ -10,8 +10,6 @@
     <meta name="copyright" content="">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="bower_components/video.js/video-js.min.css">
-    <link rel="stylesheet" href="bower_components/jquery-ui/themes/base/jquery-ui.css">
     <script src="bower_components/modernizr/modernizr.js"></script>
     <script type="text/javascript" src="//use.typekit.net/jmo1htn.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
@@ -24,7 +22,7 @@
                 <a href="#" class="scrollTop"><img src="images/logo.png" alt="Logo oSoc14"></a>
             </div>
             <ul class="ul-nav">
-                <li><a href="#about" data-target="about" class="scroll">About</a></li>
+                <li><a href="#hero" data-target="about" class="scroll">About</a></li>
                 <li><a href="#location" data-target="location" class="scroll">Locations</a></li>
                 <li><a href="#students" data-target="students" class="scroll">Students</a></li>
                 <li><a href="#partners" data-target="partners" class="scroll">Partners</a></li>
@@ -34,45 +32,40 @@
             </ul>
         </div>
     </div>
-    <div class="hero">
+    <div class="hero" id="hero">
         <div class="constraint">
-            <p class="hero-header">
+            <h1 class="hero-header">
                 Students inspiring
-                companies since 2011.</p>
+                companies since 2011.</h1>
+            <p class="hero-paragraph">Open Summer of code is a 3 week programme in the Belgian cities of Kortrijk, Antwerp and Ghent during the summer of 2014. The goal: provide 25 students the training, network and support necessary to transform 6 open innovation projects into powerful real-world services.</p>
+            <a class="big-participate" href="#participate">Participate</a>
         </div>
-    </div>
-    <div class="description" id="about">
-        <div class="constraint">
-        <p>Open Summer of Code's intensive program takes 20 to 30 students under its wing in the Belgian
-            cities
-            of Kortrijk, Antwerp and Ghent during the summer of 2014. The goal: to provide them the training, network
-            and support necessary to transform 6 open innovation projects into powerful real-world services in three
-            weeks.</p>
-            </div>
-    </div>
-    <div class="numbers">
-        <div class="constraint">
-        <div class="numbers number-container">
-            <div class="number-item">
-                <p class="number">3</p><p class="word">weeks</p>
-            </div>
-            <div class="number-item">
-                <p class="number">20</p><p class="word">students</p>
-            </div>
-            <div class="number-item">
-                <p class="number">3</p><p class="word">cities</p>
-            </div>
-            <div class="number-item">
-                <p class="number">6</p><p class="word">projects</p>
-            </div>
-        </div>
-            </div>
     </div>
     <div class="video">
-        <h2>Watch the video</h2>
         <div class="constraint">
-        <style>.embed-container { position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; max-width: 100%; height: auto; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 95.555%; }</style><div class='embed-container'><iframe src='http://player.vimeo.com/video/92072928' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
+            <div id="vid" class="videowrapper">
+                <iframe id="vimeoplayer" src="//player.vimeo.com/video/92072928?api=1&player_id=vimeoplayer&title=0&byline=0&portrait=0&color=229387" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
             </div>
+        </div>
+    </div>
+    <div id="video_bot"></div>
+    <div class="numbers">
+        <div class="constraint">
+            <div class="numbers number-container">
+                <div class="number-item">
+                    <p class="number">3</p><p class="word">weeks</p>
+                </div>
+                <div class="number-item">
+                    <p class="number">20</p><p class="word">students</p>
+                </div>
+                <div class="number-item">
+                    <p class="number">3</p><p class="word">cities</p>
+                </div>
+                <div class="number-item">
+                    <p class="number">6</p><p class="word">projects</p>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="location" id="location">
         <div class="constraint">
@@ -82,15 +75,15 @@
         </div>
         <div class="cities grid-container">
             <div class="grid-33">
-                <p class="date">7 — 11 July</p>
+                <p class="date">1 — 4 July</p>
                 <p class="city kortrijk">Kortrijk</p>
             </div>
             <div class="grid-33">
-                <p class="date">14 — 18 July</p>
+                <p class="date">7 — 11 July</p>
                 <p class="city antwerp">Antwerp</p>
             </div>
             <div class="grid-33">
-                <p class="date">28 July — 1 August</p>
+                <p class="date">21 — 25 July</p>
                 <p class="city ghent">Ghent</p>
             </div>
         </div>
@@ -100,6 +93,8 @@
         <div class="constraint">
         <h2>Students</h2>
         <div class="students-gallery grid-container">
+            <p class="big">Are you the final year student we are looking for? Prove it and
+                baffle us in <a href="">your application email</a>.</p>
             <div class="grid-25">
                 <img class="round" src="images/students/designer.png" alt="Designers">
                 <p>Designers</p>
@@ -119,7 +114,7 @@
         </div>
         </div>
     </div>
-<div class="partners" id="partners">
+    <div class="partners" id="partners">
     <div class="constraint">
     <h2 >Partners</h2>
     <div class="partners-gallery grid-container">
@@ -127,43 +122,68 @@
             <a href="http://www.gent.be"><img class="sponsor" src="images/sponsors/stadgent.png"></a>
         </div>
         <div class="grid-25">
-            <a href="http://leiedal.be"><img class="sponsor"  src="images/sponsors/leiedal.png"></a>
-        </div>
-        <div class="grid-25">
-            <a href="http://www.opening-up.eu"><img class="sponsor"  src="images/sponsors/openingup.png"></a>
-        </div>
-        <div class="grid-25">
             <a href="http://digipolis.be"><img class="sponsor"  src="images/sponsors/digipolis.png"></a>
+        </div>
+        <div class="grid-50">
+            <p class="partner-desc">The City of Ghent and Digipolis, the patrons of #oSoc, are giving the Apps for Ghent Code 9000 team the opportunity to work on a open tool project that end-users in the city can really use.</p>
         </div>
     </div>
         <div class="partners-gallery grid-container">
             <div class="grid-25">
                 <a href="https://mobilevikings.be"><img class="sponsor" src="images/sponsors/mobilevikings.png"></a>
             </div>
+            <div class="grid-25">
+                <a href="https://citylife.be"><img class="sponsor" src="images/sponsors/citylife.png"></a>
+            </div>
+            <div class="grid-50">
+                <p class="partner-desc"><strong>Mobile Vikings</strong> and <strong>Citylife</strong> were also sponsors last year, and provided their offices as a working space.</p>
+            </div>
+        </div>
+    <div class="partners-gallery grid-container">
+        <div class="grid-25">
+            <a href="http://leiedal.be"><img class="sponsor"  src="images/sponsors/leiedal.png"></a>
+        </div>
+        <div class="grid-25">
+            <a href="http://www.opening-up.eu"><img class="sponsor"  src="images/sponsors/openingup.png"></a>
+        </div>
+        <div class="grid-50">
+            <p class="partner-desc"><strong>Leiedal</strong> is this year's new sponsor, and with their OpeningUp project they bring interesting stuff to the table!</p>
         </div>
     </div>
-</div>
-<div class="news">
-
+    </div>
 </div>
 <div class="contact" id="participate">
     <div class="constraint">
-    <h2>Contact us</h2>
+    <h2>Contact Us</h2>
     <div class="contact-buttons grid-container">
-        <div class="grid-33">
-            <a
-                    href="mailto:pieter-jan.pauwels@okfn.org?subject=Student application for oSoc14"><p
-                    class="button-contact">Student</p></a>
+        <div class="grid-25">
+                <a href="mailto:pieter-jan.pauwels@okfn.org?subject=Student application for oSoc14">
+                    Student</a>
         </div>
-        <div class="grid-33">
-            <a
-                    href="mailto:pieter-jan.pauwels@okfn.org?subject=Partnership for oSoc14"><p
-                    class="button-contact">Partnership</p></a>
+        <div class="grid-75">
+            <p class="contact-desc">Are you a student and interested in joining oSoc14? Send us your resumé!</p>
         </div>
-        <div class="grid-33">
-            <a
-                    href="mailto:pieter-jan.pauwels@okfn.org?subject=Press request regarding oSoc14"><p
-                    class="button-contact">Press</p></a>
+    </div>
+        <div class="contact-buttons grid-container">
+            <div class="grid-25">
+                <a href="mailto:pieter-jan.pauwels@okfn.org?subject=Partnership for oSoc14">
+                        Partnership</a>
+            </div>
+            <div class="grid-75">
+                <p  class="contact-desc">Have an API which is screaming for an application? Have an app idea
+                    that needs a proof of concept? You want to support students developing
+                    ideas in an open setting? Let's grab a coffee: <a href="tel:32486747122">+32 486 74 71 22</a></p>
+            </div>
+        </div>
+        <div class="contact-buttons grid-container">
+            <div class="grid-25">
+                <a href="mailto:pieter-jan.pauwels@okfn.org?subject=Press request regarding oSoc14">Press</a>
+            </div>
+            <div class="grid-75">
+                <p class="contact-desc">We cannot cover the entire project on our own. Are you writing for a
+                    magazine? We would love to share our story. Don't hesitate to get in
+                    contact.</p>
+            </div>
         </div>
     </div>
     </div>
@@ -184,6 +204,8 @@
     </div>
     </div>
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
+<script src="bower_components/verge/verge.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

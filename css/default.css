@@ -27,6 +27,32 @@ a {
   margin-left: auto;
   margin-right: auto; }
 
+.big-participate {
+  font-size: 1.3em;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  background-color: #229387;
+  color: #FFF;
+  padding: 25px;
+  border-radius: 5px;
+  margin-left: 60px;
+  margin-bottom: 20px; }
+
+.big-participate:hover {
+  background-color: #23998d; }
+
+p.big {
+  text-align: center;
+  font-size: 1.3em;
+  padding-bottom: 10px; }
+
+.partner-desc {
+  font-size: 1.2em;
+  line-height: 1.5em;
+  margin-left: 15px; }
+
 .page {
   background-color: #FFF;
   margin-left: auto;
@@ -78,14 +104,15 @@ h2 {
   position: relative !important; }
 
 .hero {
-  margin-top: -80px;
+  margin-top: -60px;
   padding-top: 50px;
   padding-bottom: 15px;
   background: url("assets/hero.jpg");
   background-size: cover;
   background-position: center; }
-  .hero p.hero-header {
-    margin-top: 385px;
+  .hero h1.hero-header {
+    text-align: left;
+    margin-top: 305px;
     margin-left: 55px;
     z-index: 999;
     color: #FFF;
@@ -94,8 +121,21 @@ h2 {
     max-width: 600px; }
 
 .video {
-  margin-top: 25px;
-  margin-bottom: 25px; }
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #000; }
+  .video .videowrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 */
+    padding-top: 25px;
+    height: 0; }
+  .video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
 
 .location {
   padding-bottom: 45px;
@@ -136,18 +176,18 @@ h2 {
       font-size: 0.8em;
       text-transform: uppercase; }
 
+p.hero-paragraph {
+  font-weight: 300;
+  color: #FFF;
+  margin-left: 60px;
+  margin-right: auto;
+  text-align: left;
+  font-size: 1.3em;
+  line-height: 1.8em; }
+
 .description {
   padding-top: 25px;
   margin-bottom: 40px; }
-  .description p {
-    font-weight: 300;
-    color: #39a89b;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 66%;
-    text-align: center;
-    font-size: 1.5em;
-    line-height: 1.8em; }
 
 .numbers {
   display: block;
@@ -178,7 +218,7 @@ h2 {
   padding-bottom: 25px; }
   .students h2 {
     margin-top: 40px;
-    margin-bottom: 40px; }
+    margin-bottom: 10px; }
   .students .students-gallery .grid-25 p {
     text-align: center; }
   .students .students-gallery .grid-25 img.round {
@@ -208,26 +248,32 @@ h2 {
     max-height: 100px;
     margin-bottom: 25px; }
 
+.contact-desc {
+  font-size: 1.3em;
+  line-height: 1.4em;
+  margin-top: 0;
+  padding-top: 0; }
+
 .contact {
   padding-bottom: 35px; }
   .contact .contact-buttons {
-    max-width: 70%; }
+    max-width: 90%;
+    margin-bottom: 15px; }
   .contact h2 {
-    padding-top: 20px;
-    padding-bottom: 20px; }
-  .contact .grid-33 {
-    text-align: center; }
-    .contact .grid-33 p {
-      padding-top: 15px;
-      padding-bottom: 15px;
-      background-color: #229387;
-      border-radius: 10px; }
-    .contact .grid-33 a {
-      text-decoration: none;
+    padding-top: 20px; }
+  .contact .grid-25 {
+    text-align: left; }
+    .contact .grid-25 a {
+      width: 100%;
       font-size: 1.2em;
       font-weight: 500;
+      background-color: #23998d;
+      padding: 15px;
       color: #FFF;
-      text-transform: uppercase; }
+      border-radius: 10px;
+      position: relative;
+      top: 12px;
+      text-decoration: none; }
 
 .footer {
   background-color: #333;
@@ -242,6 +288,11 @@ h2 {
 * ============================== */
 /* Smartphones */
 @media screen and (max-width: 480px) {
+  .grid-25 {
+    position: relative;
+    top: 0px;
+    margin-bottom: 35px; }
+
   .nav {
     position: relative !important;
     width: auto !important; }
@@ -264,7 +315,7 @@ h2 {
       margin-right: auto !important;
       padding-bottom: 15px !important; }
 
-  p.hero-header {
+  h1.hero-header {
     margin-top: 150px !important;
     font-size: 2em !important;
     max-width: 400px !important; }
@@ -293,6 +344,11 @@ h2 {
 
 /* Navigation fixes for width < 960 px */
 @media screen and (max-width: 960px) {
+  .grid-25 {
+    position: relative;
+    top: 0px;
+    margin-bottom: 35px; }
+
   .nav {
     background-color: #23998d;
     height: auto; }
@@ -319,3 +375,5 @@ h2 {
           background-color: rgba(255, 255, 255, 0.1); } }
 /* Large tablet up until 960px (desktop res) */
 /* Desktop size (960px and up) */
+html {
+  padding: 0 !important; }
