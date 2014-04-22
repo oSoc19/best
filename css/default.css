@@ -81,7 +81,7 @@ h2 {
   margin-top: -80px;
   padding-top: 50px;
   padding-bottom: 15px;
-  background: url("assets/hero.png");
+  background: url("assets/hero.jpg");
   background-size: cover;
   background-position: center; }
   .hero p.hero-header {
@@ -99,7 +99,7 @@ h2 {
 
 .location {
   padding-bottom: 45px;
-  background: url("assets/hero-location.png");
+  background: url("assets/hero-location.jpg");
   background-size: cover; }
   .location h2 {
     margin: 0;
@@ -191,7 +191,7 @@ h2 {
 
 .partners {
   color: #FFF;
-  background: url("assets/hero-sponsors.png");
+  background: url("assets/hero-sponsors.jpg");
   background-size: cover;
   background-position: center;
   padding-bottom: 35px; }
@@ -203,7 +203,10 @@ h2 {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    min-height: 100px; }
+    background-color: #FFF;
+    padding: 15px;
+    max-height: 100px;
+    margin-bottom: 25px; }
 
 .contact {
   padding-bottom: 35px; }

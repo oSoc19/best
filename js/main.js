@@ -15,8 +15,4 @@ $(function(){
         }, 700);
     });
 
-        var BV = new $.BigVideo();
-        BV.init();
-        BV.show('vid/hero.mp4',{ambient:true});
-
 });
