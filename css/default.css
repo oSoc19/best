@@ -271,8 +271,8 @@ p.hero-paragraph {
       padding: 15px;
       color: #FFF;
       border-radius: 10px;
-      position: relative;
-      top: 12px;
+      position: relative !important;
+      top: 18px !important;
       text-decoration: none; }
 
 .footer {
@@ -282,6 +282,13 @@ p.hero-paragraph {
     font-size: 0.9em;
     padding-top: 5px;
     color: #FFF; }
+  .footer a {
+    color: #BBB; }
+
+.contact-buttons .grid-25 {
+  height: 100%; }
+  .contact-buttons .grid-25 .contact-button {
+    width: 75%; }
 
 /* =============================
 * MEDIA QUERIES

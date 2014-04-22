@@ -341,8 +341,8 @@ p.hero-paragraph{
       padding: 15px;
       color: #FFF;
       border-radius: 10px;
-      position: relative;
-      top: 12px;
+      position: relative !important;
+      top: 18px !important;
       text-decoration: none;
     }
   }
@@ -355,6 +355,16 @@ p.hero-paragraph{
     font-size: 0.9em;
     padding-top: 5px;
     color: #FFF;
+  }
+  a{
+    color: #BBB;
+  }
+}
+
+.contact-buttons .grid-25{
+  height: 100%;
+  .contact-button{
+    width: 75%;
   }
 }
 
@@ -393,6 +403,7 @@ p.hero-paragraph{
       padding-bottom: 15px !important;
     }
   }
+
   h1.hero-header{
     margin-top: 65px !important;
     font-size: 2em !important;
