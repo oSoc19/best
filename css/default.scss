@@ -177,6 +177,16 @@ h2{
   padding-bottom: 45px;
   background: url('assets/hero-location.jpg');
   background-size: cover;
+  .headline{
+    font-size: 1.2em;
+    color: #FFF;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: -25px;
+    padding-bottom: 25px;
+  }
   h2{
     margin: 0;
     padding-top: 50px;
