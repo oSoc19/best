@@ -237,7 +237,7 @@ p.hero-paragraph{
   font-weight: 300;
   color: #FFF;
   margin-left: 60px;
-  margin-right: auto;
+  margin-right: 40px;
   text-align: left;
   font-size: 1.3em;
   line-height: 1.8em;
@@ -460,6 +460,12 @@ p.hero-paragraph{
     position: relative;
     top: 0px;
     margin-bottom: 35px;
+  }
+  .map{
+    max-width: 80% !important;
+    img{
+      width: 100% !important;
+    }
   }
 .nav{
   background-color: rgba(35, 153, 141, 1);
