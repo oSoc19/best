@@ -19,4 +19,18 @@ $(function(){
         });
     }
 
+    /* Track clicks on contact buttons */
+
+    $('#mailPartner').on('click', function() {
+        ga('send', 'click', 'contact', 'partner');
+    });
+
+    $('#mailStudent').on('click', function() {
+        ga('send', 'click', 'contact', 'student');
+    });
+
+    $('#mailPress').on('click', function() {
+        ga('send', 'click', 'contact', 'press');
+    });
+
 });
