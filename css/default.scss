@@ -253,6 +253,24 @@ p.hero-paragraph{
 }
 
 .numbers{
+  .tagline{
+	font-size: 1.4em;
+	padding-top: 10px;
+	padding-bottom: 25px;
+  }
+  .grid-33{
+	border-right: 1px solid #444;
+	img{
+	  width: 50%;
+	  max-width: 130px;
+	}
+	a{
+	}
+	margin-bottom: 25px;
+  }
+  .grid-33:last-of-type{
+	border-right: none;
+  }
   display: block;
   color: #FFF;
   text-align: center;
@@ -452,6 +470,13 @@ p.hero-paragraph{
 
 .al-r{
   text-align: right;
+}
+
+a{
+  p{
+	color: #FFF;
+	border-color: #FFF;
+  }
 }
 
 /* Navigation fixes for width < 960 px */

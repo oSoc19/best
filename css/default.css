@@ -206,6 +206,18 @@ p.hero-paragraph {
   color: #FFF;
   text-align: center;
   background-color: #333; }
+  .numbers .tagline {
+    font-size: 1.4em;
+    padding-top: 10px;
+    padding-bottom: 25px; }
+  .numbers .grid-33 {
+    border-right: 1px solid #444;
+    margin-bottom: 25px; }
+    .numbers .grid-33 img {
+      width: 50%;
+      max-width: 130px; }
+  .numbers .grid-33:last-of-type {
+    border-right: none; }
   .numbers .number-container {
     background-color: #333;
     height: 135px; }
@@ -359,6 +371,10 @@ p.hero-paragraph {
 
 .al-r {
   text-align: right; }
+
+a p {
+  color: #FFF;
+  border-color: #FFF; }
 
 /* Navigation fixes for width < 960 px */
 @media screen and (max-width: 960px) {
