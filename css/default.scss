@@ -309,8 +309,30 @@ p.hero-paragraph{
   }
   .students-gallery{
     .grid-25{
+      margin-bottom: 35px;
       p{
         text-align: center;
+      }
+      .student-name{
+        font-size: 1.3em;
+        margin-bottom: 0px;
+      }
+      .student-twitter{
+        font-size: 1.2em;
+        padding-bottom: 10px;
+        a{
+          text-decoration: none;
+          color: #AAAAAA;
+        }
+      }
+      .student-linkedin{
+        a{
+           background-color: #23998d;
+          padding: 5px;
+          color: #FFF;
+          font-size: 0.9em;
+          text-decoration: none;
+        }
       }
       img.round{
         display: block !important;

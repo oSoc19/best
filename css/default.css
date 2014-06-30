@@ -243,15 +243,32 @@ p.hero-paragraph {
   .students h2 {
     margin-top: 40px;
     margin-bottom: 10px; }
-  .students .students-gallery .grid-25 p {
-    text-align: center; }
-  .students .students-gallery .grid-25 img.round {
-    display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    width: 170px;
-    height: 170px;
-    border-radius: 340px; }
+  .students .students-gallery .grid-25 {
+    margin-bottom: 35px; }
+    .students .students-gallery .grid-25 p {
+      text-align: center; }
+    .students .students-gallery .grid-25 .student-name {
+      font-size: 1.3em;
+      margin-bottom: 0px; }
+    .students .students-gallery .grid-25 .student-twitter {
+      font-size: 1.2em;
+      padding-bottom: 10px; }
+      .students .students-gallery .grid-25 .student-twitter a {
+        text-decoration: none;
+        color: #AAAAAA; }
+    .students .students-gallery .grid-25 .student-linkedin a {
+      background-color: #23998d;
+      padding: 5px;
+      color: #FFF;
+      font-size: 0.9em;
+      text-decoration: none; }
+    .students .students-gallery .grid-25 img.round {
+      display: block !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      width: 170px;
+      height: 170px;
+      border-radius: 340px; }
 
 .partners {
   color: #FFF;
