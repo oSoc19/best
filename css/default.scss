@@ -3,6 +3,15 @@
 $osoc-green: #229387;
 $osoc-hue: #FFF;
 
+// new colors
+
+$color-green: #7ab800;
+$color-red: #ff0000;
+$color-blue: #00a5e0;
+$color-dark-grey: #2D2D2D;
+
+$color-white: #FFF;
+
 /* =============================
 * CLEARFIX
 * ============================== */
@@ -24,18 +33,23 @@ $osoc-hue: #FFF;
 * ============================== */
 
 html{
-  font-family: "ff-enzo-web", 'Helvetica Neue';
+  font-family: 'Lato', sans-serif;
   background-color: #444;
 }
 
 a{
-  color: #23998d;
+  color: $color-blue;
 }
 
 .constraint{
-  max-width: 960px;
+  max-width: 1060px;
   margin-left: auto;
   margin-right: auto;
+
+  .oSoc-logo img{
+      width: 60px;
+      height: 60px;
+  }
 }
 
 .big-participate{
@@ -44,7 +58,7 @@ a{
   display: inline-block;
   text-align: center;
   text-decoration: none;
-  background-color: #229387;
+  background-color: $color-red;
   color: #FFF;
   padding: 25px;
   border-radius: 5px;
@@ -53,7 +67,7 @@ a{
 }
 
 .big-participate:hover{
-  background-color: #23998d;
+  background-color: $color-dark-grey;
 }
 
 p.big{
@@ -95,7 +109,7 @@ h2{
   width: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(35, 153, 141, 0.95);
+  background-color: #FFF;
   padding: 15px;
   min-height: 50px;
   font-weight: 600;
@@ -117,10 +131,10 @@ h2{
       list-style-type: none;
       a{
         text-decoration: none;
-        color: #FFF;
+        color: $color-dark-grey;
       }
       a:hover{
-        color: #EEE;
+        color: $color-blue;
       }
     }
   }
@@ -134,7 +148,7 @@ h2{
   margin-top: -60px;
   padding-top: 50px;
   padding-bottom: 15px;
-  background: url('assets/hero.jpg');
+  background: url('assets/hero2.png');
   background-size: cover;
   background-position: center;
   h1.hero-header{
@@ -175,8 +189,9 @@ h2{
 
 .location{
   padding-bottom: 45px;
-  background: url('assets/hero-location.jpg');
+  background: url('assets/hero-location2.png');
   background-size: cover;
+  min-height: 600px;
   .headline{
     font-size: 1.2em;
     color: #FFF;
@@ -205,17 +220,18 @@ h2{
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    /*padding-bottom: 20px;*/
     .date, .city, .place{
       line-height: 0.7em;
     }
-    .kortrijk{
-      color: #33ef90;
+    .x{
+      color: $color-dark-grey;
     }
-    .antwerp{
-      color: #3dd7e9;
+    .y{
+      color: $color-red;
     }
-    .ghent{
-      color: #ecea4f;
+    .z{
+      color: $color-blue;
     }
     .date{
       text-transform: uppercase;
@@ -228,7 +244,7 @@ h2{
     }
     .place{
       font-size: 0.8em;
-text-transform: uppercase;
+      text-transform: uppercase;
     }
   }
 }
@@ -258,25 +274,25 @@ p.hero-paragraph{
 	padding-top: 10px;
 	padding-bottom: 25px;
   }
-  .grid-33{
-	border-right: 1px solid #444;
-	img{
-	  width: 50%;
-	  max-width: 130px;
-	}
-	a{
-	}
-	margin-bottom: 25px;
+  .grid-25{
+  	border-right: 1px solid #444;
+  	img{
+  	  width: 50%;
+  	  max-width: 130px;
+  	}
+  	a{
+  	}
+  	margin-bottom: 25px;
   }
-  .grid-33:last-of-type{
-	border-right: none;
+  .grid-25:last-of-type{
+    border-right: none;
   }
   display: block;
   color: #FFF;
   text-align: center;
   background-color: #333;
   .number-container{
-    background-color: #333;
+    background-color: $color-dark-grey;
     height: 135px;
     .number-item{
       width: 24.5%;
@@ -305,12 +321,34 @@ p.hero-paragraph{
   padding-bottom: 25px;
   h2{
     margin-top: 40px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
   }
   .students-gallery{
     .grid-25{
+      margin-bottom: 35px;
       p{
         text-align: center;
+      }
+      .student-name{
+        font-size: 1.3em;
+        margin-bottom: 0px;
+      }
+      .student-twitter{
+        font-size: 1.2em;
+        padding-bottom: 10px;
+        a{
+          text-decoration: none;
+          color: #AAAAAA;
+        }
+      }
+      .student-linkedin{
+        a{
+           background-color: #23998d;
+          padding: 5px;
+          color: #FFF;
+          font-size: 0.9em;
+          text-decoration: none;
+        }
       }
       img.round{
         display: block !important;
@@ -324,9 +362,89 @@ p.hero-paragraph{
   }
 }
 
+.studentsparticipate{
+  h2{
+    color: #FFF;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    margin-top: 0px;
+  }
+  color: #FFF;
+  /*background: url('assets/hero-students.png');*/
+  /*background-size: cover;*/
+  background-color: $color-red;
+  background-position: center;
+  padding-bottom: 35px;
+  .skill{
+    top: -30px;
+    color: #FFF;
+    max-width: 700px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .front{
+    color: $color-green;
+  }
+  .back{
+    color: $color-dark-grey;
+  }
+  .design{
+    color: $color-blue;
+  }
+  .business{
+    color: $color-green;
+  }
+  .skill-desc{
+    top: -30px;
+    color: #FFF;
+    max-width: 700px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .skill-container{
+    padding-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    .grid-25{
+      border-right: 1px solid $color-white;
+      padding: 15px;
+      img{
+        padding-left: 60px;
+        width: 100px;
+        height: 100px;
+      }
+    }
+    .grid-25:last-of-type{
+    border-right: none;
+  }
+  }
+  #faqs{
+    h3{
+      cursor: pointer;
+      .active{
+        color:#d74646;
+      }
+    }
+    div{
+      height:0; 
+      overflow:hidden; 
+      position:relative;
+      p{
+        padding:0; 
+        margin-bottom:15px;
+      }
+    }
+  }
+}
+
 .partners{
   h2{
     color: #FFF;
+    margin-top: 0px;
     padding-top: 40px;
     padding-bottom: 40px;
   }
@@ -353,32 +471,10 @@ p.hero-paragraph{
 }
 
 .contact{
-  .contact-buttons{
-    max-width: 90%;
-    margin-bottom: 15px;
-  }
-  .button-contact{
-
-  }
   h2{
     padding-top: 20px;
   }
-  padding-bottom: 35px;
-  .grid-25{
-    text-align: left;
-    a{
-      width: 100%;
-      font-size: 1.2em;
-      font-weight: 500;
-      background-color: #23998d;
-      padding: 15px;
-      color: #FFF;
-      border-radius: 10px;
-      position: relative !important;
-      top: 18px !important;
-      text-decoration: none;
-    }
-  }
+  padding-bottom: 35px;  
 }
 
 .footer{
