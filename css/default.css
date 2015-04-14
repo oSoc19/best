@@ -36,15 +36,15 @@ a {
   display: inline-block;
   text-align: center;
   text-decoration: none;
-  background-color: #ff3333;
+  background-color: #2D2D2D;
   color: #FFF;
   padding: 25px;
   border-radius: 5px;
   margin-left: 60px;
   margin-bottom: 20px; }
-
-.big-participate:hover {
-  background-color: #2D2D2D; }
+  .big-participate:hover {
+    background-color: #2D2D2D;
+    color: #7ab800; }
 
 p.big {
   text-align: center;
@@ -101,10 +101,12 @@ h2 {
         text-decoration: none;
         color: #2D2D2D; }
       .nav ul li a:hover {
-        color: #00a5e0; }
+        color: #7ab800; }
       .nav ul li .active {
         color: #7ab800;
-        transition: color 0.5s ease-in-out; }
+        transition: color 0.2s ease-in-out; }
+  .nav .nav-toggle {
+    display: none; }
 
 #big-video-wrap {
   position: relative !important; }
@@ -293,20 +295,12 @@ p.hero-paragraph {
     padding-top: 0; }
   .studentsparticipate .skill {
     top: -30px;
-    color: #FFF;
+    color: #7ab800;
     max-width: 700px;
     display: block;
     margin-left: auto;
     margin-right: auto;
     text-align: center; }
-  .studentsparticipate .front {
-    color: #7ab800; }
-  .studentsparticipate .back {
-    color: #2D2D2D; }
-  .studentsparticipate .design {
-    color: #00a5e0; }
-  .studentsparticipate .business {
-    color: #7ab800; }
   .studentsparticipate .skill-desc {
     top: -30px;
     color: #2D2D2D;
@@ -339,11 +333,11 @@ p.hero-paragraph {
     .studentsparticipate #faqs h3 .active {
       color: #ff3333; }
   .studentsparticipate #faqs div {
-    height: 0;
+    display: none;
     overflow: hidden;
     position: relative; }
     .studentsparticipate #faqs div p {
-      padding: 0;
+      padding: 0 1em;
       margin-bottom: 15px; }
 
 .partners {
@@ -401,27 +395,8 @@ p.hero-paragraph {
     top: 0px;
     margin-bottom: 35px; }
 
-  .nav {
-    position: relative !important;
-    width: auto !important; }
-
   .location {
     margin-top: 0; }
-
-  .oSoc-logo {
-    display: inline-block;
-    width: 100% !important; }
-    .oSoc-logo a {
-      display: block;
-      width: 63px;
-      margin-left: auto !important;
-      margin-right: auto !important; }
-    .oSoc-logo img {
-      display: block;
-      text-align: center;
-      margin-left: auto !important;
-      margin-right: auto !important;
-      padding-bottom: 15px !important; }
 
   h1.hero-header {
     margin-top: 65px !important;
@@ -497,8 +472,35 @@ a p {
       max-width: 130px; }
   .numbers .grid-25:nth-of-type(2n) {
     border-right: none; } }
-/* Large tablet up until 960px (desktop res) */
-/* Desktop size (960px and up) */
+@media screen and (max-width: 769px) {
+  .nav {
+    position: relative !important;
+    width: auto !important; }
+    .nav .oSoc-logo {
+      display: inline-block;
+      width: 100% !important; }
+      .nav .oSoc-logo a {
+        display: block;
+        width: 63px;
+        margin-left: 0 !important;
+        margin-right: auto !important; }
+      .nav .oSoc-logo img {
+        display: block;
+        text-align: center;
+        margin-left: 0 !important;
+        margin-right: auto !important;
+        padding-bottom: 0px !important; }
+    .nav .nav-toggle {
+      margin-top: 8px;
+      display: block; }
+      .nav .nav-toggle:hover {
+        cursor: pointer;
+        cursor: hand; }
+    .nav ul {
+      display: none; }
+
+  .hero h1.hero-header {
+    margin-top: 205px; } }
 html {
   padding: 0 !important; }
 

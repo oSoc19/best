@@ -58,17 +58,19 @@ a{
   display: inline-block;
   text-align: center;
   text-decoration: none;
-  background-color: $color-red;
+  background-color: $color-dark-grey;
   color: $color-white;
   padding: 25px;
   border-radius: 5px;
   margin-left: 60px;
   margin-bottom: 20px;
+
+  &:hover {
+    background-color: $color-dark-grey;
+    color: $color-green;
+  }
 }
 
-.big-participate:hover{
-  background-color: $color-dark-grey;
-}
 
 p.big{
   text-align: center;
@@ -113,10 +115,12 @@ h2{
   padding: 15px;
   min-height: 50px;
   font-weight: 600;
+
   img{
     float: left;
     margin-left: 55px;
   }
+
   ul{
     text-align: center;
     float: left;
@@ -134,14 +138,18 @@ h2{
         color: $color-dark-grey;
       }
       a:hover{
-        color: $color-blue;
+        color: $color-green;
       }
 
       .active {
         color: $color-green;
-        transition: color 0.5s ease-in-out;
+        transition: color 0.2s ease-in-out;
       }
     }
+  }
+
+  .nav-toggle {
+    display: none;
   }
 }
 
@@ -386,7 +394,7 @@ p.hero-paragraph{
   padding-bottom: 35px;
   .skill{
     top: -30px;
-    color: $color-white;
+    color: $color-green;
     max-width: 700px;
     display: block;
     margin-left: auto;
@@ -394,16 +402,16 @@ p.hero-paragraph{
     text-align: center;
   }
   .front{
-    color: $color-green;
+
   }
   .back{
-    color: $color-dark-grey;
+
   }
   .design{
-    color: $color-blue;
+
   }
   .business{
-    color: $color-green;
+
   }
   .skill-desc{
     top: -30px;
@@ -431,7 +439,7 @@ p.hero-paragraph{
       }
     }
     .grid-25:last-of-type{
-    border-right: none;
+      border-right: none;
     }
   }
 
@@ -448,11 +456,11 @@ p.hero-paragraph{
       }
     }
     div{
-      height:0; 
+      display:none;
       overflow:hidden; 
       position:relative;
       p{
-        padding:0; 
+        padding:0 1em;
         margin-bottom:15px;
       }
     }
@@ -534,34 +542,14 @@ p.hero-paragraph{
 
 /* Smartphones */
 @media screen and (max-width: 480px){
+
   .grid-25{
     position: relative;
     top: 0px;
     margin-bottom: 35px;
   }
-  .nav{
-    position: relative !important;
-    width: auto !important;
-  }
   .location{
     margin-top: 0;
-  }
-  .oSoc-logo{
-    display: inline-block;
-    width: 100% !important;
-    a{
-      display: block;
-      width: 63px;
-      margin-left: auto !important;
-      margin-right: auto !important;
-    }
-    img{
-      display: block;
-      text-align: center;
-      margin-left: auto !important;
-      margin-right: auto !important;
-      padding-bottom: 15px !important;
-    }
   }
 
   h1.hero-header{
@@ -663,16 +651,54 @@ a{
       border-right: none;
     }
   }
-
 }
 
-/* Large tablet up until 960px (desktop res) */
-@media screen and (min-width: 769px) and (max-width: 960px){
 
-}
+@media screen and (max-width: 769px){
 
-/* Desktop size (960px and up) */
-@media screen and (min-width: 961px){
+  .nav {
+    position: relative !important;
+    width: auto !important;
+
+    .oSoc-logo{
+      display: inline-block;
+      width: 100% !important;
+      a{
+        display: block;
+        width: 63px;
+        margin-left: 0 !important;
+        margin-right: auto !important;
+      }
+      img{
+        display: block;
+        text-align: center;
+        margin-left: 0 !important;
+        margin-right: auto !important;
+        padding-bottom: 0px !important;
+      }
+    }
+
+    .nav-toggle {
+      margin-top: 8px;
+      display: block;
+
+      &:hover {
+        cursor: pointer;
+        cursor: hand;
+      }
+    }
+
+    ul {
+      display: none;
+    }
+  }
+
+  .hero {
+    h1.hero-header{
+      margin-top: 205px;
+    }
+  }
+
 
 }
 
