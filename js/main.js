@@ -34,10 +34,21 @@ $(function(){
     });
 
     /* FAQ */
-
+    /*
     $('#faqs h3').on('click', function() {
-        $(this).next('div').slideToggle();
-    });
+        $(this).next('div').slideToggle(400);
+    }); */
+
+    /*
+    $('#faqs h3').each(function() {
+        var tis = $(this), state = false, answer = tis.next('div').hide().css('height','auto').slideUp();
+        tis.click(function() {
+            state = !state;
+            answer.slideToggle(state);
+            tis.toggleClass('active',state);
+        });
+    }); */
+
 
     /*
         Possible scrollTargets:

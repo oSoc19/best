@@ -450,19 +450,19 @@ p.hero-paragraph{
 
   #faqs{
     h3{
-      cursor: pointer;
-      .active{
-        color:$color-red;
+      //cursor: pointer;
+      //cursor: hand;
+      margin-top: 0;
+
+      &:first-of-type {
+        margin-top: 1em;
       }
     }
     div{
-      display:none;
-      overflow:hidden; 
-      position:relative;
-      p{
-        padding:0 1em;
-        margin-bottom:15px;
-      }
+      //display:none;
+      //overflow:hidden;
+      //position:relative;
+      padding: 0 1em 1.5em 1em;
     }
   }
 }

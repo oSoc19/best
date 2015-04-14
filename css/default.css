@@ -329,16 +329,11 @@ p.hero-paragraph {
     margin: 0 1em;
     padding: 0; }
   .studentsparticipate #faqs h3 {
-    cursor: pointer; }
-    .studentsparticipate #faqs h3 .active {
-      color: #ff3333; }
+    margin-top: 0; }
+    .studentsparticipate #faqs h3:first-of-type {
+      margin-top: 1em; }
   .studentsparticipate #faqs div {
-    display: none;
-    overflow: hidden;
-    position: relative; }
-    .studentsparticipate #faqs div p {
-      padding: 0 1em;
-      margin-bottom: 15px; }
+    padding: 0 1em 1.5em 1em; }
 
 .partners {
   color: #FFF;
