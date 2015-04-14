@@ -34,8 +34,7 @@ $(function(){
     });
 
     /* FAQ */
-    
-    $(document).ready(function() {
+
     $('#faqs h3').each(function() {
         var tis = $(this), state = false, answer = tis.next('div').hide().css('height','auto').slideUp();
         tis.click(function() {
@@ -44,5 +43,61 @@ $(function(){
             tis.toggleClass('active',state);
         });
     });
-});
+
+    /* Fancy active links/sections */
+    /* $(".ul-nav li a").click(function () {
+        $(".ul-nav li a").removeClass("active");
+        $(this).addClass("active");
+    });
+
+    $(".oSoc-logo a").click(function () {
+        $(".ul-nav li a").removeClass("active");
+    }); */
+
+
+    /*
+        Possible scrollTargets:
+        -top
+        -video
+        -location
+        -studentsparticipate
+        -partners
+        -participate
+     */
+    $(window).scroll(function() {
+
+        if($(window).scrollTop() < $('#video').offset().top - 90) {
+            $(".ul-nav li a").removeClass("active");
+        }
+        else if($(window).scrollTop() <= $('#location').offset().top - 90) {
+            if(!$('a[href$="#video"]').hasClass("active")) {
+                $(".ul-nav li a").removeClass("active");
+                $('a[href$="#video"]').addClass("active");
+            }
+        }
+        else if($(window).scrollTop() <= $('#studentsparticipate').offset().top - 90) {
+            if(!$('a[href$="#location"]').hasClass("active")) {
+                $(".ul-nav li a").removeClass("active");
+                $('a[href$="#location"]').addClass("active");
+            }
+        }
+        else if($(window).scrollTop() <= $('#partners').offset().top - 90) {
+            if(!$('a[href$="#studentsparticipate"]').hasClass("active")) {
+                $(".ul-nav li a").removeClass("active");
+                $('a[href$="#studentsparticipate"]').addClass("active");
+            }
+        }
+        else if($(window).scrollTop() <= $('#participate').offset().top - 90) {
+            if(!$('a[href$="#partners"]').hasClass("active")) {
+                $(".ul-nav li a").removeClass("active");
+                $('a[href$="#partners"]').addClass("active");
+            }
+        }
+        else {
+            if(!$('a[href$="#participate"]').hasClass("active")) {
+                $(".ul-nav li a").removeClass("active");
+                $('a[href$="#participate"]').addClass("active");
+            }
+        }
+    });
 });

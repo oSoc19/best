@@ -6,7 +6,7 @@ $osoc-hue: #FFF;
 // new colors
 
 $color-green: #7ab800;
-$color-red: #ff0000;
+$color-red: #ff3333;
 $color-blue: #00a5e0;
 $color-dark-grey: #2D2D2D;
 
@@ -34,7 +34,7 @@ $color-white: #FFF;
 
 html{
   font-family: 'Lato', sans-serif;
-  background-color: #444;
+  background-color: $color-dark-grey;
 }
 
 a{
@@ -59,7 +59,7 @@ a{
   text-align: center;
   text-decoration: none;
   background-color: $color-red;
-  color: #FFF;
+  color: $color-white;
   padding: 25px;
   border-radius: 5px;
   margin-left: 60px;
@@ -83,7 +83,7 @@ p.big{
 }
 
 .page{
-  background-color: #FFF;
+  background-color: $color-white;
 
   margin-left: auto;
   margin-right: auto;
@@ -100,7 +100,7 @@ h2{
 }
 
 .wh{
-  color: #FFF;
+  color: $color-white;
 }
 
 .nav{
@@ -109,7 +109,7 @@ h2{
   width: 100%;
   top: 0;
   left: 0;
-  background-color: #FFF;
+  background-color: $color-white;
   padding: 15px;
   min-height: 50px;
   font-weight: 600;
@@ -136,6 +136,11 @@ h2{
       a:hover{
         color: $color-blue;
       }
+
+      .active {
+        color: $color-green;
+        transition: color 0.5s ease-in-out;
+      }
     }
   }
 }
@@ -156,7 +161,7 @@ h2{
     margin-top: 305px;
     margin-left: 55px;
     z-index: 999;
-    color: #FFF;
+    color: $color-white;
     font-size: 3em;
       text-transform: uppercase;
     max-width: 600px;
@@ -166,7 +171,8 @@ h2{
 .video{
   padding-top: 15px;
   padding-bottom: 15px;
-  background-color: #FFF;
+  background-color: $color-white;
+
   .videowrapper{
     position: relative;
     padding-bottom: 53.55%; /* 16:9 */
@@ -175,7 +181,7 @@ h2{
   }
 
   .player .video-wrapper{
-    background: #FFF !important;
+    background: $color-white !important;
   }
 
   iframe{
@@ -194,18 +200,17 @@ h2{
   min-height: 600px;
   .headline{
     font-size: 1.2em;
-    color: #FFF;
+    color: $color-white;
     text-align: center;
     margin: 0;
     padding: 0;
     position: relative;
-    top: -25px;
     padding-bottom: 25px;
   }
   h2{
     margin: 0;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 40px;
+    padding-bottom: 25px;
   }
   .map{
     width: 550px;
@@ -214,7 +219,7 @@ h2{
   }
   .cities{
     top: -30px;
-    color: #FFF;
+    color: $color-white;
     max-width: 700px;
     display: block;
     margin-left: auto;
@@ -251,7 +256,7 @@ h2{
 
 p.hero-paragraph{
   font-weight: 300;
-  color: #FFF;
+  color: $color-white;
   margin-left: 60px;
   margin-right: 40px;
   text-align: left;
@@ -288,9 +293,9 @@ p.hero-paragraph{
     border-right: none;
   }
   display: block;
-  color: #FFF;
+  color: $color-white;
   text-align: center;
-  background-color: #333;
+  background-color: $color-dark-grey;
   .number-container{
     background-color: $color-dark-grey;
     height: 135px;
@@ -345,7 +350,7 @@ p.hero-paragraph{
         a{
            background-color: #23998d;
           padding: 5px;
-          color: #FFF;
+          color: $color-white;
           font-size: 0.9em;
           text-decoration: none;
         }
@@ -364,20 +369,24 @@ p.hero-paragraph{
 
 .studentsparticipate{
   h2{
-    color: #FFF;
-    padding-top: 30px;
-    padding-bottom: 40px;
+    color: $color-dark-grey;
+    padding-top: 40px;
+    padding-bottom: 25px;
     margin-top: 0px;
+    margin-bottom: 0px;
   }
-  color: #FFF;
+
+  #faqs > h2{
+    padding-top: 0;
+  }
+  color: $color-dark-grey;
   /*background: url('assets/hero-students.png');*/
   /*background-size: cover;*/
-  background-color: $color-red;
   background-position: center;
   padding-bottom: 35px;
   .skill{
     top: -30px;
-    color: #FFF;
+    color: $color-white;
     max-width: 700px;
     display: block;
     margin-left: auto;
@@ -398,7 +407,7 @@ p.hero-paragraph{
   }
   .skill-desc{
     top: -30px;
-    color: #FFF;
+    color: $color-dark-grey;
     max-width: 700px;
     display: block;
     margin-left: auto;
@@ -413,20 +422,29 @@ p.hero-paragraph{
       border-right: 1px solid $color-white;
       padding: 15px;
       img{
-        padding-left: 60px;
-        width: 100px;
-        height: 100px;
+        border-radius: 300px;
+        width: 120px;
+        height: 120px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
       }
     }
     .grid-25:last-of-type{
     border-right: none;
+    }
   }
+
+  .student-desc {
+    margin: 0 1em;
+    padding: 0;
   }
+
   #faqs{
     h3{
       cursor: pointer;
       .active{
-        color:#d74646;
+        color:$color-red;
       }
     }
     div{
@@ -443,16 +461,25 @@ p.hero-paragraph{
 
 .partners{
   h2{
-    color: #FFF;
+    color: $color-white;
     margin-top: 0px;
     padding-top: 40px;
     padding-bottom: 40px;
   }
-  color: #FFF;
-  background: url('assets/hero-sponsors.jpg');
+  color: $color-white;
+  background:
+    /* top, transparent red, faked with gradient */
+  linear-gradient(
+                  rgba(122, 184, 0, 0.85),
+                  rgba(122, 184, 0, 0.85)
+  ),
+    /* bottom, image */
+  url('assets/hero-students2.png');
+
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
-  padding-bottom: 35px;
+
   .sponsor{
     display: block;
     margin-left: auto;
@@ -460,6 +487,10 @@ p.hero-paragraph{
     padding: 15px;
     max-height: 100px;
     margin-bottom: 25px;
+  }
+
+  .sponsor-artoria {
+
   }
 }
 
@@ -478,12 +509,12 @@ p.hero-paragraph{
 }
 
 .footer{
-  background-color: #333;
+  background-color: $color-dark-grey;
   padding-bottom: 1px;
   p{
     font-size: 0.9em;
     padding-top: 5px;
-    color: #FFF;
+    color: $color-white;
   }
   a{
     color: #BBB;
@@ -570,13 +601,14 @@ p.hero-paragraph{
 
 a{
   p{
-	color: #FFF;
-	border-color: #FFF;
+	color: $color-white;
+	border-color: $color-white;
   }
 }
 
 /* Navigation fixes for width < 960 px */
-@media screen and (max-width: 960px){
+@media screen and (max-width: 1000px){
+
   .grid-25{
     position: relative;
     top: 0px;
@@ -588,35 +620,49 @@ a{
       width: 100% !important;
     }
   }
-.nav{
-  background-color: rgba(35, 153, 141, 1);
-  height: auto;
-  img{
-    margin: 0;
-    margin-top: 3px;
-    display: block;
-    text-align: center;
-    clear: both;
-  }
-  ul{
-    margin-left: 5px;
-    top: -7px;
-    float: none;
-    margin-top: -3px;
-    line-height: 3.0em;
-    li{
-      float: none;
-      font-size: 0.9em;
-      display: inline;
+
+  .nav{
+    height: auto;
+    img{
       margin: 0;
+      margin-top: 3px;
+      display: block;
+      text-align: center;
+      clear: both;
+    }
+    ul{
       margin-left: 5px;
-      a{
-        padding: 10px 10px;
-        background-color: rgba(255, 255, 255, 0.1);
+      top: -7px;
+      float: none;
+      margin-top: -3px;
+      line-height: 3.0em;
+      li{
+        float: none;
+        font-size: 0.9em;
+        display: inline;
+        margin: 0;
+        margin-left: 5px;
+        a{
+          padding: 10px 10px;
+        }
       }
     }
   }
-}
+
+  .numbers {
+    .grid-25 {
+      border-right: 1px solid #444;
+      img {
+        width: 50%;
+        max-width: 130px;
+      }
+      margin-bottom: 25px;
+    }
+
+    .grid-25:nth-of-type(2n) {
+      border-right: none;
+    }
+  }
 
 }
 
