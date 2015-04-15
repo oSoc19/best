@@ -203,7 +203,14 @@ h2{
 
 .location{
   padding-bottom: 45px;
-  background: url('assets/hero-location3.jpg');
+  background:
+    /* top, transparent red, faked with gradient */
+  linear-gradient(
+                  rgba(122, 184, 0, 0.85),
+                  rgba(122, 184, 0, 0.85)
+  ),
+    /* bottom, image */
+  url('assets/hero-students.png');
   background-size: cover;
   min-height: 600px;
   .headline{
@@ -453,6 +460,7 @@ p.hero-paragraph{
       //cursor: pointer;
       //cursor: hand;
       margin-top: 0;
+      padding: 0 1em;
 
       &:first-of-type {
         margin-top: 1em;
@@ -655,6 +663,12 @@ a{
 
 
 @media screen and (max-width: 769px){
+
+  .footer{
+    p{
+      text-align: left;
+    }
+  }
 
   .nav {
     position: relative !important;
