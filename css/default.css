@@ -329,25 +329,30 @@ p.hero-paragraph {
     margin: 0 1em;
     padding: 0; }
   .studentsparticipate #faqs h3 {
+    cursor: pointer;
+    cursor: hand;
     margin-top: 0;
     padding: 0 1em; }
     .studentsparticipate #faqs h3:first-of-type {
       margin-top: 1em; }
-  .studentsparticipate #faqs div {
-    padding: 0 1em 1.5em 1em; }
+  .studentsparticipate #faqs .faq-answer {
+    padding: 0 1em 1.5em 1em;
+    display: none; }
+    .studentsparticipate #faqs .faq-answer:first-of-type {
+      display: block; }
 
-.partners {
+.participate {
   color: #FFF;
   background: linear-gradient(rgba(122, 184, 0, 0.85), rgba(122, 184, 0, 0.85)), url("assets/hero-students2.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center; }
-  .partners h2 {
+  .participate h2 {
     color: #FFF;
     margin-top: 0px;
     padding-top: 40px;
     padding-bottom: 40px; }
-  .partners .sponsor {
+  .participate .sponsor {
     display: block;
     margin-left: auto;
     margin-right: auto;

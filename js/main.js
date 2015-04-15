@@ -34,10 +34,10 @@ $(function(){
     });
 
     /* FAQ */
-    /*
+
     $('#faqs h3').on('click', function() {
         $(this).next('div').slideToggle(400);
-    }); */
+    });
 
     /*
     $('#faqs h3').each(function() {
@@ -64,12 +64,11 @@ $(function(){
     var vidOffset = $('#video').offset().top - 90;
     var locOffset = $('#location').offset().top - 90;
     var studOffset = $('#studentsparticipate').offset().top - 90;
-    var partOffset = $('#partners').offset().top - 90;
     var particOffset = $('#participate').offset().top - 90;
+
     var vidLink = $('a[href$="#video"]');
     var locLink = $('a[href$="#location"]');
     var studLink = $('a[href$="#studentsparticipate"]');
-    var partLink = $('a[href$="#partners"]');
     var particLink = $('a[href$="#participate"]');
 
     $(window).scroll(function() {
@@ -89,23 +88,17 @@ $(function(){
                 locLink.addClass("active");
             }
         }
-        else if($(window).scrollTop() <= partOffset) {
+        else if($(window).scrollTop() <= particOffset) {
             if(!studLink.hasClass("active")) {
                 $(".ul-nav li a").removeClass("active");
                 studLink.addClass("active");
             }
         }
-        else if($(window).scrollTop() <= particOffset) {
-            if(!partLink.hasClass("active")) {
-                $(".ul-nav li a").removeClass("active");
-                partLink.addClass("active");
-            }
-        }
-        else {
-            if(!particLink.hasClass("active")) {
+        else  {
+            //if(!particLink.hasClass("active")) {
                 $(".ul-nav li a").removeClass("active");
                 particLink.addClass("active");
-            }
+            //}
         }
     });
 
@@ -119,7 +112,6 @@ $(function(){
         vidOffset = $('#video').offset().top - 90;
         locOffset = $('#location').offset().top - 90;
         studOffset = $('#studentsparticipate').offset().top - 90;
-        partOffset = $('#partners').offset().top - 90;
         particOffset = $('#participate').offset().top - 90;
 
         if($('.nav-toggle').is(":visible") ) {

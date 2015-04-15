@@ -457,8 +457,8 @@ p.hero-paragraph{
 
   #faqs{
     h3{
-      //cursor: pointer;
-      //cursor: hand;
+      cursor: pointer;
+      cursor: hand;
       margin-top: 0;
       padding: 0 1em;
 
@@ -466,16 +466,21 @@ p.hero-paragraph{
         margin-top: 1em;
       }
     }
-    div{
+    .faq-answer{
       //display:none;
       //overflow:hidden;
       //position:relative;
       padding: 0 1em 1.5em 1em;
+      display: none;
+
+      &:first-of-type {
+        display: block;
+      }
     }
   }
 }
 
-.partners{
+.participate{
   h2{
     color: $color-white;
     margin-top: 0px;
@@ -521,7 +526,7 @@ p.hero-paragraph{
   h2{
     padding-top: 20px;
   }
-  padding-bottom: 35px;  
+  padding-bottom: 35px;
 }
 
 .footer{
