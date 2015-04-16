@@ -71,6 +71,10 @@ a{
   }
 }
 
+.part-nomargin {
+  margin-left: 0;
+}
+
 
 p.big{
   text-align: center;
@@ -391,9 +395,6 @@ p.hero-paragraph{
     margin-bottom: 0px;
   }
 
-  #faqs > h2{
-    padding-top: 0;
-  }
   color: $color-dark-grey;
   /*background: url('assets/hero-students.png');*/
   /*background-size: cover;*/
@@ -408,18 +409,7 @@ p.hero-paragraph{
     margin-right: auto;
     text-align: center;
   }
-  .front{
 
-  }
-  .back{
-
-  }
-  .design{
-
-  }
-  .business{
-
-  }
   .skill-desc{
     top: -30px;
     color: $color-dark-grey;
@@ -433,7 +423,7 @@ p.hero-paragraph{
     padding-top: 10px;
     margin-left: auto;
     margin-right: auto;
-    .grid-25{
+    .skill-item{
       border-right: 1px solid $color-white;
       padding: 15px;
       img{
@@ -445,7 +435,7 @@ p.hero-paragraph{
         margin-right: auto;
       }
     }
-    .grid-25:last-of-type{
+    .skill-item:last-of-type{
       border-right: none;
     }
   }
@@ -455,7 +445,15 @@ p.hero-paragraph{
     padding: 0;
   }
 
+
+}
+
+.faq {
   #faqs{
+    h2{
+      padding-top: 0;
+    }
+
     h3{
       cursor: pointer;
       cursor: hand;
@@ -464,6 +462,11 @@ p.hero-paragraph{
 
       &:first-of-type {
         margin-top: 1em;
+      }
+
+      .toggle-icon {
+        margin-left: .5em;
+        transition: all 0.4s;
       }
     }
     .faq-answer{

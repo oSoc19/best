@@ -37,6 +37,7 @@ $(function(){
 
     $('#faqs h3').on('click', function() {
         $(this).next('div').slideToggle(400);
+        $(this).find('i').toggleClass('fa-rotate-90');
     });
 
     /*
@@ -57,7 +58,7 @@ $(function(){
         -location
         -studentsparticipate
         -partners
-        -participate
+        -faq
      */
 
     // Preload offsets:
@@ -65,40 +66,42 @@ $(function(){
     var locOffset = $('#location').offset().top - 90;
     var studOffset = $('#studentsparticipate').offset().top - 90;
     var particOffset = $('#participate').offset().top - 90;
+    var faqOffset = $('#faq').offset().top - 90;
 
     var vidLink = $('a[href$="#video"]');
     var locLink = $('a[href$="#location"]');
     var studLink = $('a[href$="#studentsparticipate"]');
     var particLink = $('a[href$="#participate"]');
+    var faqLink = $('a[href$="#faq"]');
 
     $(window).scroll(function() {
 
         if($(window).scrollTop() < vidOffset) {
-            $(".ul-nav li a").removeClass("active");
+            $('.ul-nav li a.active').removeClass("active");
         }
         else if($(window).scrollTop() <= locOffset) {
-            if(!vidLink.hasClass("active")) {
-                $(".ul-nav li a").removeClass("active");
+
+                $('.ul-nav li a.active').removeClass("active");
                 vidLink.addClass("active");
-            }
+
         }
         else if($(window).scrollTop() <= studOffset) {
-            if(!locLink.hasClass("active")) {
-                $(".ul-nav li a").removeClass("active");
+                $('.ul-nav li a.active').removeClass("active");
                 locLink.addClass("active");
-            }
+
         }
         else if($(window).scrollTop() <= particOffset) {
-            if(!studLink.hasClass("active")) {
-                $(".ul-nav li a").removeClass("active");
-                studLink.addClass("active");
-            }
+            $('.ul-nav li a.active').removeClass("active");
+            studLink.addClass("active");
+        }
+        else if($(window).scrollTop() <= faqOffset) {
+                $('.ul-nav li a.active').removeClass("active");
+                particLink.addClass("active");
+
         }
         else  {
-            //if(!particLink.hasClass("active")) {
-                $(".ul-nav li a").removeClass("active");
-                particLink.addClass("active");
-            //}
+            $('.ul-nav li a.active').removeClass("active");
+            faqLink.addClass("active");
         }
     });
 
@@ -109,10 +112,7 @@ $(function(){
 
     /* Reset navigation and offsets on resize */
     $( window ).resize(function() {
-        vidOffset = $('#video').offset().top - 90;
-        locOffset = $('#location').offset().top - 90;
-        studOffset = $('#studentsparticipate').offset().top - 90;
-        particOffset = $('#participate').offset().top - 90;
+        flexNav();
 
         if($('.nav-toggle').is(":visible") ) {
             $('.ul-nav').hide();
