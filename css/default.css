@@ -58,6 +58,8 @@ p.big {
   font-size: 1.2em;
   line-height: 1.5em;
   margin-left: 15px; }
+  .partner-desc a {
+    color: #FFF; }
 
 .page {
   background-color: #FFF;
@@ -118,7 +120,7 @@ h2 {
   margin-top: -60px;
   padding-top: 50px;
   padding-bottom: 15px;
-  background: url("assets/hero2.png");
+  background: url("assets/heroB.jpg");
   background-size: cover;
   background-position: center; }
   .hero h1.hero-header {
@@ -152,7 +154,7 @@ h2 {
 
 .location {
   padding-bottom: 45px;
-  background: linear-gradient(rgba(122, 184, 0, 0.85), rgba(122, 184, 0, 0.85)), url("assets/hero-students.png");
+  background: url("assets/hero-location3B.jpg");
   background-size: cover;
   min-height: 600px; }
   .location .headline {
@@ -350,7 +352,7 @@ p.hero-paragraph {
 
 .participate {
   color: #FFF;
-  background: linear-gradient(rgba(122, 184, 0, 0.85), rgba(122, 184, 0, 0.85)), url("assets/hero-students2.png");
+  background: url("assets/hero-students2B.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center; }

@@ -86,6 +86,10 @@ p.big{
   font-size: 1.2em;
   line-height: 1.5em;
   margin-left: 15px;
+
+  a {
+    color: $color-white;
+  }
 }
 
 .page{
@@ -165,7 +169,7 @@ h2{
   margin-top: -60px;
   padding-top: 50px;
   padding-bottom: 15px;
-  background: url('assets/hero2.png');
+  background: url('assets/heroB.jpg');
   background-size: cover;
   background-position: center;
   h1.hero-header{
@@ -207,15 +211,9 @@ h2{
 
 .location{
   padding-bottom: 45px;
-  background:
-    /* top, transparent red, faked with gradient */
-  linear-gradient(
-                  rgba(122, 184, 0, 0.85),
-                  rgba(122, 184, 0, 0.85)
-  ),
-    /* bottom, image */
-  url('assets/hero-students.png');
+  background: url('assets/hero-location3B.jpg');
   background-size: cover;
+
   min-height: 600px;
   .headline{
     font-size: 1.2em;
@@ -491,15 +489,7 @@ p.hero-paragraph{
     padding-bottom: 40px;
   }
   color: $color-white;
-  background:
-    /* top, transparent red, faked with gradient */
-  linear-gradient(
-                  rgba(122, 184, 0, 0.85),
-                  rgba(122, 184, 0, 0.85)
-  ),
-    /* bottom, image */
-  url('assets/hero-students2.png');
-
+  background: url('assets/hero-students2B.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
