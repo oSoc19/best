@@ -2,8 +2,13 @@ $(function(){
     $( '.scroll' ).on('click', function(event) {
         event.preventDefault();
         var target = "#" + $(this).data('target');
+        var offs = $(target).offset().top;
+        if(!$('.nav-toggle').is(":visible") ) {
+            offs -= 80
+        }
+
         $('html, body').animate({
-            scrollTop: $(target).offset().top - 80
+            scrollTop: offs
         }, 700);
     });
 
@@ -113,6 +118,12 @@ $(function(){
 
     /* Reset navigation and offsets on resize */
     $( window ).resize(function() {
+        vidOffset = $('#video').offset().top - 90;
+        locOffset = $('#location').offset().top - 90;
+        studOffset = $('#studentsparticipate').offset().top - 90;
+        particOffset = $('#participate').offset().top - 90;
+        faqOffset = $('#faq').offset().top - 90;
+
         if($('.nav-toggle').is(":visible") ) {
             $('.ul-nav').hide();
         } else {
