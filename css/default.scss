@@ -246,15 +246,7 @@ h2{
     .date, .city, .place{
       line-height: 0.7em;
     }
-    .x{
-      color: $color-dark-grey;
-    }
-    .y{
-      color: $color-red;
-    }
-    .z{
-      color: $color-blue;
-    }
+
     .date{
       text-transform: uppercase;
       font-size: 1.1em;
@@ -282,15 +274,12 @@ p.hero-paragraph{
   margin-bottom: 45px;
 }
 
-.description{
-  padding-top: 25px;
-  margin-bottom: 40px;
-  p{
-
-  }
-}
-
 .numbers{
+  display: block;
+  color: $color-white;
+  text-align: center;
+  background-color: $color-dark-grey;
+
   .tagline{
 	font-size: 1.4em;
 	padding-top: 10px;
@@ -298,44 +287,16 @@ p.hero-paragraph{
   }
   .grid-25{
   	border-right: 1px solid #444;
+    margin-bottom: 25px;
+
+    &:last-of-type{
+      border-right: none;
+    }
+
   	img{
   	  width: 50%;
   	  max-width: 130px;
   	}
-  	a{
-  	}
-  	margin-bottom: 25px;
-  }
-  .grid-25:last-of-type{
-    border-right: none;
-  }
-  display: block;
-  color: $color-white;
-  text-align: center;
-  background-color: $color-dark-grey;
-  .number-container{
-    background-color: $color-dark-grey;
-    height: 135px;
-    .number-item{
-      width: 24.5%;
-      float: left;
-      border-right: 1px solid #555;
-    }
-    .number-item:last-of-type{
-      border: none;
-    }
-  }
-  .number{
-    font-size: 3em;
-    line-height: 0.2em;
-    clear: both;
-  }
-  .word{
-    font-size: 1.2em;
-    position: relative;
-    line-height: 0.5em;
-    top: -15px;
-    clear: both;
   }
 }
 
@@ -345,46 +306,14 @@ p.hero-paragraph{
     margin-top: 40px;
     margin-bottom: 30px;
   }
-  .students-gallery{
-    .grid-25{
-      margin-bottom: 35px;
-      p{
-        text-align: center;
-      }
-      .student-name{
-        font-size: 1.3em;
-        margin-bottom: 0px;
-      }
-      .student-twitter{
-        font-size: 1.2em;
-        padding-bottom: 10px;
-        a{
-          text-decoration: none;
-          color: #AAAAAA;
-        }
-      }
-      .student-linkedin{
-        a{
-           background-color: #23998d;
-          padding: 5px;
-          color: $color-white;
-          font-size: 0.9em;
-          text-decoration: none;
-        }
-      }
-      img.round{
-        display: block !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-        width: 170px;
-        height: 170px;
-        border-radius: 340px;
-      }
-    }
-  }
+
 }
 
 .studentsparticipate{
+  color: $color-dark-grey;
+  background-position: center;
+  padding-bottom: 35px;
+
   h2{
     color: $color-dark-grey;
     padding-top: 40px;
@@ -393,37 +322,35 @@ p.hero-paragraph{
     margin-bottom: 0px;
   }
 
-  color: $color-dark-grey;
-  /*background: url('assets/hero-students.png');*/
-  /*background-size: cover;*/
-  background-position: center;
-  padding-bottom: 35px;
-  .skill{
-    top: -30px;
-    color: $color-green;
-    max-width: 700px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
-
-  .skill-desc{
-    top: -30px;
-    color: $color-dark-grey;
-    max-width: 700px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
   .skill-container{
     padding-top: 10px;
     margin-left: auto;
     margin-right: auto;
+
     .skill-item{
       border-right: 1px solid $color-white;
       padding: 15px;
+
+      .skill{
+        top: -30px;
+        color: $color-green;
+        max-width: 700px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+
+      .skill-desc{
+        top: -30px;
+        color: $color-dark-grey;
+        max-width: 700px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+
       img{
         border-radius: 300px;
         width: 120px;
@@ -443,7 +370,43 @@ p.hero-paragraph{
     padding: 0;
   }
 
+  .students-gallery{
+    .grid-25{
+      margin-bottom: 35px;
+      p{
+        text-align: center;
+        margin-top: 0.4em;
+      }
+      .student-name{
+        font-size: 1.1em;
+        margin-bottom: 0px;
+      }
+      .student-twitter{
+        a{
+          text-decoration: none;
+          color: $color-blue;
+        }
+      }
+      .student-linkedin{
+        a{
+          background-color: $color-blue;
+          padding: 5px;
+          color: $color-white;
+          font-size: 0.9em;
+          text-decoration: none;
 
+        }
+      }
+      img{
+        display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 120px;
+        height: 120px;
+        border-radius: 300px;
+      }
+    }
+  }
 }
 
 .faq {
@@ -482,17 +445,18 @@ p.hero-paragraph{
 }
 
 .participate{
+  color: $color-white;
+  background: url('assets/hero-students2B.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
   h2{
     color: $color-white;
     margin-top: 0px;
     padding-top: 40px;
     padding-bottom: 40px;
   }
-  color: $color-white;
-  background: url('assets/hero-students2B.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
 
   .sponsor{
     display: block;
@@ -502,10 +466,6 @@ p.hero-paragraph{
     max-height: 100px;
     margin-bottom: 25px;
   }
-
-  .sponsor-artoria {
-
-  }
 }
 
 .contact-desc{
@@ -513,13 +473,6 @@ p.hero-paragraph{
   line-height: 1.4em;
   margin-top: 0;
   padding-top: 0;
-}
-
-.contact{
-  h2{
-    padding-top: 20px;
-  }
-  padding-bottom: 35px;
 }
 
 .footer{
@@ -535,13 +488,6 @@ p.hero-paragraph{
   }
 }
 
-.contact-buttons .grid-25{
-  height: 100%;
-  .contact-button{
-    width: 75%;
-  }
-}
-
 /* =============================
 * MEDIA QUERIES
 * ============================== */
@@ -554,9 +500,6 @@ p.hero-paragraph{
     top: 0px;
     margin-bottom: 35px;
   }
-  .location{
-    margin-top: 0;
-  }
 
   h1.hero-header{
     margin-top: 65px !important;
@@ -567,6 +510,8 @@ p.hero-paragraph{
     margin-left: 15px !important;
   }
   .location{
+    margin-top: 0;
+
     .grid-33{
       padding-bottom: 15px;
     }

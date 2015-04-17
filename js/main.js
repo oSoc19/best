@@ -6,6 +6,7 @@ $(function(){
             scrollTop: $(target).offset().top - 80
         }, 700);
     });
+
     $( '.scrollTop' ).on('click', function(event) {
         event.preventDefault();
         $('body').animate({
@@ -112,8 +113,6 @@ $(function(){
 
     /* Reset navigation and offsets on resize */
     $( window ).resize(function() {
-        flexNav();
-
         if($('.nav-toggle').is(":visible") ) {
             $('.ul-nav').hide();
         } else {
