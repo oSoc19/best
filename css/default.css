@@ -313,9 +313,7 @@ p.hero-paragraph {
     transition: all 0.4s; }
 .faq #faqs .faq-answer {
   padding: 0 1em 1.5em 1em;
-  display: none; }
-  .faq #faqs .faq-answer:first-of-type {
-    display: block; }
+  display: block; }
 
 .participate {
   color: #FFF;

@@ -435,11 +435,11 @@ p.hero-paragraph{
       //overflow:hidden;
       //position:relative;
       padding: 0 1em 1.5em 1em;
-      display: none;
+      display: block;
 
-      &:first-of-type {
-        display: block;
-      }
+      //&:first-of-type {
+      //  display: block;
+      //}
     }
   }
 }

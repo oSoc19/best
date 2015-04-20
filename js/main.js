@@ -40,7 +40,10 @@ $(function(){
     });
 
     /* FAQ */
+    /* Hide all FAQ answers except for the first one. */
+    $('.faq-answer').not(":first").hide();
 
+    /* Toggle FAQ Answers */
     $('#faqs h3').on('click', function() {
         $(this).next('div').slideToggle(400);
         $(this).find('i').toggleClass('fa-rotate-90');
@@ -56,7 +59,7 @@ $(function(){
         });
     }); */
 
-
+    /* Script for updating the active link in the top-navigation when user is at a certain part of the site */
     /*
         Possible scrollTargets:
         -top
