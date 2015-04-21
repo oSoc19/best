@@ -19,6 +19,9 @@ html {
   font-family: 'Lato', sans-serif;
   background-color: #2D2D2D; }
 
+body {
+  overflow-x: hidden; }
+
 a {
   color: #00a5e0; }
 
@@ -374,7 +377,6 @@ p.hero-paragraph {
     .location .grid-33 {
       padding-bottom: 15px; }
     .location .date, .location .city, .location .place {
-      margin: 15px !important;
       padding: 0 !important; }
 
   .map {
