@@ -37,6 +37,10 @@ html{
   background-color: $color-dark-grey;
 }
 
+body{
+  overflow-x:hidden;
+}
+
 a{
   color: $color-blue;
 }
@@ -516,7 +520,6 @@ p.hero-paragraph{
       padding-bottom: 15px;
     }
     .date, .city, .place{
-      margin: 15px !important;
       padding: 0 !important;
     }
     min-height: 700px;
