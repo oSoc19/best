@@ -9,6 +9,8 @@ $color-green: #7ab800;
 $color-red: #ff3333;
 $color-blue: #00a5e0;
 $color-dark-grey: #2D2D2D;
+$color-light-grey: lighten($color-dark-grey, 15%);
+$color-super-light-grey: lighten($color-dark-grey, 50%);
 
 $color-white: #FFF;
 
@@ -372,6 +374,8 @@ p.hero-paragraph{
   .student-desc {
     margin: 0 1em;
     padding: 0;
+    line-height: 1.5;
+    color: $color-light-grey;
   }
 
   .students-gallery{
@@ -432,18 +436,14 @@ p.hero-paragraph{
       .toggle-icon {
         margin-left: .5em;
         transition: all 0.4s;
+        color: $color-super-light-grey;
       }
     }
     .faq-answer{
-      //display:none;
-      //overflow:hidden;
-      //position:relative;
-      padding: 0 1em 1.5em 1em;
+      padding: 0 1em 2.5em 1em;
       display: block;
-
-      //&:first-of-type {
-      //  display: block;
-      //}
+      line-height: 2;
+      color: $color-light-grey;
     }
   }
 }
@@ -510,9 +510,7 @@ p.hero-paragraph{
     font-size: 2em !important;
     max-width: 400px !important;
   }
-  .hero-header, .hero-paragraph, .big-participate{
-    margin-left: 15px !important;
-  }
+
   .location{
     margin-top: 0;
 
