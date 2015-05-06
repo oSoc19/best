@@ -261,10 +261,20 @@ h2{
     .city{
       font-size: 1.7em;
       font-weight: 600;
+      margin-bottom: 0;
+
+      a {
+        color: $color-white;
+        text-decoration: underline;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
     .place{
-      font-size: 0.8em;
-      text-transform: uppercase;
+      font-size: 1em;
+      font-weight: 400;
     }
   }
 }
@@ -469,6 +479,12 @@ p.hero-paragraph{
     padding: 15px;
     max-height: 100px;
     margin-bottom: 25px;
+    opacity: 0.85 ;
+    max-width: 200px;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 

@@ -193,10 +193,16 @@ h2 {
       padding-bottom: 8px; }
     .location .cities .city {
       font-size: 1.7em;
-      font-weight: 600; }
+      font-weight: 600;
+      margin-bottom: 0; }
+      .location .cities .city a {
+        color: #FFF;
+        text-decoration: underline; }
+        .location .cities .city a:hover {
+          text-decoration: underline; }
     .location .cities .place {
-      font-size: 0.8em;
-      text-transform: uppercase; }
+      font-size: 1em;
+      font-weight: 400; }
 
 p.hero-paragraph {
   font-weight: 300;
@@ -340,7 +346,11 @@ p.hero-paragraph {
     margin-right: auto;
     padding: 15px;
     max-height: 100px;
-    margin-bottom: 25px; }
+    margin-bottom: 25px;
+    opacity: 0.85;
+    max-width: 200px; }
+    .participate .sponsor:hover {
+      opacity: 1; }
 
 .contact-desc {
   font-size: 1.3em;
