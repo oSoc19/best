@@ -44,10 +44,28 @@ a {
   padding: 25px;
   border-radius: 5px;
   margin-left: 60px;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  float: left; }
   .big-participate:hover {
     background-color: #2D2D2D;
     color: #7ab800; }
+
+.big-notice {
+  font-size: 1.3em;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  background-color: #2D2D2D;
+  color: #00a5e0;
+  padding: 25px;
+  border-radius: 5px;
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-top: 150px; }
+  @media screen and (max-width: 768px) {
+    .big-notice {
+      margin-top: 60px; } }
 
 .part-nomargin {
   margin-left: 0; }
@@ -128,13 +146,16 @@ h2 {
   background-position: center; }
   .hero h1.hero-header {
     text-align: left;
-    margin-top: 305px;
+    margin-top: 135px;
     margin-left: 55px;
     z-index: 999;
     color: #FFF;
     font-size: 3em;
     text-transform: uppercase;
     max-width: 600px; }
+    @media screen and (max-width: 768px) {
+      .hero h1.hero-header {
+        margin-top: 60px; } }
 
 .video {
   padding-top: 15px;
@@ -477,10 +498,7 @@ a p {
         cursor: pointer;
         cursor: hand; }
     .nav ul {
-      display: none; }
-
-  .hero h1.hero-header {
-    margin-top: 205px; } }
+      display: none; } }
 html {
   padding: 0 !important; }
 
