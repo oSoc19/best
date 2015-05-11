@@ -48,6 +48,7 @@ a{
 }
 
 .constraint{
+
   max-width: 1060px;
   margin-left: auto;
   margin-right: auto;
@@ -70,12 +71,35 @@ a{
   border-radius: 5px;
   margin-left: 60px;
   margin-bottom: 20px;
+  float: left;
 
   &:hover {
     background-color: $color-dark-grey;
     color: $color-green;
   }
 }
+
+.big-notice{
+  font-size: 1.3em;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  background-color:$color-dark-grey;
+  color: $color-blue;
+
+  padding: 25px;
+  border-radius: 5px;
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-top: 150px;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 60px;
+  }
+}
+
+
 
 .part-nomargin {
   margin-left: 0;
@@ -180,13 +204,18 @@ h2{
   background-position: center;
   h1.hero-header{
     text-align: left;
-    margin-top: 305px;
+    // If there is no big notice above the hero.h1, then margin-top = 305px;
+    margin-top: 135px;
     margin-left: 55px;
     z-index: 999;
     color: $color-white;
     font-size: 3em;
       text-transform: uppercase;
     max-width: 600px;
+
+    @media screen and (max-width: 768px) {
+      margin-top: 60px;
+    }
   }
 }
 
@@ -666,14 +695,6 @@ a{
       display: none;
     }
   }
-
-  .hero {
-    h1.hero-header{
-      margin-top: 205px;
-    }
-  }
-
-
 }
 
 html{
