@@ -502,4 +502,12 @@ a p {
 html {
   padding: 0 !important; }
 
+.students .students-gallery .grid-25 img.round{
+  display:block !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  width:170px;
+  height:170px;
+  border-radius:340px
+}
 /*# sourceMappingURL=default.css.map */
