@@ -502,12 +502,31 @@ a p {
 html {
   padding: 0 !important; }
 
-.students .students-gallery .grid-25 img.round{
-  display:block !important;
-  margin-left:auto !important;
-  margin-right:auto !important;
-  width:170px;
-  height:170px;
-  border-radius:340px
+.students-gallery{
+  display: flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  list-style-type: none;
+}
+.students-gallery>li{
+  width: 200px;
+  padding: 15px;
+  text-align: center;
+}
+.students-gallery>li:hover img{
+  -webkit-transition:-webkit-filter .3s;
+  transition:filter .3s,-webkit-filter .3s;
+  -webkit-filter: none;
+  filter: none;
+}
+.students-gallery img{
+  -webkit-transition:-webkit-filter 4s;
+  transition:filter 4s,-webkit-filter 4s;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: #ddd;
+  -webkit-filter: contrast(2) grayscale(1) opacity(.7) brightness(0.9);
+  filter: contrast(2) grayscale(1) opacity(.7) brightness(0.9);
 }
 /*# sourceMappingURL=default.css.map */
