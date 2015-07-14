@@ -700,4 +700,57 @@ a{
 html{
   padding: 0 !important;
 }
+.students-gallery{
+  display: flex;
+  display:-webkit-flex;
+  -webkit-flex-wrap:wrap;
+  flex-wrap:wrap;
+  justify-content:center;
+  list-style-type: none;
+}
+.students-gallery>li{
+  width: 200px;
+  padding: 15px;
+  text-align: center;
+}
+.students-gallery>li img:hover{
+  -webkit-transition:-webkit-filter .3s;
+  transition:filter .3s,-webkit-filter .3s;
+  -webkit-filter: none;
+  filter: none;
+}
+.students-gallery img{
+  -webkit-transition:-webkit-filter .33s;
+  transition:filter .33s,-webkit-filter .33s;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: #ddd;
+  -webkit-filter: contrast(2) grayscale(1) opacity(.7) brightness(0.9);
+  filter: contrast(2) grayscale(1) opacity(.7) brightness(0.9);
+}
 
+.students-gallery .student-name{
+  font-size: 1.3em;
+  max-height: 20px;
+  padding-bottom: 15px;
+  margin-bottom: 0px;
+}
+
+.students-gallery .student-linkedin, 
+.students-gallery .student-twitter{
+  a{
+    vertical-align: baseline;
+    padding: 5px 10px;
+    background-color: $color-green;
+    color: #FFF;
+    font-size: 0.9em;
+    text-decoration: none;
+  }
+}
+
+p.student-twitter, p.student-linkedin {
+  display: inline-block;
+  padding-top: 10px;
+  font-weight: 400;
+}
