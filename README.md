@@ -19,6 +19,14 @@ Run following command:
 
 This should install the jQuery, Modernizr and FontAwesome packages
 
+> bundle install
+
+This will install to ruby dependencies
+
+> compass watch
+
+Watches your files and compiles them
+
 Everything should now be into place to upload the site.
 
 ## JSON-LD Event Information
