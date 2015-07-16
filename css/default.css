@@ -23,6 +23,21 @@ html {
   background-color: #2D2D2D;
 }
 
+.btn-primary {
+  width: 100%;
+  font-size: 1.2em;
+  font-weight: 500;
+  background-color: #7ab800;
+  padding: 10px 15px;
+  color: #FFF;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.text-center {
+  text-align: center;
+}
+
 body {
   overflow-x: hidden;
 }
@@ -674,6 +689,35 @@ p.student-twitter, p.student-linkedin {
   display: inline-block;
   padding-top: 10px;
   font-weight: 400;
+}
+
+.projects {
+  background: #FFF !important;
+}
+.projects .project img {
+  padding-left: 15px;
+  padding-top: 25px;
+  max-width: 150px;
+}
+.projects .project h3 {
+  text-align: left;
+  font-size: 1.3em;
+  font-weight: 700;
+  text-transform: none;
+}
+.projects .project p.sponsor {
+  font-style: italic;
+}
+.projects .project p {
+  line-height: 1.5em;
+  font-size: 1.2em;
+}
+.projects .text-center {
+  padding-bottom: 50px;
+}
+.projects .btn-primary {
+  text-align: center;
+  margin: 10px auto;
 }
 
 /*# sourceMappingURL=default.css.map */

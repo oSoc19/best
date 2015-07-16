@@ -39,6 +39,21 @@ html{
   background-color: $color-dark-grey;
 }
 
+.btn-primary {
+  width: 100%;
+  font-size: 1.2em;
+  font-weight: 500;
+  background-color: $color-green;
+  padding: 10px 15px;
+  color: #FFF;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.text-center {
+  text-align: center;
+}
+
 body{
   overflow-x:hidden;
 }
@@ -54,8 +69,8 @@ a{
   margin-right: auto;
 
   .oSoc-logo img{
-      width: 60px;
-      height: 60px;
+    width: 60px;
+    height: 60px;
   }
 }
 
@@ -210,7 +225,7 @@ h2{
     z-index: 999;
     color: $color-white;
     font-size: 3em;
-      text-transform: uppercase;
+    text-transform: uppercase;
     max-width: 600px;
 
     @media screen and (max-width: 768px) {
@@ -326,23 +341,23 @@ p.hero-paragraph{
   background-color: $color-dark-grey;
 
   .tagline{
-	font-size: 1.4em;
-	padding-top: 10px;
-	padding-bottom: 25px;
-  }
-  .grid-25{
-  	border-right: 1px solid #444;
-    margin-bottom: 25px;
+   font-size: 1.4em;
+   padding-top: 10px;
+   padding-bottom: 25px;
+ }
+ .grid-25{
+   border-right: 1px solid #444;
+   margin-bottom: 25px;
 
-    &:last-of-type{
-      border-right: none;
-    }
-
-  	img{
-  	  width: 50%;
-  	  max-width: 130px;
-  	}
+   &:last-of-type{
+    border-right: none;
   }
+
+  img{
+   width: 50%;
+   max-width: 130px;
+ }
+}
 }
 
 .students{
@@ -586,9 +601,9 @@ p.hero-paragraph{
 
 a{
   p{
-	color: $color-white;
-	border-color: $color-white;
-  }
+   color: $color-white;
+   border-color: $color-white;
+ }
 }
 
 /* Navigation fixes for width < 960 px */
@@ -753,4 +768,35 @@ p.student-twitter, p.student-linkedin {
   display: inline-block;
   padding-top: 10px;
   font-weight: 400;
+}
+
+.projects{
+  background: #FFF !important;
+  .project{
+    img{
+      padding-left: 15px;
+      padding-top: 25px;
+      max-width: 150px;
+    }
+    h3{
+      text-align: left;
+      font-size: 1.3em;
+      font-weight: 700;
+      text-transform: none;
+    }
+    p.sponsor{
+      font-style:italic;
+    }
+    p{
+      line-height: 1.5em;
+      font-size: 1.2em;
+    }
+  }
+  .text-center {
+    padding-bottom: 50px;
+  }
+  .btn-primary {
+    text-align: center;
+    margin: 10px auto;
+  }
 }
