@@ -232,6 +232,29 @@ h2{
       margin-top: 60px;
     }
   }
+
+    .btn-big-a {
+        text-decoration: none;
+
+        .btn-big {
+            padding-top:5px;
+            padding-bottom:25px;
+            margin-left:33.3%;
+            margin-right:33.3%;
+            width:33%;
+            background-color: $color-dark-grey;
+            color:$color-white;
+            text-align: center;
+            border-radius:5px;
+            font-size:18px;
+
+            .btn-big-head {
+                font-size:24px;
+                margin-bottom:0;
+            }
+        }
+    }
+
 }
 
 .video{
