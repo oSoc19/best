@@ -181,10 +181,18 @@ h2 {
       color: #FFF;
       text-align: center;
       border-radius: 5px;
-      font-size: 18px; }
+      font-size: 18px;
+      transition: 1s ease-in; }
       .hero .btn-big-a .btn-big .btn-big-head {
         font-size: 24px;
-        margin-bottom: 0; }
+        margin-bottom: 0;
+        transition: 1s ease-in; }
+    .hero .btn-big-a .btn-big:hover {
+      border: 1px solid #FFF;
+      color: #2D2D2D;
+      background-color: #FFF; }
+      .hero .btn-big-a .btn-big:hover .btn-big-head {
+        color: #2D2D2D; }
 
 .video {
   padding-top: 15px;

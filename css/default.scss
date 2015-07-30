@@ -247,10 +247,22 @@ h2{
             text-align: center;
             border-radius:5px;
             font-size:18px;
+            transition: 1s ease-in;
 
             .btn-big-head {
                 font-size:24px;
                 margin-bottom:0;
+                transition: 1s ease-in;
+            }
+        }
+
+        .btn-big:hover {
+            border:1px solid $color-white;
+            color:$color-dark-grey;
+            background-color: $color-white;
+
+            .btn-big-head {
+                color:$color-dark-grey;
             }
         }
     }
