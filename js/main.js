@@ -24,15 +24,25 @@ $(function(){
             return $(this).attr('src').replace('.svg', '.png');
         });
     }
-    
-    /*
+
+    var hist = '';
     var handler = function (e) { 
-        handler.data.push(e.keyCode);
-        console.log(handler.data);
+        hist += e.keyCode;  
+        if(e.keyCode == 32)
+            hist = '';
+        if(hist == '7665826577796869')
+            swap(true);
     }
-    handler.data = [];
-    // 76, 65, 82, 65, 77, 79, 68, 69
-    window.addEventListener("keydown",  handler);  */
+    window.addEventListener("keydown",  handler); 
+    function swap(sw) {
+        document.getElementById('oSocStyle').href = 'css/altindex.css';
+    } 
+
+    window.addEventListener('resize', function(event){
+        if(window.innerWidth > 768) {
+            $('.ul-nav').show();
+        }
+    });
 
     /* Track clicks on contact buttons */
 
@@ -60,7 +70,7 @@ $(function(){
 
     /* Navigation Toggle */
     $( '.nav-toggle' ).on('click', function(event) {
-        $('.ul-nav').toggle();
+        $('.ul-nav').slideToggle();
     });
 
 });

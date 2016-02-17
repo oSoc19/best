@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-     <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>open Summer of code 2016</title>
     <meta name="description" content="Open Summer of Code is a 4 week programme in different Belgian cities during the summer of 2016. The goal: provide Belgian based students the training, network and support necessary to transform open innovation projects into powerful real-world services.">
@@ -19,7 +19,7 @@
     <meta name="twitter:description" content="Open Summer of code is a 4 week programme in Belgian cities during the summer of 2016. The goal: provide Belgian based students the training, network and support necessary to transform open innovation projects into powerful real-world services.">
     <meta name="twitter:image" content="http://2016.summerofcode.be/images/socialmedia/tlogo.jpg" />
     <meta name="twitter:url" content="http://2016.summerofcode.be/" />
-    <link rel="stylesheet" href="css/index.css">
+    <link id="oSocStyle" rel="stylesheet" href="css/index.css">
     <link href="http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext" rel="stylesheet" type="text/css">
     <script src="vendor/modernizr/modernizr.js"></script>
     <!-- FAVICONS -->
@@ -74,13 +74,14 @@
 </head>
 <body>
 <div class="page">
+    <!-- NAVIGATION -->
     <div class="nav" role="navigation">
         <div class="constraint">
             <div class="oSoc-logo">
                 <a href="#" class="scrollTop"><img src="images/squarelogo-LI.png" alt="Logo oSoc16"></a>
                 <i class="fa fa-bars fa-3x nav-toggle pull-right"></i>
             </div>
-            <ul>
+            <ul class="ul-nav">
                 <!-- 
                 <li><a href="#projects" data-target="projects" class="scroll">Projects</a></li>
                 <li><a href="#students" data-target="students" class="scroll">Students & coaches</a></li>
@@ -92,9 +93,10 @@
                 <li><a href="http://open.summerofcode.be">Blog</a></li>
                 <li><a class="osoc-bold" href="https://twitter.com/search?q=%23oSoc16" target="_blank">#oSoc16</a></li>
             </ul>
-
         </div>
     </div>
+    
+    <!-- INTRO SECTION -->
     <div id="hero">
         <div class="constraint">
             <h1>
@@ -109,6 +111,7 @@
         </div>
     </div>
     
+    <!-- VIDEO SECTION -->
     <div id="video">
         <div class="constraint">
             <div id="vid" class="videowrapper">
@@ -117,6 +120,7 @@
         </div>
     </div>
     
+    <!-- PREVIOUS EDITIONS SECTION -->
     <div id="prev-edition">
         <div class="constraint">
             <p class="tagline">Check out previous editions of Summer of code below:</p>
@@ -129,7 +133,8 @@
             </div>
         </div>
     </div>
-
+    
+    <!-- LOCATION SECTION -->
     <div class="location" id="location">
         <div class="constraint">
             <h2>Location</h2>
@@ -148,6 +153,7 @@
         </div>
     </div>
 
+    <!-- STUDENTS SECTION -->
     <div class="studentsparticipate" id="studentsparticipate">
         <div class="constraint">
             <h2>Students</h2>
@@ -196,29 +202,29 @@
             <a class="big-participate" id="formPress" href="https://docs.google.com/forms/d/1bRXQAY-Rh02-pBjB2dv9tDAZY6HPS65fT1sIdRnh3Wo/viewform?usp=send_form ">Apply</a>
             
             <!-- STUDENT and Management LIST GOES HERE -->
-            
+            <!--
             <h2>Management</h2>
             <ul class="students-gallery">
                 <li>
-                    <img src="images/Headshots/pj.jpg" alt="Pieter-Jan Pauwels">
+                    <img src="images/Headshots/default.jpg" alt="Pieter-Jan Pauwels">
                     <p class="student-name">Pieter-Jan Pauwels</p>
                     <p class="student-twitter"><a href="https://twitter.com/PJPauwels">Twitter</a></p>
                     <p class="student-linkedin"><a href="https://www.linkedin.com/in/pjpauwels">LinkedIn</a></p>
                 </li>
                 <li>
-                    <img src="images/Headshots/pj.jpg" alt="Pieter-Jan Pauwels">
+                    <img src="images/Headshots/default.jpg" alt="Pieter-Jan Pauwels">
                     <p class="student-name">Pieter-Jan Pauwels</p>
                     <p class="student-twitter"><a href="https://twitter.com/PJPauwels">Twitter</a></p>
                     <p class="student-linkedin"><a href="https://www.linkedin.com/in/pjpauwels">LinkedIn</a></p>
                 </li>
                 <li>
-                    <img src="images/Headshots/pj.jpg" alt="Pieter-Jan Pauwels">
+                    <img src="images/Headshots/default.jpg" alt="Pieter-Jan Pauwels">
                     <p class="student-name">Pieter-Jan Pauwels</p>
                     <p class="student-twitter"><a href="https://twitter.com/PJPauwels">Twitter</a></p>
                     <p class="student-linkedin"><a href="https://www.linkedin.com/in/pjpauwels">LinkedIn</a></p>
                 </li>
                 <li>
-                    <img src="images/Headshots/pj.jpg" alt="Pieter-Jan Pauwels">
+                    <img src="images/Headshots/default.jpg" alt="Pieter-Jan Pauwels">
                     <p class="student-name">Pieter-Jan Pauwels</p>
                     <p class="student-twitter"><a href="https://twitter.com/PJPauwels">Twitter</a></p>
                     <p class="student-linkedin"><a href="https://www.linkedin.com/in/pjpauwels">LinkedIn</a></p>
@@ -228,34 +234,35 @@
             <h2>Students</h2>
             <ul class="students-gallery">
                 <li>
-                    <img src="images/Headshots/pj.jpg" alt="Pieter-Jan Pauwels">
+                    <img src="images/Headshots/default.jpg" alt="Pieter-Jan Pauwels">
                     <p class="student-name">Pieter-Jan Pauwels</p>
                     <p class="student-twitter"><a href="https://twitter.com/PJPauwels">Twitter</a></p>
                     <p class="student-linkedin"><a href="https://www.linkedin.com/in/pjpauwels">LinkedIn</a></p>
                 </li>
                 <li>
-                    <img src="images/Headshots/pj.jpg" alt="Pieter-Jan Pauwels">
+                    <img src="images/Headshots/default.jpg" alt="Pieter-Jan Pauwels">
                     <p class="student-name">Pieter-Jan Pauwels</p>
                     <p class="student-twitter"><a href="https://twitter.com/PJPauwels">Twitter</a></p>
                     <p class="student-linkedin"><a href="https://www.linkedin.com/in/pjpauwels">LinkedIn</a></p>
                 </li>
                 <li>
-                    <img src="images/Headshots/pj.jpg" alt="Pieter-Jan Pauwels">
+                    <img src="images/Headshots/default.jpg" alt="Pieter-Jan Pauwels">
                     <p class="student-name">Pieter-Jan Pauwels</p>
                     <p class="student-twitter"><a href="https://twitter.com/PJPauwels">Twitter</a></p>
                     <p class="student-linkedin"><a href="https://www.linkedin.com/in/pjpauwels">LinkedIn</a></p>
                 </li>
                 <li>
-                    <img src="images/Headshots/pj.jpg" alt="Pieter-Jan Pauwels">
+                    <img src="images/Headshots/default.jpg" alt="Pieter-Jan Pauwels">
                     <p class="student-name">Pieter-Jan Pauwels</p>
                     <p class="student-twitter"><a href="https://twitter.com/PJPauwels">Twitter</a></p>
                     <p class="student-linkedin"><a href="https://www.linkedin.com/in/pjpauwels">LinkedIn</a></p>
                 </li>
             </ul>
-
+            -->
         </div>
     </div>
   
+    <!-- PARTNER SECTION -->
     <div class="partners" id="partners">
         <div class="constraint"> 
             <h2>Previous Partners</h2>
@@ -292,6 +299,7 @@
         </div>
     </div>
     
+    <!-- FAQ SECTION -->
     <div class="faq" id="faq">
         <div class="constraint">
             <div id="faqs">
@@ -331,20 +339,19 @@
         </div>
     </div>
 
+    <!-- FOOTER SECTION -->
     <div class="footer">
         <div class="constraint">
             <p class="pull-left">Powered by Open Knowledge Belgium.
                 Source code freely available on
-                <a href="https://github.com/oSoc16/website">GitHub</a>.
+                <a href="https://github.com/oSoc16/website" title="Github repository">GitHub</a> | 
+                <a href="https://github.com/osoc16/website/blob/master/CONTRIBUTORS.md" title="Contributors">Contributors</a>
             </p>
-            <p class="pull-right">Contributors</p>
             <div class="clearfix"></div>
         </div>
     </div>
 </div>
-
 <script src="vendor/jquery/dist/jquery.min.js"></script>
-
 <script src="js/main.js"></script>
 </body>
 </html>

@@ -6,12 +6,12 @@ Error: Undefined variable: "$color-dark-grey".
 19: * ============================== *\/
 20: 
 21: html {
-22:   font-family: 'Lato', sans-serif;
-23:   background-color: $color-dark-grey;
+22:     font-family: 'Lato', sans-serif;
+23:     background-color: $color-dark-grey;
 24: }
 25: 
 26: .text-center {
-27:   text-align: center;
+27:     text-align: center;
 28: }
 
 Backtrace:
@@ -67,4 +67,4 @@ C:/Ruby21/lib/ruby/gems/2.1.0/gems/sass-3.4.21/vendor/listen/lib/listen/adapter.
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$color-dark-grey\".\A         on line 23 of C:/BitNami/wampstack-5.5.29-1/apache2/htdocs/osoc16/css/default.scss\A \A 18: * STYLES\A 19: * ============================== */\A 20: \A 21: html {\A 22:   font-family: 'Lato', sans-serif;\A 23:   background-color: $color-dark-grey;\A 24: }\A 25: \A 26: .text-center {\A 27:   text-align: center;\A 28: }"; }
+  content: "Error: Undefined variable: \"$color-dark-grey\".\A         on line 23 of C:/BitNami/wampstack-5.5.29-1/apache2/htdocs/osoc16/css/default.scss\A \A 18: * STYLES\A 19: * ============================== */\A 20: \A 21: html {\A 22:     font-family: 'Lato', sans-serif;\A 23:     background-color: $color-dark-grey;\A 24: }\A 25: \A 26: .text-center {\A 27:     text-align: center;\A 28: }"; }

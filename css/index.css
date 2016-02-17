@@ -149,6 +149,16 @@ h2 {
   }
   .nav ul {
     display: none;
+    float: none;
+    width: 100%;
+    margin: 0;
+  }
+  .nav ul li {
+    float: none;
+    display: block;
+    background-color: #FFF;
+    padding: 10px;
+    margin: 0;
   }
 }
 
@@ -506,6 +516,9 @@ h2 {
   color: #FFF;
   font-size: 0.9em;
   text-decoration: none;
+}
+.students-gallery li .student-twitter a:hover, .students-gallery li .student-linkedin a:hover {
+  background-color: #70a900;
 }
 
 /* =============================

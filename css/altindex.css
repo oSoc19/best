@@ -110,10 +110,10 @@ h2 {
   transition: all 0.1s ease-in-out;
 }
 .nav ul li a:hover {
-  color: #7ab800;
+  color: red;
 }
 .nav ul li .active {
-  color: #7ab800;
+  color: red;
   transition: color 0.2s ease-in-out;
 }
 .nav ul li .osoc-bold {
@@ -149,6 +149,16 @@ h2 {
   }
   .nav ul {
     display: none;
+    float: none;
+    width: 100%;
+    margin: 0;
+  }
+  .nav ul li {
+    float: none;
+    display: block;
+    background-color: #FFF;
+    padding: 10px;
+    margin: 0;
   }
 }
 
@@ -159,7 +169,7 @@ h2 {
   width: auto;
   font-size: 1.3em;
   font-weight: bold;
-  background-color: #7ab800;
+  background-color: red;
   padding: 10px 15px;
   color: #FFF;
   border-radius: 10px;
@@ -177,7 +187,7 @@ h2 {
 }
 .big-participate:hover {
   background-color: #202020;
-  color: #7ab800;
+  color: red;
 }
 
 /* =============================
@@ -434,7 +444,7 @@ h2 {
   }
 }
 #studentsparticipate .skill-gallery li .skill, #studentsparticipate .skill-gallery li .skill-desc {
-  color: #7ab800;
+  color: red;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -502,10 +512,13 @@ h2 {
 .students-gallery li .student-twitter a, .students-gallery li .student-linkedin a {
   vertical-align: baseline;
   padding: 5px 10px;
-  background-color: #7ab800;
+  background-color: red;
   color: #FFF;
   font-size: 0.9em;
   text-decoration: none;
+}
+.students-gallery li .student-twitter a:hover, .students-gallery li .student-linkedin a:hover {
+  background-color: #f00000;
 }
 
 /* =============================
