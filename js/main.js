@@ -24,6 +24,15 @@ $(function(){
             return $(this).attr('src').replace('.svg', '.png');
         });
     }
+    
+    /*
+    var handler = function (e) { 
+        handler.data.push(e.keyCode);
+        console.log(handler.data);
+    }
+    handler.data = [];
+    // 76, 65, 82, 65, 77, 79, 68, 69
+    window.addEventListener("keydown",  handler);  */
 
     /* Track clicks on contact buttons */
 
@@ -49,88 +58,9 @@ $(function(){
         $(this).find('i').toggleClass('fa-rotate-90');
     });
 
-    /*
-    $('#faqs h3').each(function() {
-        var tis = $(this), state = false, answer = tis.next('div').hide().css('height','auto').slideUp();
-        tis.click(function() {
-            state = !state;
-            answer.slideToggle(state);
-            tis.toggleClass('active',state);
-        });
-    }); */
-
-    /* Script for updating the active link in the top-navigation when user is at a certain part of the site */
-    /*
-        Possible scrollTargets:
-        -top
-        -video
-        -location
-        -studentsparticipate
-        -partners
-        -faq
-     */
-
-    // Preload offsets:
-    var vidOffset = $('#video').offset().top - 90;
-    var locOffset = $('#location').offset().top - 90;
-    var studOffset = $('#studentsparticipate').offset().top - 90;
-    var particOffset = $('#participate').offset().top - 90;
-    var faqOffset = $('#faq').offset().top - 90;
-
-    var vidLink = $('a[href$="#video"]');
-    var locLink = $('a[href$="#location"]');
-    var studLink = $('a[href$="#studentsparticipate"]');
-    var particLink = $('a[href$="#participate"]');
-    var faqLink = $('a[href$="#faq"]');
-
-    $(window).scroll(function() {
-
-        if($(window).scrollTop() < vidOffset) {
-            $('.ul-nav li a.active').removeClass("active");
-        }
-        else if($(window).scrollTop() <= locOffset) {
-
-                $('.ul-nav li a.active').removeClass("active");
-                vidLink.addClass("active");
-
-        }
-        else if($(window).scrollTop() <= studOffset) {
-                $('.ul-nav li a.active').removeClass("active");
-                locLink.addClass("active");
-
-        }
-        else if($(window).scrollTop() <= particOffset) {
-            $('.ul-nav li a.active').removeClass("active");
-            studLink.addClass("active");
-        }
-        else if($(window).scrollTop() <= faqOffset) {
-                $('.ul-nav li a.active').removeClass("active");
-                particLink.addClass("active");
-
-        }
-        else  {
-            $('.ul-nav li a.active').removeClass("active");
-            faqLink.addClass("active");
-        }
-    });
-
     /* Navigation Toggle */
     $( '.nav-toggle' ).on('click', function(event) {
         $('.ul-nav').toggle();
     });
 
-    /* Reset navigation and offsets on resize */
-    $( window ).resize(function() {
-        vidOffset = $('#video').offset().top - 90;
-        locOffset = $('#location').offset().top - 90;
-        studOffset = $('#studentsparticipate').offset().top - 90;
-        particOffset = $('#participate').offset().top - 90;
-        faqOffset = $('#faq').offset().top - 90;
-
-        if($('.nav-toggle').is(":visible") ) {
-            $('.ul-nav').hide();
-        } else {
-            $('.ul-nav').show();
-        }
-    });
 });

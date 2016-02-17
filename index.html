@@ -12,7 +12,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="http://2016.summerofcode.be" />
     <meta property="og:image" content="http://2016.summerofcode.be/images/socialmedia/tlogo.jpg" />
-    <meta property="og:description" content="Open Summer of code is a 3 week programme in Belgian cities during the summer of 2015. The goal: provide Belgian based students the training, network and support necessary to transform open innovation projects into powerful real-world services." />
+    <meta property="og:description" content="Open Summer of code is a 4 week programme in Belgian cities during the summer of 2015. The goal: provide Belgian based students the training, network and support necessary to transform open innovation projects into powerful real-world services." />
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@OpenKnowledgeBE">
     <meta name="twitter:title" content="open Summer of code 2016">
@@ -21,7 +21,7 @@
     <meta name="twitter:url" content="http://2016.summerofcode.be/" />
     <link rel="stylesheet" href="css/index.css">
     <link href="http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-    <script src="bower_components/modernizr/modernizr.js"></script>
+    <script src="vendor/modernizr/modernizr.js"></script>
     <!-- FAVICONS -->
     <link rel="apple-touch-icon" sizes="57x57" href="images/favcon/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-touch-icon-60x60.png">
@@ -80,486 +80,271 @@
                 <a href="#" class="scrollTop"><img src="images/squarelogo-LI.png" alt="Logo oSoc16"></a>
                 <i class="fa fa-bars fa-3x nav-toggle pull-right"></i>
             </div>
-            <ul class="ul-nav">
-                <!-- <li><a href="#video" data-target="video" class="scroll">Video</a></li>
+            <ul>
+                <!-- 
                 <li><a href="#projects" data-target="projects" class="scroll">Projects</a></li>
                 <li><a href="#students" data-target="students" class="scroll">Students & coaches</a></li>
                 <li><a href="#participate" data-target="participate" class="scroll">Partners</a></li> -->
+                <li><a href="#video" data-target="video" class="scroll">Video</a></li>
+                <li><a href="#studentsparticipate" data-target="studentsparticipate" class="scroll">Students</a></li>              
                 <li><a href="#partners" data-target="partners" class="scroll">Partner up!</a></li>              
+                <li><a href="#faq" data-target="faq" class="scroll">FAQ</a></li>              
                 <li><a href="http://open.summerofcode.be">Blog</a></li>
                 <li><a class="osoc-bold" href="https://twitter.com/search?q=%23oSoc16" target="_blank">#oSoc16</a></li>
             </ul>
 
         </div>
     </div>
-    <div class="hero" id="hero">
-
+    <div id="hero">
         <div class="constraint">
-            
-            <h1 class="hero-header">
+            <h1>
                This is Open Summer of code 2016
-               </h1>
-            <p class="hero-paragraph">Open Summer of Code is a 4 week programme in different Belgian cities during the summer of 2016. The goal: provide Belgian based students the training, network and support necessary to transform open innovation projects into powerful real-world services.</p>
-    
+            </h1>
+            <p class="tagline">
+                Open Summer of Code is a 4 week programme in different Belgian cities during the summer of 2016. 
+                The goal: provide Belgian based students the training, network and support necessary to transform open innovation 
+                projects into powerful real-world services.
+            </p>
             <div class="clearfix"></div>
         </div>
-
     </div>
     
-   
-
-    <div class="numbers">
-        <div class="grid-container">
-            <div class="constraint">
-                <p class="tagline">Check out previous editions of Summer of code below.</p>
-                <div class="grid-25 mobile-grid-50">
-                    <a href="http://2015.summerofcode.be">
-
-                        <img src="images/previous/2014B.svg" alt="Logo oSoc14">
-                        </a>
-                </div>
-                <div class="grid-25 mobile-grid-50">
-                    <a href="http://2014.summerofcode.be">
-
-                        <img src="images/previous/2014B.svg" alt="Logo oSoc14">
-                    </a>
-                </div>
-                <div class="grid-25 mobile-grid-50">
-                    <a href="http://2013.summerofcode.be">
-                        <img src="images/previous/2013B.svg" alt="Logo oSoc13">
-                    </a>
-                </div>
-                <div class="grid-25 mobile-grid-50">
-                    <a href="http://2012.summerofcode.be">
-                        <img src="images/previous/2012B.svg" alt="Logo oSoc12">
-                    </a>
-                </div>
-                <div class="grid-25 mobile-grid-50">
-                    <a href="http://2011.summerofcode.be">
-                        <img src="images/previous/2011B.svg" alt="Logo oSoc11">
-                    </a>
-                </div>
+    <div id="video">
+        <div class="constraint">
+            <div id="vid" class="videowrapper">
+                <iframe id="vimeoplayer" src="https://player.vimeo.com/video/137109846?api=1&player_id=vimeoplayer&title=0&byline=0&portrait=0&color=ffffff" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
             </div>
         </div>
     </div>
-
-    <!-- <div class="projects" id="projects">
+    
+    <div id="prev-edition">
         <div class="constraint">
-            <h2>Projects</h2>
-            <div class="project">
-                <div class="grid-25">
-                    <img src="images/crests/bibnet.png">
-                </div>
-                <div class="grid-75">
-                    <h3>Bieblo</h3>
-                    <p class="sponsor">Powered by <a href="http://www.bibnet.be/" target="_blank">Bibnet</a></p>
-                    <p>Meet <a href="https://github.com/oSoc15/biblo-app" target="_blank">Bieblo</a>, a lil’ fellow that wants to help your child find his or her new favorite book. By asking what your kid likes, whether it’s magic or sports, Bieblo suggests relevant books that are right up their alley and available in the nearest library. It’s a fun and user-friendly way to bring books back to young children.</p>
-                 </div>
-            </div>
-
-            <div class="project">
-                <div class="grid-25">
-                    <img src="images/crests/DCAT.png">
-                </div>
-                <div class="grid-75">
-                <h3>DCAT</h3>
-                <p class="sponsor">Powered by the <a href="http://www.vlaanderen.be/" target="_blank">Flemish government</a></p>
-                <p>DCAT is a set of terms that describes datasets and standardises them. This way, computers can easily tell what certain datasets are about, without any human interaction. DCAT has three subprojects: integrating <a href="https://github.com/oSoc15/ipt-dcat">DCAT in IPT for INBO</a>, extending a <a href="https://github.com/oSoc15/dcat-drupal">DCAT Drupal Module</a> and creating a <a href="https://github.com/oSoc15/dcat-validator">DCAT validator</a> for the Flemish Government.</p>
-                    </div>
-            </div>
-
-            <div class="project">
-                <div class="grid-25">
-                    <img src="images/crests/educal.png">
-                </div>
-                <div class="grid-75">
-                <h3>educal</h3>
-                    <p class="sponsor">Powered by the <a href="https://stad.gent/" target="_blank">City of Ghent</a> and <a href="http://www.digipolis.be/" target="_blank">Digipolis Gent</a></p>
-                    <p>Relying on paper calendars is so 1995. So here’s <a href="https://github.com/oSoc15/educal">educal</a>, an interactive management platform that allows schools to manage multiple calendars online. Those calendars can easily be integrated into the parents digital agenda’s in just a few clicks.</p>
-                    </div>
-            </div>
-            <div class="project">
-                <div class="grid-25">
-                <img src="images/crests/GTFS.png">
-                </div>
-                <div class="grid-75">
-                <h3>GTFS</h3>
-                <p class="sponsor">Powered by <a href="https://hello.irail.be/" target="_blank">iRail</a> and <a href="http://www.be-mobile-international.com/" target="_blank">Be-Mobile</a></p>
-                <p>This team scrapes all the data from the NMBS website, and transforms them into <a href="https://github.com/oSoc15/brail2gtfs">GTFS-files</a> that can easily be used by 3rd parties to make transport applications. But even then, that leaves us with data that only applies to a perfect world that has no need for realtime information. That brings us to their second challenge: to make a <a href="https://github.com/oSoc15/brail2gtfs">realtime GTFS-RT feed</a> that gives us that information as well. </p>
-                    </div>
-            </div>
-            <div class="project">
-                <div class="grid-25">
-                    <img src="images/crests/leiedal.png">
-                </div>
-                <div class="grid-75">
-                <h3>Leiedal</h3>
-                <p class="sponsor">Powered by <a href="http://www.leiedal.be/" target="_blank">Leiedal</a></p>
-                <p>Do you have any idea how to calculate the energy effeciency of your home by yourself? This <a href="https://github.com/oSoc15/leiedal-map">Leiedal application</a> combines useful information and playful animations. That way, the energy usage of your home will not have any more secrets. Thanks to clear and personal advice you will be able to optimize your house and save money on your energy bill.</p>
-                    </div>
-            </div>
-            <div class="project">
-                <div class="grid-25">
-                    <img src="images/crests/MMLab.png">
-                </div>
-                <div class="grid-75">
-                <h3>Multimedia Lab</h3>
-                <p class="sponsor">Powered by <a href="http://multimedialab.elis.ugent.be/" target="_blank">Multimedia Lab</a></p>
-                <p>Multimedia Lab, or MMLab in short, is a research group within Ghent University. Being a innovative research group, they need an innovative website. The goal? Create a <a href="https://github.com/oSoc15/mmlab">new website</a> that is ready for the semantic web. This website will be created in Drupal.</p>
-                    </div>
-            </div>
-            <div><p>&nbsp;</p></div>
-            <div class="text-center">
-                <a class="btn-primary" href="https://github.com/oSoc15" target="_blank">Review the code of our projects!</a>
-            </div>
+            <p class="tagline">Check out previous editions of Summer of code below:</p>
+            <div class="prev-logos">
+                <a href="http://2015.summerofcode.be"><img src="images/previous/2015B.svg" alt="Logo oSoc15"></a>
+                <a href="http://2014.summerofcode.be"><img src="images/previous/2014B.svg" alt="Logo oSoc14"></a>
+                <a href="http://2013.summerofcode.be"><img src="images/previous/2013B.svg" alt="Logo oSoc13"></a>
+                <a href="http://2012.summerofcode.be"><img src="images/previous/2012B.svg" alt="Logo oSoc12"></a>
+                <a href="http://2011.summerofcode.be"><img src="images/previous/2011B.svg" alt="Logo oSoc11"></a>
             </div>
         </div>
+    </div>
 
     <div class="location" id="location">
         <div class="constraint">
-        <h2 class="wh" >Locations</h2>
-        <p class="headline">Each week, #oSoc15 moves to a new location.</p>
-        <div class="map">
-            <img src="images/map1.png" alt="Map of Belgium" usemap="#Map">
-            <map name="Map" id="Map">
-                <area alt="Namur" title="Namur" href="http://www.trakk.be/" target="_blank" shape="poly" coords="380,259,414,259,414,296,378,298" />
-                <area alt="Ghent" title="Ghent" href="http://www.digipolis.be" target="_blank" shape="poly" coords="212,165,250,164,249,206,210,204" />
-                <area alt="Hasselt" title="Hasselt" href="http://www.cordacampus.com/en/corda-incubator/welcome" target="_blank" shape="poly" coords="395,138,433,137,432,175,396,176" />
-            </map>
-        </div>
-        <div class="cities grid-container">
-            <div class="grid-25 mobile-grid-100">
-                <p class="date">6 July — 10 July</p>
-                <p class="city "><a href="http://www.trakk.be/" target="_blank">Namur</a></p>
+            <h2>Location</h2>
+            <p class="tagline">
+                We are still looking for a location!
+            </p>
+            <div class="map">
+                <img src="images/blankmap.png" alt="Map of Belgium" usemap="#Map">
             </div>
-            <div class="grid-25 mobile-grid-100">
-                <p class="date">13 — 17 July</p>
-                <p class="city "><a href="http://www.digipolis.be" target="_blank">Ghent</a></p>
-            </div>
-            <div class="grid-25 mobile-grid-100">
-                <p class="date">20 — 24 July</p>
-                <p class="city">Break</p>
-            </div>
-            <div class="grid-25 mobile-grid-100">
-                <p class="date">27 — 31 July</p>
-                <p class="city "><a href="http://www.cordacampus.com/en/corda-incubator/welcome" target="_blank">Hasselt</a></p>
+            <div class="cities">
+                <div>
+                    <p class="date">4 — 29 July</p>
+                    <p class="city">Your location here?</p>
+                </div>
             </div>
         </div>
-        </div>
-    </div>
-    <div class="students" id="students">
-        <h2>Management</h2>
-        <ul class="students-gallery">
-            <li>
-                <img src="images/Headshots/pj.jpg" alt="Pieter-Jan Pauwels">
-                <p class="student-name">Pieter-Jan Pauwels</p>
-                <p class="student-twitter"><a href="https://twitter.com/PJPauwels">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://www.linkedin.com/in/pjpauwels">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/michael.jpg" alt="Michael Vanderpoorten">
-                <p class="student-name">Michael Vanderpoorten</p>
-                <p class="student-twitter"><a href="https://twitter.com/yungpanda_be">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://www.linkedin.com/in/michaelvanderpoorten/">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/jan.jpg" alt="Jan Vansteenlandt">
-                <p class="student-name">Jan Vansteenlandt</p>
-                <p class="student-twitter"><a href="https://twitter.com/coreation">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://www.linkedin.com/pub/jan-vansteenlandt/31/86b/37">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/miet.jpg" alt="Miet Claes">
-                <p class="student-name">Miet Claes</p>
-                <p class="student-twitter"><a href="https://twitter.com/choisissez">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://www.linkedin.com/in/mietcls">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/x.jpg" alt="Xavier Bertels">
-                <p class="student-name">Xavier Bertels</p>
-                <p class="student-twitter"><a href="https://twitter.com/xavez">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://www.linkedin.com/in/xavierbertels">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/pieter.jpg" alt="Pieter Colpaert">
-                <p class="student-name">Pieter Colpaert</p>
-                <p class="student-twitter"><a href="https://twitter.com/pietercolpaert">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://www.linkedin.com/in/pcolpaert">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/lara.jpg" alt="Lara Deraes">
-                <p class="student-name">Lara Deraes</p>
-                <p class="student-twitter"><a href="https://twitter.com/LaraClaire_">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://www.linkedin.com/in/laraderaes/en">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/underlined.jpg" alt="Michiel Vancoillie">
-                <p class="student-name">Michiel Vancoillie</p>
-                <p class="student-twitter"><a href="https://twitter.com/ntynmichiel">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://www.linkedin.com/in/michielvancoillie">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/underlined.jpg" alt="Nico Verbruggen">
-                <p class="student-name">Nico Verbruggen</p>
-                <p class="student-twitter"><a href="https://twitter.com/nicoverbruggen/">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://www.linkedin.com/in/nicoverbruggen">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/sander.jpg" alt="Sander Meert">
-                <p class="student-name">Sander Meert</p>
-                <p class="student-twitter"><a href="https://twitter.com/sandmeert">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://www.linkedin.com/pub/sander-meert/9a/468/2b6/en">LinkedIn</a></p>
-            </li>
-        </ul>
-        <h2>Students</h2>
-        <ul class="students-gallery">
-            <li>
-                <img src="images/Headshots/alana.jpg" alt="Alana Panny">
-                <p class="student-name">Alana Panny</p>
-                <p class="student-twitter"><a href="https://twitter.com/LittlePandaatje">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://www.linkedin.com/pub/alana-panny/b4/3b7/218">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/brecht.jpg" alt="Brecht Van De Vyvere">
-                <p class="student-name">Brecht Van De Vyvere</p>
-                <p class="student-twitter"><a href="https://twitter.com/brechtvdv">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://www.linkedin.com/pub/brecht-van-de-vyvere/9b/32b/b92">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/bert.jpg" alt="Bert Marcelis">
-                <p class="student-name">Bert Marcelis</p>
-                <p class="student-twitter"><a href="https://twitter.com/BertMarcelis">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://www.linkedin.com/in/bertmarcelis">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/bruce.jpg" alt="Bruce Vansteenwinkel">
-                <p class="student-name">Bruce Vansteenwinkel</p>
-                <p class="student-twitter"><a href="https://twitter.com/Bruce_ViD">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://be.linkedin.com/pub/bruce-vansteenwinkel/61/a0b/51b">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/chris.jpg" alt="Christophe Leroy">
-                <p class="student-name">Christophe Leroy</p>
-                <p class="student-twitter"><a href="https://twitter.com/_la_batte">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://be.linkedin.com/pub/christophe-leroy/100/b42/938/nl">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/dieter.jpg" alt="Dieter Beelaert">
-                <p class="student-name">Dieter Beelaert</p>
-                <p class="student-twitter"><a href="https://twitter.com/DieterBeelaert">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://be.linkedin.com/pub/dieter-beelaert/87/860/103">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/dorien.jpg" alt="Dorien Marinus">
-                <p class="student-name">Dorien Marinus</p>
-                <p class="student-twitter"><a href="https://twitter.com/Dorien254">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://be.linkedin.com/in/dorienmarinus">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/michiel.jpg" alt="Michiel De Wilde">
-                <p class="student-name">Michiel De Wilde</p>
-                <p class="student-twitter"><a href="https://twitter.com/Michiel_DeWilde">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://be.linkedin.com/in/michdewilde">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/miguel.jpg" alt="Miguel Devriese">
-                <p class="student-name">Miguel Devriese</p>
-                <p class="student-twitter"><a href="https://twitter.com/MiguelDevriese">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://be.linkedin.com/pub/miguel-devriese/100/b0a/b77">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/niels.jpg" alt="Niels Dewelde">
-                <p class="student-name">Niels Dewelde</p>
-                <p class="student-twitter"><a href="https://twitter.com/nielsdewelde">Twitter</a></p>
-                <p class="student-linkedin"><a href="http://be.linkedin.com/pub/niels-dewelde/87/899/453">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/pieter2.jpg" alt="Pieter Declercq">
-                <p class="student-name">Pieter Declercq</p>
-                <p class="student-twitter"><a href="https://twitter.com/Piere_">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://be.linkedin.com/pub/pieter-declercq/84/705/4b">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/ruben.jpg" alt="Ruben Meul">
-                <p class="student-name">Ruben Meul</p>
-                <p class="student-twitter"><a href="https://twitter.com/Rub3nM">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://www.linkedin.com/pub/ruben-meul/64/844/923">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/samir.jpg" alt="Samir Hanini">
-                <p class="student-name">Samir Hanini</p>
-                <p class="student-twitter"><a href="https://twitter.com/spymannn">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://be.linkedin.com/pub/samir-hanini/84/7a7/19">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/sebastien.jpg" alt="Sébastien Henau">
-                <p class="student-name">Sébastien Henau</p>
-                <p class="student-twitter"><a href="https://twitter.com/sebastienhenau">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://be.linkedin.com/pub/s%C3%A9bastien-henau/100/520/6aa/nl">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/shaun.jpg" alt="Shaun Janssens">
-                <p class="student-name">Shaun Janssens</p>
-                <p class="student-twitter"><a href="https://twitter.com/shaunjanssens">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://be.linkedin.com/in/shaunjanssens">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/simon.jpg" alt="Simon Van Cauter">
-                <p class="student-name">Simon Van Cauter</p>
-                <p class="student-twitter"><a href="https://twitter.com/simon_Finrod">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://be.linkedin.com/in/simonvancauter">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/stan.jpg" alt="Sébastien Henau">
-                <p class="student-name">Stan Callewaert</p>
-                <p class="student-twitter"><a href="https://twitter.com/CallewaertStan">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://be.linkedin.com/in/stancallewaert/nl">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/sylvain.jpg" alt="Sylvain Delbauve">
-                <p class="student-name">Sylvain Delbauve</p>
-                <p class="student-twitter"><a href="https://twitter.com/DelbauveSylvain">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://be.linkedin.com/pub/sylvain-delbauve/b3/46a/811">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/thomas.jpg" alt="Thomas Ghysels">
-                <p class="student-name">Thomas Ghysels</p>
-                <p class="student-twitter"><a href="https://twitter.com/_thgh">Twitter</a></p>
-                <p class="student-linkedin"><a href="http://be.linkedin.com/in/thomasghysels">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/tim.jpg" alt="Tim Tijssens">
-                <p class="student-name">Tim Tijssens</p>
-                <p class="student-twitter"><a href="https://twitter.com/TimTijssens">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://be.linkedin.com/in/timtijssens/nl">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/umut.jpg" alt="Umut Saglam">
-                <p class="student-name">Umut Saglam</p>
-                <p class="student-twitter"><a href="https://twitter.com/UmutSaglam1994">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://be.linkedin.com/in/saglamumut">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/wesley.jpg" alt="Wesley Vanbrabant">
-                <p class="student-name">Wesley Vanbrabant</p>
-                <p class="student-twitter"><a href="https://twitter.com/wesobiNR">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://be.linkedin.com/pub/wesley-vanbrabant/a5/a55/a97">LinkedIn</a></p>
-            </li>
-            <li>
-                <img src="images/Headshots/william.jpg" alt="William Verbiest">
-                <p class="student-name">William Verbiest</p>
-                <p class="student-twitter"><a href="https://twitter.com/VerbiestWilliam">Twitter</a></p>
-                <p class="student-linkedin"><a href="https://be.linkedin.com/in/williamverbiestbelgium">LinkedIn</a></p>
-            </li>
-        </ul>
     </div>
 
-    <div class="participate" id="participate">
-                <div class="constraint"> -->
-                    <h2>Partners</h2>
-             <!-- <p class="partners">
-                Here's a list of the partners that are currently confirmed for oSoc15. This list will be updated as we
-                confirm more.
-                <br>If you're interested in partnering up, be sure to keep on reading.
-            </p> -->
-            <!-- <div class="partners-gallery grid-container">
-                <div class="grid-25 mobile-grid-100">
-                    <a href="http://www.cordacampus.com/en/corda-incubator/welcome" title="Corda Incubator" target="_blank"><img class="sponsor" src="images/sponsors/cordainc.png"></a>
-                </div>
-                <div class="grid-25 mobile-grid-100">
-                    <a href="http://www.trakk.be/" title="Trakk" target="_blank"><img class="sponsor" src="images/sponsors/trakk.png"></a>
-                </div>
-                <div class="grid-25 mobile-grid-100">
-                    <a href="http://www.digipolis.be/" title="Digipolis" target="_blank"><img class="sponsor" src="images/sponsors/digipolis.png"></a>
-                </div>
-                <div class="grid-25 mobile-grid-100">
-                    <a href="http://www.tones.be/" title="Tones" target="_blank"><img class="sponsor" src="images/sponsors/tones.png"></a>
-                </div>
-                <div class="grid-25 mobile-grid-100">
-                    <a href="http://www.startit.be/" title="StartIt KBC" target="_blank"><img class="sponsor" src="images/sponsors/startitkbc.png"></a>
-                </div>
-                <div class="grid-25 mobile-grid-100">
-                    <a href="http://www.belgianrail.be/" title="NMBS/SNCB" target="_blank"><img class="sponsor" src="images/sponsors/nmbs.png"></a>
-                </div>
+    <div class="studentsparticipate" id="studentsparticipate">
+        <div class="constraint">
+            <h2>Students</h2>
+            <div class="tagline">
+                We offer Belgian students the chance to learn and work in a professional work environment, so that they can grow as a young professional.
+                These are the profiles we need:
             </div>
-            <h2>Project Partners</h2>
-            <div class="partners-gallery grid-container">
-                <div class="grid-25 mobile-grid-100">
-                    <a href="http://www.be-mobile-international.com/" title="Be-Mobile" target="_blank"><img class="sponsor" src="images/sponsors/pro_bemobile2.png"></a>
-                </div>
-                <div class="grid-25 mobile-grid-100">
-                    <a href="http://www.bibnet.be/" title="Bibnet" target="_blank"><img class="sponsor" src="images/sponsors/pro_bibnet2.png"></a>
-                </div>
-                <div class="grid-25 mobile-grid-100">
-                    <a href="http://www.vlaanderen.be/nl" title="Vlaanderen" target="_blank"><img class="sponsor" src="images/sponsors/pro_flanders.png"></a>
-                </div>
-                <div class="grid-25 mobile-grid-100">
-                    <a href="http://www.iminds.be/" title="iMinds" target="_blank"><img class="sponsor" src="images/sponsors/pro_iminds.png"></a>
-                </div>
-            </div>
-            <div class="partners-gallery grid-container">
-                <div class="grid-25 mobile-grid-100">
-                    <a href="http://irail.be" title="iRail" target="_blank"><img class="sponsor" src="images/sponsors/pro_irail.png"></a>
-                </div>
-                <div class="grid-25 mobile-grid-100">
-                    <a href="http://www.leiedal.be/" title="Leiedal" target="_blank"><img class="sponsor" src="images/sponsors/pro_leiedal.png"></a>
-                </div>
-                <div class="grid-25 mobile-grid-100">
-                    <a href="http://stad.gent/" title="Stad Gent" target="_blank"><img class="sponsor" src="images/sponsors/pro_stadgent.png"></a>
-                </div>
-                <div class="grid-25 mobile-grid-100">
-                    <a href="http://www.inbo.be/" title="Inbo" target="_blank"><img class="sponsor" src="images/sponsors/pro_inbo.png"></a>
-                </div>
-            </div> -->
+            <ul class="skill-gallery">
+                <li>
+                    <p class="skill-desc">Front-end developer</p>
+                    <p class="skill">HTML, CSS, JS, ...</p>
+                    <img src="images/studentsparticipate/frontend.png" alt="Front-end developer"/>
+                </li>
+                <li>
+                    <p class="skill-desc">Back-end developer</p>
+                    <p class="skill">PHP, JS, Java, ...</p>
+                    <img src="images/studentsparticipate/backend.png" alt="Back-end developer"/>
+                </li>
+                <li>
+                    <p class="skill-desc">Graphic designer</p>
+                    <p class="skill">Photoshop, Illustrator, ...</p>
+                    <img src="images/studentsparticipate/designer.png" alt="Graphic designer"/>
+                </li>
+                <li>
+                    <p class="skill-desc">User experience designer</p>
+                    <p class="skill">UX, Interaction Design, ...</p>
+                    <img src="images/studentsparticipate/uxdesigner.jpg" alt="User experience designer"/>
+                </li>
+                <li>
+                    <p class="skill-desc">Communication/marketing manager</p>
+                    <p class="skill">Social Media, Communication Strategy, ...</p>
+                    <img src="images/studentsparticipate/communication.png" alt="Communication/marketing manager"/>
+                </li>
+                <li>
+                    <p class="skill-desc">Business developer</p>
+                    <p class="skill">Business Modeling, Strategy, ...</p>
+                    <img src="images/studentsparticipate/business_developer.png" alt="Business developer"/>
+                </li>
+            </ul>
+           
+            <h2>Participate as student</h2>
+            <p class="tagline">
+                Are you a Belgian college or university student with development, design, business or communication skills? Click the "Apply" button, fill out the form and send us a resume and motivation letter explaining what you are good at and what you want to do.
+                For more information, check out the <a href="#faq" data-target="faq" class="scroll">FAQ</a>.
+            </p>
+            <a class="big-participate" id="formPress" href="https://docs.google.com/forms/d/1bRXQAY-Rh02-pBjB2dv9tDAZY6HPS65fT1sIdRnh3Wo/viewform?usp=send_form ">Apply</a>
             
-            <p class="partner-desc">
+            <!-- STUDENT and Management LIST GOES HERE -->
+            
+            <h2>Management</h2>
+            <ul class="students-gallery">
+                <li>
+                    <img src="images/Headshots/pj.jpg" alt="Pieter-Jan Pauwels">
+                    <p class="student-name">Pieter-Jan Pauwels</p>
+                    <p class="student-twitter"><a href="https://twitter.com/PJPauwels">Twitter</a></p>
+                    <p class="student-linkedin"><a href="https://www.linkedin.com/in/pjpauwels">LinkedIn</a></p>
+                </li>
+                <li>
+                    <img src="images/Headshots/pj.jpg" alt="Pieter-Jan Pauwels">
+                    <p class="student-name">Pieter-Jan Pauwels</p>
+                    <p class="student-twitter"><a href="https://twitter.com/PJPauwels">Twitter</a></p>
+                    <p class="student-linkedin"><a href="https://www.linkedin.com/in/pjpauwels">LinkedIn</a></p>
+                </li>
+                <li>
+                    <img src="images/Headshots/pj.jpg" alt="Pieter-Jan Pauwels">
+                    <p class="student-name">Pieter-Jan Pauwels</p>
+                    <p class="student-twitter"><a href="https://twitter.com/PJPauwels">Twitter</a></p>
+                    <p class="student-linkedin"><a href="https://www.linkedin.com/in/pjpauwels">LinkedIn</a></p>
+                </li>
+                <li>
+                    <img src="images/Headshots/pj.jpg" alt="Pieter-Jan Pauwels">
+                    <p class="student-name">Pieter-Jan Pauwels</p>
+                    <p class="student-twitter"><a href="https://twitter.com/PJPauwels">Twitter</a></p>
+                    <p class="student-linkedin"><a href="https://www.linkedin.com/in/pjpauwels">LinkedIn</a></p>
+                </li>
+            </ul>
+            
+            <h2>Students</h2>
+            <ul class="students-gallery">
+                <li>
+                    <img src="images/Headshots/pj.jpg" alt="Pieter-Jan Pauwels">
+                    <p class="student-name">Pieter-Jan Pauwels</p>
+                    <p class="student-twitter"><a href="https://twitter.com/PJPauwels">Twitter</a></p>
+                    <p class="student-linkedin"><a href="https://www.linkedin.com/in/pjpauwels">LinkedIn</a></p>
+                </li>
+                <li>
+                    <img src="images/Headshots/pj.jpg" alt="Pieter-Jan Pauwels">
+                    <p class="student-name">Pieter-Jan Pauwels</p>
+                    <p class="student-twitter"><a href="https://twitter.com/PJPauwels">Twitter</a></p>
+                    <p class="student-linkedin"><a href="https://www.linkedin.com/in/pjpauwels">LinkedIn</a></p>
+                </li>
+                <li>
+                    <img src="images/Headshots/pj.jpg" alt="Pieter-Jan Pauwels">
+                    <p class="student-name">Pieter-Jan Pauwels</p>
+                    <p class="student-twitter"><a href="https://twitter.com/PJPauwels">Twitter</a></p>
+                    <p class="student-linkedin"><a href="https://www.linkedin.com/in/pjpauwels">LinkedIn</a></p>
+                </li>
+                <li>
+                    <img src="images/Headshots/pj.jpg" alt="Pieter-Jan Pauwels">
+                    <p class="student-name">Pieter-Jan Pauwels</p>
+                    <p class="student-twitter"><a href="https://twitter.com/PJPauwels">Twitter</a></p>
+                    <p class="student-linkedin"><a href="https://www.linkedin.com/in/pjpauwels">LinkedIn</a></p>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+  
+    <div class="partners" id="partners">
+        <div class="constraint"> 
+            <h2>Previous Partners</h2>
+            <p class="tagline">
+                Here's a list of the partners we have worked with the past years.
+                If you're interested in partnering up, be sure to keep on reading.
+            </p>
+            <div class="partners-gallery">
+                <a href="http://www.cordacampus.com/en/corda-incubator/welcome" title="Corda Incubator" target="_blank"><img class="sponsor" src="images/sponsors/cordainc.png"></a>
+                <a href="http://www.trakk.be/" title="Trakk" target="_blank"><img class="sponsor" src="images/sponsors/trakk.png"></a>
+                <a href="http://www.digipolis.be/" title="Digipolis" target="_blank"><img class="sponsor" src="images/sponsors/digipolis.png"></a>
+                <a href="http://www.tones.be/" title="Tones" target="_blank"><img class="sponsor" src="images/sponsors/tones.png"></a>
+                <a href="http://www.startit.be/" title="StartIt KBC" target="_blank"><img class="sponsor" src="images/sponsors/startitkbc.png"></a>
+                <a href="http://www.belgianrail.be/" title="NMBS/SNCB" target="_blank"><img class="sponsor" src="images/sponsors/nmbs.png"></a>                 
+                <a href="http://www.be-mobile-international.com/" title="Be-Mobile" target="_blank"><img class="sponsor" src="images/sponsors/pro_bemobile2.png"></a>
+                <a href="http://www.bibnet.be/" title="Bibnet" target="_blank"><img class="sponsor" src="images/sponsors/pro_bibnet2.png"></a>
+                <a href="http://www.vlaanderen.be/nl" title="Vlaanderen" target="_blank"><img class="sponsor" src="images/sponsors/pro_flanders.png"></a>
+                <a href="http://www.iminds.be/" title="iMinds" target="_blank"><img class="sponsor" src="images/sponsors/pro_iminds.png"></a>
+                <a href="http://irail.be" title="iRail" target="_blank"><img class="sponsor" src="images/sponsors/pro_irail.png"></a>
+                <a href="http://www.leiedal.be/" title="Leiedal" target="_blank"><img class="sponsor" src="images/sponsors/pro_leiedal.png"></a>
+                <a href="http://stad.gent/" title="Stad Gent" target="_blank"><img class="sponsor" src="images/sponsors/pro_stadgent.png"></a>
+                <a href="http://www.inbo.be/" title="Inbo" target="_blank"><img class="sponsor" src="images/sponsors/pro_inbo.png"></a>
+            </div>
+            
+            <p class="tagline partner-desc">
                 Have an API which is screaming for an application? Have an app idea
                 that needs a proof of concept? Do you want to support students developing
                 ideas in an open setting? Let us know and we can grab a coffee.
                 <br>You can also find our partner proposal in <a href="pdf/#oSoc16PartnerProposal.pdf">PDF format</a>.
-                <br><br>
-                <a class="big-participate part-nomargin" id="mailPartner" href="mailto:pj@summerofcode.be?subject=Regarding oSoc16 Partnership">Mail us</a>
-                <div class="clearfix"></div>
             </p> 
+            <p>
+                <a class="big-participate" id="mailPartner" href="mailto:pj@summerofcode.be?subject=Regarding oSoc16 Partnership">Mail us</a>
+            </p>
+        </div>
+    </div>
+    
+    <div class="faq" id="faq">
+        <div class="constraint">
+            <div id="faqs">
+                <h2>FAQ</h2>
+                <h3>Can I participate in oSoc16? <i class="toggle-icon fa fa-play fa-rotate-90"></i></h3>
+                <div class="faq-answer">
+                    Yes, if you meet the following requirements. First of all, you’re a Belgian student eligible to work under a student contract for 16 full days. Second, you study or have experience in front- or back-end developing, design (UX, graphic), communication or business modelling. Third, you should be able to express yourself in English. Do you meet these requirements? Congratulations, you could be an oSoc16-student!
+                </div>
+                <h3>When will oSoc16 take place, and how long does it last? <i class="toggle-icon fa fa-play"></i></h3>
+                <div class="faq-answer">
+                    This year, oSoc16 lasts four weeks. You have to participate in all four weeks, 4 days per week. But you’re free in the weekends, hurray! 
+                    <br>
+                </div>
+                <h3>What will I be doing during oSoc16? <i class="toggle-icon fa fa-play"></i></h3>
+                <div class="faq-answer">
+                    All students will work in teams on different open innovation projects provided by partnering organisations, companies and governments. The goal is to complete these projects by the end of the programme and turn them into real-world products and services. In the end your team will present the finished product to the partnering organisation and to the world.
+                </div>
+                <!--
+                <h3>Where will oSoc16 take place, and how do I get there? <i class="toggle-icon fa fa-play"></i></h3>
+                <div class="faq-answer">
+                    TBA
+                </div>
+                -->
+                <h3>Why should I participate in oSoc16? <i class="toggle-icon fa fa-play"></i></h3>
+                <div class="faq-answer">
+                    This programme has a lot of advantages. First of all, you can improve your skills under the supervision of some talented coaches. Second, since you’ll be making an actual product, it looks great on your resume and you’ll expand your network. Third, you’ll surely make some new friends too.
+                    <br>
+                    Sounds awesome, no? And we didn’t even get to the best part yet: oSoc16 is completely free. Even better, you are getting paid! This programme could replace your summer job. Enhancing your skills, making new friends and cashing in some money too? Sounds like a dream, right?
+                </div>
+                <!--
+                <h3>How do I apply for oSoc16? When will I know whether I can participate? <i class="toggle-icon fa fa-play"></i></h3>
+                <div class="faq-answer">
+                    Sorry, applications are closed as of now. Thank you for your massive interest!<br>
+                    Early June, we go over all the applications. After that, we’ll let you know whether you’re in or not.
+                </div>-->
+            </div>
         </div>
     </div>
 
     <div class="footer">
         <div class="constraint">
-            <div class="grid-container">
-                <div class="grid-50">
-                    <p>Powered by Open Knowledge Belgium.
-                        Source code freely available on
-                        <a href="https://github.com/oSoc16/website">GitHub</a>.
-                    </p>
-                </div>
-                <div class="grid-50">
-                    <p class="al-r">Developed by
-                        <a href="https://twitter.com/brechtvdv">@brechtvdv</a>
-                        ,
-                        <a href="https://twitter.com/nicoverbruggen">@nicoverbruggen</a>
-                        ,
-                         <a href="https://twitter.com/PJPauwels">@PJPauwels</a>
-                        ,
-                        <a href="https://twitter.com/yungpanda_be">@yungpanda_be</a> and
-                        <a href="https://twitter.com/sandmeert">@sandmeert</a>.
-                    </p>
-                </div>
-            </div>
+            <p class="pull-left">Powered by Open Knowledge Belgium.
+                Source code freely available on
+                <a href="https://github.com/oSoc16/website">GitHub</a>.
+            </p>
+            <p class="pull-right">Contributors</p>
+            <div class="clearfix"></div>
         </div>
     </div>
 </div>
 
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+<script src="vendor/jquery/dist/jquery.min.js"></script>
 
-    ga('create', 'UA-50286357-1', 'summerofcode.be');
-    ga('send', 'pageview');
-</script>
 <script src="js/main.js"></script>
 </body>
 </html>
