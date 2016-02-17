@@ -22,7 +22,8 @@
 * ============================== */
 html {
   font-family: 'Lato', sans-serif;
-  background-color: #2D2D2D;
+  background-color: #b50775;
+  color: #b50775;
 }
 
 .text-center {
@@ -34,7 +35,7 @@ body {
 }
 
 a {
-  color: #00a5e0;
+  color: #a61cad;
 }
 
 .constraint {
@@ -46,7 +47,7 @@ a {
 }
 
 .page {
-  background-color: #FFF;
+  background-color: pink;
   margin-left: auto;
   margin-right: auto;
 }
@@ -62,7 +63,7 @@ h2 {
 }
 
 .wh {
-  color: #FFF;
+  color: pink;
 }
 
 .tagline {
@@ -79,11 +80,11 @@ h2 {
   width: 100%;
   top: 0;
   left: 0;
-  background-color: #FFF;
+  background-color: pink;
   padding: 15px;
   min-height: 50px;
   font-weight: 600;
-  border-bottom: 1px solid #adadad;
+  border-bottom: 1px solid #fdbee6;
 }
 .nav img {
   float: left;
@@ -106,14 +107,14 @@ h2 {
 }
 .nav ul li a {
   text-decoration: none;
-  color: #2D2D2D;
+  color: #b50775;
   transition: all 0.1s ease-in-out;
 }
 .nav ul li a:hover {
-  color: red;
+  color: purple;
 }
 .nav ul li .active {
-  color: red;
+  color: purple;
   transition: color 0.2s ease-in-out;
 }
 .nav ul li .osoc-bold {
@@ -156,7 +157,7 @@ h2 {
   .nav ul li {
     float: none;
     display: block;
-    background-color: #FFF;
+    background-color: pink;
     padding: 10px;
     margin: 0;
   }
@@ -169,9 +170,9 @@ h2 {
   width: auto;
   font-size: 1.3em;
   font-weight: bold;
-  background-color: red;
+  background-color: purple;
   padding: 10px 15px;
-  color: #FFF;
+  color: pink;
   border-radius: 10px;
   text-align: center;
   text-decoration: none;
@@ -180,14 +181,14 @@ h2 {
 
 .big-participate {
   display: inline-block;
-  background-color: #2D2D2D;
+  background-color: #b50775;
   padding: 25px;
   border-radius: 5px;
   margin-bottom: 20px;
 }
 .big-participate:hover {
-  background-color: #202020;
-  color: red;
+  background-color: #9c0665;
+  color: purple;
 }
 
 /* =============================
@@ -205,7 +206,7 @@ h2 {
   text-align: left;
   margin-top: 305px;
   z-index: 999;
-  color: #FFF;
+  color: pink;
   font-size: 3em;
   text-transform: uppercase;
   max-width: 600px;
@@ -216,7 +217,7 @@ h2 {
   }
 }
 #hero p {
-  color: #FFF;
+  color: pink;
   margin-right: 50px;
   text-align: left;
   margin-bottom: 45px;
@@ -238,14 +239,14 @@ h2 {
 * PARTNERS SECTION
 * ============================== */
 #partners {
-  color: #FFF;
+  color: pink;
   background: url("assets/hero-students2B.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 #partners h2 {
-  color: #FFF;
+  color: pink;
   margin-top: 0px;
   padding-top: 40px;
   padding-bottom: 20px;
@@ -274,7 +275,7 @@ h2 {
   opacity: 1;
 }
 #partners .partner-desc a {
-  color: #FFF;
+  color: pink;
 }
 
 /* =============================
@@ -283,7 +284,7 @@ h2 {
 #video {
   padding-top: 15px;
   padding-bottom: 15px;
-  background-color: #FFF;
+  background-color: pink;
 }
 #video .videowrapper {
   position: relative;
@@ -293,7 +294,7 @@ h2 {
   height: 0;
 }
 #video .player .video-wrapper {
-  background: #FFF !important;
+  background: pink !important;
 }
 #video iframe {
   position: absolute;
@@ -307,7 +308,7 @@ h2 {
 * LOCATION SECTION
 * ============================== */
 #location {
-  color: #FFF;
+  color: pink;
   padding-bottom: 45px;
   background: url("assets/hero-location3B.jpg");
   background-size: cover;
@@ -350,7 +351,7 @@ h2 {
   margin-bottom: 0;
 }
 #location .cities .city a {
-  color: #FFF;
+  color: pink;
   text-decoration: underline;
 }
 #location .cities .city a:hover {
@@ -366,9 +367,9 @@ h2 {
 * ============================== */
 #prev-edition {
   display: block;
-  color: #FFF;
+  color: pink;
   text-align: center;
-  background-color: #2D2D2D;
+  background-color: #b50775;
 }
 #prev-edition .tagline {
   margin-top: 0;
@@ -407,12 +408,12 @@ h2 {
 }
 
 #studentsparticipate {
-  color: #2D2D2D;
+  color: #b50775;
   background-position: center;
   padding-bottom: 35px;
 }
 #studentsparticipate h2 {
-  color: #2D2D2D;
+  color: #b50775;
   padding-top: 40px;
   padding-bottom: 25px;
   margin-top: 0px;
@@ -444,7 +445,7 @@ h2 {
   }
 }
 #studentsparticipate .skill-gallery li .skill, #studentsparticipate .skill-gallery li .skill-desc {
-  color: red;
+  color: purple;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -458,7 +459,7 @@ h2 {
 }
 #studentsparticipate .skill-gallery li .skill-desc {
   margin-bottom: 0;
-  color: #2D2D2D;
+  color: #b50775;
 }
 #studentsparticipate .skill-gallery li img {
   border-radius: 300px;
@@ -512,13 +513,13 @@ h2 {
 .students-gallery li .student-twitter a, .students-gallery li .student-linkedin a {
   vertical-align: baseline;
   padding: 5px 10px;
-  background-color: red;
-  color: #FFF;
+  background-color: purple;
+  color: pink;
   font-size: 0.9em;
   text-decoration: none;
 }
 .students-gallery li .student-twitter a:hover, .students-gallery li .student-linkedin a:hover {
-  background-color: #f00000;
+  background-color: #710071;
 }
 
 /* =============================
@@ -543,36 +544,36 @@ h2 {
 #faq h3 .toggle-icon {
   margin-left: .5em;
   transition: all 0.4s;
-  color: #535353;
+  color: #f613a2;
 }
 #faq .faq-answer {
   padding: 0 1em 1.5em 1em;
   display: block;
   line-height: 2;
-  color: #535353;
+  color: #f613a2;
 }
 
 /* =============================
 * FOOTER SECTION
 * ============================== */
 .footer {
-  background-color: #2D2D2D;
+  background-color: #b50775;
 }
 .footer p {
   font-size: 0.9em;
   padding-top: 5px;
   padding-bottom: 5px;
-  color: #FFF;
+  color: pink;
 }
 .footer a {
-  color: #e0e0e0;
+  color: white;
 }
 
 /* =============================
 * MEDIA QUERIES
 * ============================== */
 .projects {
-  background: #FFF !important;
+  background: pink !important;
 }
 .projects .project img {
   padding-left: 15px;
