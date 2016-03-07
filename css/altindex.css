@@ -556,6 +556,56 @@ h2 {
 /* =============================
 * FOOTER SECTION
 * ============================== */
+#mc_embed_signup {
+  font-size: 0.9em;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: pink;
+  width: 100%;
+}
+#mc_embed_signup .form-control {
+  border-radius: 0;
+  background-color: pink;
+  color: #b50775;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  padding: 1em 1.5em 1em 1.5em;
+  width: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+#mc_embed_signup .form-control:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  outline: none;
+}
+#mc_embed_signup .form-group {
+  margin-bottom: 0em;
+}
+#mc_embed_signup .btn {
+  padding: 1em 1.5em;
+  background-color: #8a008a;
+  border: none;
+  border-radius: 0;
+  color: #b50775;
+  font-weight: bold;
+  letter-spacing: 2px;
+  width: 49%;
+}
+#mc_embed_signup .btn:hover, #mc_embed_signup .btn:active, #mc_embed_signup .btn:focus {
+  background-color: purple;
+  color: #b50775;
+  border: none;
+  outline: none;
+}
+#mc_embed_signup .response {
+  margin-top: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
 .footer {
   background-color: #b50775;
 }
