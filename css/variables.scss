@@ -8,6 +8,6 @@ $color-super-light-grey: lighten($color-dark-grey, 50%);
 $color-white: #FFF;
 
 // Background definitions
-$intro-bg: url('assets/heroB.jpg');
-$partner-bg: url('assets/hero-students2B.jpg');
-$location-bg: url('assets/hero-location3B.jpg');
+$intro-bg: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOo2sFQDwAElAGyy5g1dAAAAABJRU5ErkJggg==), url('assets/2016_4.jpg');
+$partner-bg: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOo2sFQDwAElAGyy5g1dAAAAABJRU5ErkJggg==), url('assets/2016_2.jpg');
+$location-bg: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOo2sFQDwAElAGyy5g1dAAAAABJRU5ErkJggg==), url('assets/2016_3.jpg');

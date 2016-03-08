@@ -198,7 +198,7 @@ h2 {
   margin-top: -60px;
   padding-top: 50px;
   padding-bottom: 15px;
-  background: url("assets/heroB.jpg");
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPYyl5aDwAEVwGxySFyLQAAAABJRU5ErkJggg==), url("assets/2016_4.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -240,7 +240,7 @@ h2 {
 * ============================== */
 #partners {
   color: pink;
-  background: url("assets/hero-students2B.jpg");
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPYyl5aDwAEVwGxySFyLQAAAABJRU5ErkJggg==), url("assets/2016_2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -310,7 +310,7 @@ h2 {
 #location {
   color: pink;
   padding-bottom: 45px;
-  background: url("assets/hero-location3B.jpg");
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPYyl5aDwAEVwGxySFyLQAAAABJRU5ErkJggg==), url("assets/2016_3.jpg");
   background-size: cover;
   min-height: 600px;
 }
