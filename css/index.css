@@ -176,19 +176,17 @@ h2 {
   border-radius: 10px;
   text-align: center;
   text-decoration: none;
-  transition: all 0.1s ease-in-out;
 }
 
 .big-participate {
   display: inline-block;
-  background-color: #2D2D2D;
+  background-color: #ff3333;
   padding: 25px;
   border-radius: 5px;
   margin-bottom: 20px;
 }
 .big-participate:hover {
-  background-color: #202020;
-  color: #7ab800;
+  background-color: #ff1a1a;
 }
 
 /* =============================
@@ -565,7 +563,7 @@ h2 {
 }
 #mc_embed_signup .form-control {
   border-radius: 0;
-  background-color: #FFF;
+  background-color: #d6ff85;
   color: #2D2D2D;
   border: none;
   -webkit-box-shadow: none;
@@ -606,16 +604,16 @@ h2 {
   letter-spacing: 1px;
 }
 
-.footer {
+.footer, .mailinglist {
   background-color: #2D2D2D;
 }
-.footer p {
+.footer p, .mailinglist p {
   font-size: 0.9em;
   padding-top: 5px;
   padding-bottom: 5px;
   color: #FFF;
 }
-.footer a {
+.footer a, .mailinglist a {
   color: #e0e0e0;
 }
 

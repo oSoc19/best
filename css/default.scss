@@ -190,19 +190,17 @@ h2 {
     border-radius: 10px;
     text-align: center;
     text-decoration: none;
-    transition: all 0.1s ease-in-out;
 }
 
 .big-participate {
     display: inline-block;
-    background-color: $color-dark-grey;
+    background-color: $color-red;
     padding: 25px;
     border-radius: 5px;
     margin-bottom: 20px;
 
     &:hover {
-        background-color: darken($color-dark-grey, 5%);
-        color: $color-green;
+        background-color: darken($color-red, 5%);
     }
 }
 
@@ -631,7 +629,7 @@ h2 {
     
     .form-control{
         border-radius: 0;
-        background-color: $color-white;
+        background-color: lighten($color-green, 40%);
         color: $color-dark-grey;
         border: none;
         -webkit-box-shadow: none;
@@ -678,7 +676,7 @@ h2 {
     }
 } 
 
-.footer {
+.footer, .mailinglist {
     background-color: $color-dark-grey;
     
     p {
