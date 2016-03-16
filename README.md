@@ -1,9 +1,9 @@
-oSoc15-website
+oSoc16-website
 ==============
 
-Website for open Summer of code 2015
+Website for open Summer of code 2016
 
--- It's a clone of an early version of the oSoc14 website. For more up to date features, steal from https://github.com/oSoc14/website
+-- It's a clone of an early version of the oSoc14 website. For more up to date features, steal from https://github.com/oSoc16/website
 
 # Deployment
 
