@@ -34,7 +34,7 @@ body {
 }
 
 a {
-    color: $color-blue;
+    color: $color-green;
 }
 
 .constraint {
@@ -724,4 +724,23 @@ h2 {
         text-align: center;
         margin: 10px auto;
     }
+}
+
+/* Change placeholder text-color
+   Do not group these rules 
+*/
+*::-webkit-input-placeholder {
+    color: lighten($color-dark-grey, 20%);
+}
+*:-moz-placeholder {
+    /* FF 4-18 */
+    color: lighten($color-dark-grey, 20%);
+}
+*::-moz-placeholder {
+    /* FF 19+ */
+    color: lighten($color-dark-grey, 20%);
+}
+*:-ms-input-placeholder {
+    /* IE 10+ */
+    color: lighten($color-dark-grey, 20%);
 }

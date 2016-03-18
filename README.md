@@ -11,6 +11,10 @@ Make sure bower is installed
 
 > npm install -g bower
 
+Install other npm dependencies (only needed for Dev)
+
+> npm install
+
 Go to root folder of project in CLI
 
 Run following command:
@@ -19,13 +23,9 @@ Run following command:
 
 This should install the jQuery, Modernizr and FontAwesome packages
 
-> bundle install
+> gulp
 
-This will install to ruby dependencies
-
-> compass watch
-
-Watches your files and compiles them
+Compiles the SCSS files. (Only need to run this when you change the .scss files)
 
 Everything should now be into place to upload the site.
 
