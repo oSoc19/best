@@ -29,7 +29,7 @@ body {
   overflow-x: hidden; }
 
 a {
-  color: #7ab800; }
+  color: #00a5e0; }
 
 .constraint {
   max-width: 960px;
@@ -294,7 +294,7 @@ h2 {
       font-weight: 600;
       margin-bottom: 0; }
       #location .cities .city a {
-        color: #FFF;
+        color: #00a5e0;
         text-decoration: underline; }
         #location .cities .city a:hover {
           text-decoration: underline; }
