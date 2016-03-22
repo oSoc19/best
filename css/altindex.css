@@ -259,6 +259,9 @@ h2 {
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPYyl5aDwAEVwGxySFyLQAAAABJRU5ErkJggg==), url("assets/2016_3.jpg");
   background-size: cover;
   min-height: 600px; }
+  @media screen and (max-width: 480px) {
+    #location {
+      min-height: 500px; } }
   #location h2 {
     margin: 0;
     padding-top: 40px;
@@ -268,9 +271,11 @@ h2 {
     margin-bottom: 25px;
     margin-top: 0; }
   #location .map {
-    width: 550px;
+    max-width: 550px;
     margin-left: auto;
     margin-right: auto; }
+    #location .map img {
+      width: 100%; }
   #location .cities {
     top: -30px;
     max-width: 700px;
@@ -471,7 +476,7 @@ h2 {
     -webkit-box-shadow: none;
     box-shadow: none;
     padding: 1em 1.5em 1em 1.5em;
-    width: 50%;
+    width: 70%;
     display: inline-block;
     box-sizing: border-box;
     -moz-box-sizing: border-box; }
@@ -489,12 +494,15 @@ h2 {
     color: #b50775;
     font-weight: bold;
     letter-spacing: 2px;
-    width: 49%; }
+    width: 29%; }
     #mc_embed_signup .btn:hover, #mc_embed_signup .btn:active, #mc_embed_signup .btn:focus {
       background-color: purple;
       color: #b50775;
       border: none;
       outline: none; }
+  @media screen and (max-width: 480px) {
+    #mc_embed_signup .btn, #mc_embed_signup .form-control {
+      width: 100%; } }
   #mc_embed_signup .response {
     margin-top: 15px;
     font-weight: bold;

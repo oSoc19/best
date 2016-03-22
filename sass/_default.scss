@@ -342,6 +342,10 @@ h2 {
     background: $location-bg;
     background-size: cover;
     min-height: 600px;
+       
+    @media screen and (max-width: 480px) {
+        min-height: 500px;
+    }
 
     h2 {
         margin: 0;
@@ -356,9 +360,13 @@ h2 {
     }
     
     .map {
-        width: 550px;
+        max-width: 550px;
         margin-left: auto;
         margin-right: auto;
+        
+        img {
+            width: 100%;
+        }
     }
     
     .cities {
@@ -635,7 +643,7 @@ h2 {
         -webkit-box-shadow: none;
         box-shadow: none;
         padding: 1em 1.5em 1em 1.5em;
-        width: 50%;
+        width: 70%;
         display: inline-block;
         box-sizing:border-box;
         -moz-box-sizing:border-box;
@@ -659,13 +667,19 @@ h2 {
         color: $color-dark-grey;
         font-weight: bold;
         letter-spacing: 2px;
-        width: 49%;
+        width: 29%;
 
         &:hover, &:active, &:focus {
             background-color: $color-green;
             color: $color-dark-grey;
             border: none;
             outline: none;
+        }
+    }
+    
+    @media screen and (max-width: 480px) {
+        .btn, .form-control {
+            width: 100%;
         }
     }
     
