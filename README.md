@@ -38,9 +38,9 @@ As soon as we have more information, we should add the subEvents for every day.
 {
           "@context" : "http://schema.org",
           "@type" : "Event",
-          "name" : "Open Summer of code 2015",
-          "startDate" : "2014-07-06T09:00",
-          "endDate" : "2014-07-31T17:00",
+          "name" : "Open Summer of code 2016",
+          "startDate" : "2016-07-04T09:00",
+          "endDate" : "2016-07-29T17:00",
           "organizer" : {
                 "@id" : "https://opencorporates.com/id/companies/be/0845419930",
                 "@type": "Organization",
@@ -52,7 +52,7 @@ As soon as we have more information, we should add the subEvents for every day.
              "name" : "TBA",
              "address" : "TBA"
           },
-          "image" : "http://2015.summerofcode.be/images/socialmedia/logo.png"
+          "image" : "http://2016.summerofcode.be/images/socialmedia/logo.png"
       }
 ```
 

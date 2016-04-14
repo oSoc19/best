@@ -1,12 +1,12 @@
 {
-  "name": "oSoC15",
-  "version": "0.0.1",
+  "name": "oSoc16",
+  "version": "1.0",
   "authors": [
-    "SanderMeert",
+    "Sander Meert",
     "Lara De Raes",
     "Brecht Van De Vyvere"
   ],
-  "description": "Website for oSoC15",
+  "description": "Website for oSoc16",
   "main": "app.js",
   "keywords": [
     "html5",
@@ -14,7 +14,7 @@
     "JavaScript"
   ],
   "license": "MIT",
-  "homepage": "http://2015.summerofcode.be/",
+  "homepage": "http://2016.summerofcode.be/",
   "private": true,
   "ignore": [
     "**/.*",
