@@ -1,9 +1,9 @@
-oSoc16-website
+oSoc17-website
 ==============
 
-Website for open Summer of code 2016
+Website for open Summer of code 2017
 
--- It's a clone of an early version of the oSoc14 website. For more up to date features, steal from https://github.com/oSoc16/website
+-- It's a clone of an early version of the oSoc14 website. For more up to date features, steal from https://github.com/oSoc17/website
 
 # Deployment
 
@@ -38,9 +38,9 @@ As soon as we have more information, we should add the subEvents for every day.
 {
           "@context" : "http://schema.org",
           "@type" : "Event",
-          "name" : "Open Summer of code 2016",
-          "startDate" : "2016-07-04T09:00",
-          "endDate" : "2016-07-29T17:00",
+          "name" : "Open Summer of code 2017",
+          "startDate" : "2017-07-03T09:00",
+          "endDate" : "2017-07-28T17:00",
           "organizer" : {
                 "@id" : "https://opencorporates.com/id/companies/be/0845419930",
                 "@type": "Organization",
@@ -52,7 +52,7 @@ As soon as we have more information, we should add the subEvents for every day.
              "name" : "TBA",
              "address" : "TBA"
           },
-          "image" : "http://2016.summerofcode.be/images/socialmedia/logo.png"
+          "image" : "http://2017.summerofcode.be/images/socialmedia/logo.png"
       }
 ```
 
