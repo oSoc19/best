@@ -148,11 +148,15 @@ h2 {
   text-decoration: none; }
 
 .big-participate {
-  display: inline-block;
-  background-color: #ff3333;
-  padding: 25px;
-  border-radius: 5px;
-  margin-bottom: 20px; }
+    display: block;
+    background-color: $color-red;
+    padding: 25px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15em;
+  }
   .big-participate:hover {
     background-color: #ff1a1a; }
 

@@ -193,11 +193,14 @@ h2 {
 }
 
 .big-participate {
-    display: inline-block;
+    display: block;
     background-color: $color-red;
     padding: 25px;
     border-radius: 5px;
     margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15em;
 
     &:hover {
         background-color: darken($color-red, 5%);
