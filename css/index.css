@@ -287,10 +287,6 @@ h2 {
 #projects .project:nth-child(odd), #projects .project:nth-child(odd) h3 {
     text-align: right;
 }
-#projects .project-info {
-    display: flex;
-    flex-direction: row;
-}
 #projects .project:nth-child(odd) .project-info {
     flex-direction: row-reverse;
 }
@@ -673,7 +669,7 @@ h2 {
 /* =============================
 * MEDIA QUERIES
 * ============================== */
-
+/*
 .projects {
     background: #FFF !important;
 }
@@ -701,7 +697,7 @@ h2 {
 .projects .btn-primary {
     text-align: center;
     margin: 10px auto;
-}
+}*/
 /* Change placeholder text-color
    Do not group these rules 
 */
