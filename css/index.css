@@ -297,6 +297,18 @@ h2 {
     padding: auto;
     text-align: center;
 }
+@media only screen and (max-device-width: 480px) {
+     
+    #projects .projects-showcase {
+        flex-direction: column;
+    }
+    #projects .project {
+        width: 90%;
+    }  
+    #projects .project:empty {
+        display: none;
+    }
+}
 #projects .project h3 {
     text-transform: none;
 }
