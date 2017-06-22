@@ -284,10 +284,11 @@ h2 {
     padding-top: 40px;
     padding-bottom: 20px;
 }
-#projects .constraint {
+#projects .projects-showcase {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 #projects .project {
     width: 45%;
