@@ -284,18 +284,16 @@ h2 {
     padding-top: 40px;
     padding-bottom: 20px;
 }
-#projects .project h3 {
-    text-align: left;
+#projects .constraint {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
-#projects .project:not(:last-child) {
-    padding-bottom: 5px;
-    border-bottom: 1px solid;
-}
-#projects .project:nth-child(odd), #projects .project:nth-child(odd) h3 {
-    text-align: right;
-}
-#projects .project:nth-child(odd) .project-info {
-    flex-direction: row-reverse;
+#projects .project {
+    width: 45%;
+    margin: auto;
+    padding: auto;
+    text-align: center;
 }
 #projects .project-partners {
     margin: 5px;
