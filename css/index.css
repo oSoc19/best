@@ -296,6 +296,9 @@ h2 {
     padding: auto;
     text-align: center;
 }
+#projects .project h3 {
+    text-transform: none;
+}
 #projects .project-partners {
     margin: 5px;
 }
