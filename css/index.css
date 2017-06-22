@@ -319,11 +319,11 @@ h2 {
 #projects .partner {
     max-height: 40px;
     margin: 5px;
-    opacity: 0.85;
+    opacity: 0.4;
     filter: invert(100%);
 }
 #projects .partner:hover {
-    opacity: 1;
+    opacity: 0.6;
 }
 /* =============================
 * VIDEO SECTION
