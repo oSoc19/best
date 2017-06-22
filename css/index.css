@@ -311,6 +311,7 @@ h2 {
 }
 #projects .project h3 {
     text-transform: none;
+    color: #7ab800;
 }
 #projects .project-partners {
     margin: 5px;
