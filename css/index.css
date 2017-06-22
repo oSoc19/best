@@ -283,9 +283,11 @@ h2 {
     margin-top: 0px;
     padding-top: 40px;
     padding-bottom: 20px;
+}
+#projects .project h3 {
     text-align: left;
 }
-#project .project:not(:last-child) {
+#projects .project:not(:last-child) {
     padding-bottom: 5px;
     border-bottom: 1px solid;
 }
