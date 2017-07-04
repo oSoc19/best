@@ -640,36 +640,34 @@ h2 {
 * ============================== */
 
 .projects {
-    background: #FFF !important;
-}
-.projects .project img {
-    padding-left: 15px;
-    padding-top: 25px;
-    max-width: 150px;
-}
-.projects .project h3 {
-    text-align: left;
-    font-size: 1.3em;
-    font-weight: 700;
-    text-transform: none;
-}
-.projects .project p.sponsor {
-    font-style: italic;
-}
-.projects .project p {
-    line-height: 1.5em;
-    font-size: 1.2em;
-}
-.projects .text-center {
-    padding-bottom: 50px;
-}
-.projects .btn-primary {
+  background: #FFF !important; }
+  .projects .constraint .project {
+    width: 50%;
+    float: left;
+    margin-bottom: 2em; }
+    .projects .constraint .project:nth-child(2n) {
+      clear: left; }
+    .projects .constraint .project .project-image {
+      width: 100%;
+      text-align: center; }
+    .projects .constraint .project .project-content {
+      width: 90%;
+      margin: auto;
+      text-align: center; }
+      .projects .constraint .project .project-content h3 {
+        font-size: 1.3em;
+        font-weight: 700;
+        text-transform: none; }
+      .projects .constraint .project .project-content p.sponsor {
+        font-style: italic; }
+      .projects .constraint .project .project-content p {
+        line-height: 1.5em;
+        font-size: 1.2em; }
+  .projects .text-center {
+    padding-bottom: 50px; }
+  .projects .btn-primary {
     text-align: center;
-    margin: 10px auto;
-}
-/* Change placeholder text-color
-   Do not group these rules 
-*/
+    margin: 10px auto; }
 
 *::-webkit-input-placeholder {
     color: #606060;
