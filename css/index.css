@@ -270,61 +270,7 @@ h2 {
 #partners .partner-desc a {
     color: #FFF;
 }
-/* =============================
-* PROJECTS SECTION
-* ============================== */
 
-#projects {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    padding-bottom: 10px;
-}
-#projects h2 {
-    margin-top: 0px;
-    padding-top: 40px;
-    padding-bottom: 20px;
-}
-#projects .projects-showcase {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-#projects .project {
-    width: 30%;
-    margin: auto;
-    padding: auto;
-    text-align: center;
-}
-@media only screen and (max-device-width: 480px) {
-     
-    #projects .projects-showcase {
-        flex-direction: column;
-    }
-    #projects .project {
-        width: 90%;
-    }  
-    #projects .project:empty {
-        display: none;
-    }
-}
-#projects .project h3 {
-    text-transform: none;
-    color: #7ab800;
-}
-#projects .project-partners {
-    margin: 5px;
-}
-#projects .partner {
-    max-height: 40px;
-    margin: 5px;
-    opacity: 0.4;
-    filter: invert(100%);
-}
-#projects .partner:hover {
-    opacity: 0.6;
-}
 /* =============================
 * VIDEO SECTION
 * ============================== */
