@@ -668,6 +668,9 @@ h2 {
   .projects .btn-primary {
     text-align: center;
     margin: 10px auto; }
+.project-image img {
+    max-width: 200px;
+}
 
 *::-webkit-input-placeholder {
     color: #606060;
