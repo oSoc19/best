@@ -443,6 +443,29 @@ h2 {
   text-align: center;
 }
 
+@media screen and (max-width: 1050px) {
+  .event-images {
+    flex-wrap: wrap;
+  }
+
+  .event {
+    width: 40%;
+    padding-bottom: 3rem;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  .event-text-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .event {
+    width: 100%;
+    padding-bottom: 1rem;
+  }
+}
+
 /* =============================
 * STUDENTS SECTION
 * ============================== */
