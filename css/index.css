@@ -284,7 +284,7 @@ h2 {
     position: relative;
     padding-bottom: 53.55%;
     /* 16:9 */
-    
+
     padding-top: 25px;
     height: 0;
 }
@@ -400,6 +400,49 @@ h2 {
 #prev-edition .prev-logos a:last-of-type {
     margin-bottom: 35px;
 }
+
+/* =============================
+* EVENTS SECTION
+* ============================== */
+
+.events {
+  padding: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.event-images {
+  display: flex;
+  justify-content: center;
+}
+
+.event-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.events h3 {
+  font-size: 1em;
+  text-align: left;
+}
+
+.event {
+  padding: .2rem;
+}
+
+.event img {
+  max-width: 100%;
+}
+
+.event-button {
+  background-color: #7ab800;
+  color: #ffffff;
+  padding: .3rem;
+  text-decoration: none;
+  width: 4rem;
+  text-align: center;
+}
+
 /* =============================
 * STUDENTS SECTION
 * ============================== */
@@ -677,16 +720,16 @@ h2 {
 }
 *:-moz-placeholder {
     /* FF 4-18 */
-    
+
     color: #606060;
 }
 *::-moz-placeholder {
     /* FF 19+ */
-    
+
     color: #606060;
 }
 *:-ms-input-placeholder {
     /* IE 10+ */
-    
+
     color: #606060;
 }

@@ -84,12 +84,12 @@
                 <i class="fa fa-bars fa-3x nav-toggle pull-right"></i>
             </div>
             <ul class="ul-nav">
-                
+
                 <li><a href="#projects" data-target="projects" class="scroll">Projects</a></li>
                 <li><a href="#coaches" data-target="coaches" class="scroll">Coaches</a></li>
                 <li><a href="#students" data-target="students" class="scroll">Students</a></li>
 
-                 
+
                 <!--<li><a href="#video" data-target="video" class="scroll">Video</a></li>
                 <li><a href="#projects" data-target="projects" class="scroll">Projects</a></li>
                 <li><a href="#studentsparticipate" data-target="studentsparticipate" class="scroll">Students</a></li>-->
@@ -251,9 +251,56 @@
             -->
         </div>
     </div>
-    
+
             <div class="clearfix"></div>
-            
+
+   <div class="events" id="events">
+     <h2 class="text-center text-yellow">EVENTS</h2>
+     <div class="event-images">
+       <div class="event">
+         <a href="https://www.eventbrite.co.uk/e/lunch-talk-yves-lorphelin-on-domain-driven-design-osoc17-tickets-35841986346" target="_blank"><img class="event-image" src="images/events/event1.png"></a>
+         <div class="event-text-container">
+             <h4>12 July</h4>
+             <a class="event-button" href="https://www.eventbrite.co.uk/e/lunch-talk-yves-lorphelin-on-domain-driven-design-osoc17-tickets-35841986346" target="_blank">Register</a>
+         </div>
+       </div>
+
+       <div class="event">
+         <a href="https://www.eventbrite.co.uk/e/lunch-talk-toon-vanagt-on-lean-startup-methodology-osoc17-tickets-35842772698" target="_blank"><img class="event-image" src="images/events/event2.png"></a>
+         <div class="event-text-container">
+             <h4>19 July</h4>
+             <a class="event-button" href="https://www.eventbrite.co.uk/e/lunch-talk-toon-vanagt-on-lean-startup-methodology-osoc17-tickets-35842772698" target="_blank">Register</a>
+         </div>
+       </div>
+
+       <div class="event">
+         <a href="https://www.eventbrite.com/e/open-bike-data-mapping-with-openstreetmap-registration-34806438996" target="_blank"><img class="event-image" src="images/events/event3.png"></a>
+         <div class="event-text-container">
+             <h4>21 July</h4>
+             <a class="event-button" href="https://www.eventbrite.com/e/open-bike-data-mapping-with-openstreetmap-registration-34806438996" target="_blank">Register</a>
+          </div>
+       </div>
+
+       <div class="event">
+         <a href="https://www.eventbrite.co.uk/e/tickets-lunch-talk-kwinten-lambrecht-on-telling-a-compelling-story-osoc17-35721165969" target="_blank"><img class="event-image" src="images/events/event4.jpg"></a>
+         <div class="event-text-container">
+             <h4>26 July</h4>
+             <a class="event-button" href="https://www.eventbrite.co.uk/e/tickets-lunch-talk-kwinten-lambrecht-on-telling-a-compelling-story-osoc17-35721165969" target="_blank">Register</a>
+
+          </div>
+       </div>
+
+       <div class="event">
+         <a href="https://www.eventbrite.co.uk/e/demo-day-osoc17-registration-35597154046" target="_blank"><img class="event-image" src="images/events/event5.png"></a>
+         <div class="event-text-container">
+             <h4>27 July</h4>
+             <a class="event-button" href="https://www.eventbrite.co.uk/e/demo-day-osoc17-registration-35597154046" target="_blank">Register</a>
+          </div>
+       </div>
+
+     </div>
+   </div>
+
     <div class="projects" id="projects">
 
       <div class="constraint">
@@ -377,15 +424,15 @@
 
       </div>
     </div>
-    
-    
+
+
             <div class="clearfix"></div>
-    
+
      <div class="studentsparticipate" id="studentsparticipate">
         <div class="constraint">
 
             <!-- STUDENT and Management LIST GOES HERE -->
-            
+
             <h2 id="coaches">Management</h2>
             <ul class="students-gallery">
                 <li>
@@ -655,7 +702,7 @@
                     <p class="student-linkedin"><a href="https://www.linkedin.com/in/tim-baccaert" target="_blank">LinkedIn</a></p>
                 </li>
             </ul>
-            
+
         </div>
     </div>
 
@@ -706,7 +753,7 @@
 <!--            <h3>When will oSoc17 take place, and how long does it last? <i class="toggle-icon fa fa-play"></i></h3>
                 <div class="faq-answer">
                    It starts the 4th of July and end the 29th of July. This year, oSoc17 lasts four weeks. You have to participate in all four weeks, 4 days per week. But you’re free on Fridays and in the weekend, hurray!
-           </div> -->    
+           </div> -->
                 <h3>What will I be doing during oSoc17? <i class="toggle-icon fa fa-play"></i></h3>
                 <div class="faq-answer">
                     All students will work in teams on different open innovation projects provided by partnering organisations, companies and governments. The goal is to complete these projects by the end of the programme and turn them into real-world products and services. In the end, your team will present the finished product to the partnering organisation and the world.
@@ -760,7 +807,7 @@
 
   ga('create', 'UA-86358919-1', 'auto');
   ga('send', 'pageview');
-    
+
   var partners = document.querySelector('.partners-gallery');
   for (var i = partners.children.length; i >= 0; i--) {
     partners.appendChild(partners.children[Math.random() * i | 0]);
