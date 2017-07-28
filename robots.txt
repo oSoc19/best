@@ -1,2 +1,3 @@
 User-agent: Googlebot-Image
 Disallow: /images/headshots/michiel.jpg
+Disallow: /images/headshots/diego.jpg
