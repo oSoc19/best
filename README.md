@@ -1,7 +1,7 @@
-oSoc17-website
+oSoc18-website
 ==============
 
-Website for open Summer of code 2017
+Website for open Summer of code 2018
 
 -- It's a clone of an early version of the oSoc14 website. For more up to date features, steal from https://github.com/oSoc17/website
 
