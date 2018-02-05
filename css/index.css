@@ -113,6 +113,12 @@ h2 {
     font-weight: 700;
     text-transform: none;
 }
+.nav ul li .menu-cta {
+    color: #7ab800;
+}
+.nav ul li .menu-cta:hover {
+    color: #ff1a1a;
+}
 .nav .nav-toggle {
     display: none;
 }
@@ -243,6 +249,9 @@ h2 {
     margin-top: 0px;
     padding-top: 40px;
     padding-bottom: 20px;
+}
+#partners h3 {
+    font-size: 1.5em;
 }
 #partners .partners-gallery {
     display: -webkit-flex;
@@ -729,6 +738,21 @@ h2 {
     .projects .constraint .project .project-image {
       width: 100%;
       text-align: center; }
+    .projects .constraint .project-old {
+        width: 30%;
+    }
+    .projects .constraint .project-old p{
+        width: 20%;
+    }
+    .projects .constraint .project-old h3{
+        font-size: 1.1em;
+    }
+    .projects .constraint .project-old:nth-child(2n) {
+        clear: none;
+    }
+    .projects .constraint .project-old:nth-child(5n) {
+        clear: left;
+    }
     .projects .constraint .project .project-content {
       width: 90%;
       margin: auto;
@@ -749,6 +773,9 @@ h2 {
     margin: 10px auto; }
 .project-image img {
     max-width: 200px;
+}
+.project-old .project-image img {
+    max-width: 150px;
 }
 
 *::-webkit-input-placeholder {
