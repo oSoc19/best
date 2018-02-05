@@ -271,7 +271,7 @@ h2 {
     max-height: 100px;
     margin-bottom: 25px;
     opacity: 0.85;
-    max-width: 200px;
+    max-width: 125px;
 }
 #partners .partners-gallery .sponsor:hover {
     opacity: 1;
@@ -769,15 +769,15 @@ h2 {
     width: 20%;
 }
 .projects .constraint .project-old p{
-    font-size: 1em !important;
+    font-size: .9em !important;
     margin: .5em auto;
 }
 .projects .constraint .project-old h3{
-    font-size: 1.2em;
+    font-size: 1.1em !important;
     margin: 0;
 }
 .project-old .project-image img {
-    max-width: 150px;
+    max-width: 120px;
 }
 
 *::-webkit-input-placeholder {
