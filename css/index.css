@@ -741,7 +741,7 @@ h2 {
     .projects .constraint .project-old:nth-child(2n) {
         clear: none;
     }
-    .projects .constraint .project-old:nth-child(6n) {
+    .projects .constraint .project-old:nth-child(7n) {
         clear: left;
     }
     .projects .constraint .project .project-content {
@@ -769,7 +769,7 @@ h2 {
     width: 20%;
 }
 .projects .constraint .project-old p{
-    font-size: 1.1em !important;
+    font-size: 1em !important;
     margin: .5em auto;
 }
 .projects .constraint .project-old h3{
