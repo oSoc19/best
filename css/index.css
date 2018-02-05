@@ -741,7 +741,7 @@ h2 {
     .projects .constraint .project-old:nth-child(2n) {
         clear: none;
     }
-    .projects .constraint .project-old:nth-child(5n) {
+    .projects .constraint .project-old:nth-child(6n) {
         clear: left;
     }
     .projects .constraint .project .project-content {
@@ -766,13 +766,15 @@ h2 {
     max-width: 200px;
 }
 .projects .constraint .project-old {
-    width: 30%;
+    width: 20%;
 }
 .projects .constraint .project-old p{
-    font-size: 1.1em;
+    font-size: 1.1em !important;
+    margin: .5em auto;
 }
 .projects .constraint .project-old h3{
-    font-size: 1.1em;
+    font-size: 1.2em;
+    margin: 0;
 }
 .project-old .project-image img {
     max-width: 150px;
