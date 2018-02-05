@@ -276,8 +276,8 @@ h2 {
 * ============================== */
 
 #video {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     background-color: #FFF;
 }
 #video .videowrapper {
@@ -390,6 +390,8 @@ h2 {
     align-items: center;
     -webkit-justify-content: space-around;
     justify-content: space-around;
+    width: 70%;
+    margin: auto;
 }
 #prev-edition .prev-logos a {
     margin: 25px 20px;
