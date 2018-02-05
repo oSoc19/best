@@ -267,8 +267,19 @@ h2 {
 #partners .partners-gallery .sponsor:hover {
     opacity: 1;
 }
+#partners .partner-desc {
+    padding: 30px;
+}
 #partners .partner-desc a {
     color: #FFF;
+}
+#partners #mailPartner {
+    background-color: #FFF;
+    color: #7ab800
+}
+#partners #mailPartner:hover {
+    color: #FFF;
+    background-color: #ff1a1a;
 }
 
 /* =============================
