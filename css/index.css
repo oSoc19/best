@@ -113,10 +113,11 @@ h2 {
     font-weight: 700;
     text-transform: none;
 }
-.nav ul li .menu-cta {
+.nav ul li .menu_cta {
     color: #7ab800;
+    text-transform: uppercase;
 }
-.nav ul li .menu-cta:hover {
+.nav ul li .menu_cta:hover {
     color: #ff1a1a;
 }
 .nav .nav-toggle {
@@ -248,7 +249,6 @@ h2 {
     color: #FFF;
     margin-top: 0px;
     padding-top: 40px;
-    padding-bottom: 20px;
 }
 #partners h3 {
     font-size: 1.5em;
@@ -277,7 +277,7 @@ h2 {
     opacity: 1;
 }
 #partners .partner-desc {
-    padding: 30px;
+    padding-bottom: 30px;
 }
 #partners .partner-desc a {
     color: #FFF;
@@ -738,15 +738,6 @@ h2 {
     .projects .constraint .project .project-image {
       width: 100%;
       text-align: center; }
-    .projects .constraint .project-old {
-        width: 30%;
-    }
-    .projects .constraint .project-old p{
-        width: 20%;
-    }
-    .projects .constraint .project-old h3{
-        font-size: 1.1em;
-    }
     .projects .constraint .project-old:nth-child(2n) {
         clear: none;
     }
@@ -773,6 +764,15 @@ h2 {
     margin: 10px auto; }
 .project-image img {
     max-width: 200px;
+}
+.projects .constraint .project-old {
+    width: 30%;
+}
+.projects .constraint .project-old p{
+    font-size: 1.1em;
+}
+.projects .constraint .project-old h3{
+    font-size: 1.1em;
 }
 .project-old .project-image img {
     max-width: 150px;
