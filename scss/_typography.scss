@@ -1,0 +1,124 @@
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-weight: 600;
+}
+
+h2.h2 {
+	line-height: 1;
+}
+
+h2.h3 {
+	line-height: 1.2;
+}
+
+a {
+	transition: all 300ms;
+
+	&:hover {
+		transition: all 200ms;
+	}
+}
+
+.uppercase {
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+.uppercase--bold {
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: 600;
+	font-size: 80%;
+}
+
+.divider {
+	position: relative;
+	margin-bottom: 2rem;
+
+	&:before {
+		content:"";
+		display: block;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 1.2rem;
+		border-bottom: 1px solid $light-gray;
+		z-index: 0;
+	}
+
+	.divider__text {
+		position: relative;
+		z-index: 1;
+		background-color: $white;
+		padding: 0 1rem 0 0;
+		font-size: 1.6rem;
+		font-weight: 600;
+		font-family: "Montserrat", sans-serif;
+	}
+}
+
+.hero-head--sub,
+.hero-head {
+	font-size: 1.5rem;
+	font-family: "Montserrat", sans-serif;
+	line-height: 1.3;
+	margin: 0 0 0.5rem;
+	max-width: 25rem;
+
+	@include breakpoint(medium) {
+		max-width: 36rem;
+		font-size: 2rem;
+	}
+
+	@include breakpoint(large) {
+		max-width: 50rem;
+		font-size: 2.5rem;
+	}
+}
+
+.hero-head {
+	font-weight: 700;
+}
+
+.hero-head--sub {
+	font-weight: 300;
+}
+
+.hero-text {
+	font-size: 1.2rem;
+	line-height: 1.6;
+	margin: 0;
+	max-width: 25rem;
+
+	@include breakpoint(medium) {
+		max-width: 36rem;
+		font-size: 1.2rem;
+	}
+
+	@include breakpoint(large) {
+		max-width: 50rem;
+		font-size: 1.5rem;
+	}
+}
+
+.intro-text {
+	font-family: 'Montserrat', sans-serif;
+	color: mix($blue-dark, $black);
+}
+
+a.link--strikethrough {
+	text-decoration: line-through;
+	pointer-events: none;
+	color: $dark-gray;
+	position: relative;
+
+	&:after {
+		content:"*";
+		position: absolute;
+		right: -1rem;
+	}
+}

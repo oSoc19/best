@@ -1,0 +1,56 @@
+.c-partners {
+	background-color: $lighter-gray;
+	padding: 1rem 0;
+
+	@include breakpoint(medium) {
+		padding: 0;
+	}
+
+	@include breakpoint(large) {
+		padding: 1rem;
+	}
+
+	.grid-x > .cell {
+		display: flex;
+		align-items: stretch;
+		justify-content: center;
+	}
+
+	.vertical-align-container {
+		margin: 1rem 0.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		@include breakpoint(small only) {
+			margin: 0.5rem;
+		}
+	}
+
+	img {
+		width: auto;
+		height: auto;
+		max-height: 3rem;
+		filter: grayscale(100%);
+		opacity: 0.8;
+		transition: all 300ms;
+
+		@include breakpoint(small only) {
+			max-width: 4rem;
+		}
+
+		@include breakpoint(medium) {
+			max-width: 4rem;
+		}
+
+		@include breakpoint(large) {
+			max-width: 7rem;
+		}
+
+		&:hover {
+			filter: none;
+			opacity: 1;
+			transition: all 300ms;
+		}
+	}
+}

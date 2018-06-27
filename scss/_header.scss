@@ -1,0 +1,66 @@
+.menu-icon {
+	margin-top: 0.3rem !important;
+	vertical-align: top !important;
+}
+
+.menu a.button {
+	@include breakpoint(medium only) {
+		padding-left: 0.5rem;
+		padding-right: 0.5rem;
+	}
+}
+
+/* logo */
+
+.logo.title-bar-title {
+	font-family: "Montserrat", sans-serif !important;
+	font-size: 1rem;
+	line-height: 1.1;
+	font-weight: 300;
+	color: $blue-dark;
+	transition: all 500ms;
+	display: inline-block;
+	padding-left: 0.5rem;
+	position: relative;
+
+	@include breakpoint(medium) {
+		font-size: 1.5rem;
+		font-weight: 600;
+		padding-left: 1rem;
+	}
+}
+
+a.logo {
+	img {
+		margin-top: 0.3rem;
+		width: 5rem;
+		display: block;
+	}
+}
+
+@media print, screen and (min-width: 40em) and (max-width: 64em) {
+	.top-bar .top-bar-right {
+	    -ms-flex: 1 1 auto !important;
+	    flex: 1 1 auto !important;
+	    margin-left: auto !important;
+	}
+}
+
+.sticky-container {
+	z-index: 400;
+}
+
+/* title bar */
+
+.title-bar {
+	box-shadow: 0px 0px 10px $light-gray;
+	border-bottom: 1px solid $lighter-gray;
+}
+
+.menu.vertical {
+	padding-bottom: 1.5rem;
+
+	@include breakpoint(large) {
+		padding-bottom: 0;
+	}
+}

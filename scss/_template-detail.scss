@@ -1,0 +1,168 @@
+.detail-page__image {
+	height: 1.4rem;
+	display: block;
+
+	@include breakpoint(medium) {
+		height: 1.9rem;
+	}
+}
+
+.hero-detail {
+	border-bottom: 1px solid $light-gray;
+	overflow: hidden !important;
+	position: relative;
+
+
+	.osoc-float-element-o:after,
+	.osoc-float-element-s:after,
+	.osoc-float-element-o-small:after,
+	.osoc-float-element-c:after {
+		left: 10vw;
+	}
+
+	.osoc-float-element-o-small:after {
+		top: 10rem;
+
+		@include breakpoint(medium only) {
+			left: 50vw;
+		}
+
+		@include breakpoint(small only) {
+			left: auto;
+			right: 3rem;
+			bottom: auto;
+			top: 3rem;
+		}
+	}
+
+	.osoc-float-element-s:after {
+		height: 15rem;
+		top: auto;
+		bottom: -5rem;
+
+		@include breakpoint(medium only) {
+			left: auto;
+			right: 10vw;
+		}
+
+		@include breakpoint(small only) {
+			left: auto;
+			right: 3rem;
+			bottom: auto;
+			top: 3rem;
+		}
+	}
+
+	.osoc-float-element-c:after {
+		left: 23vw;
+		top: auto;
+		bottom: 3rem;
+
+		@include breakpoint(medium only) {
+			left: auto;
+			right: 10vw;
+		}
+
+		@include breakpoint(small only) {
+			left: auto;
+			right: 3rem;
+			bottom: auto;
+			top: 3rem;
+		}
+	}
+}
+
+/* old projects */
+
+.c-projects-old__image {
+
+	img {
+		max-width: 10rem;
+		max-height: 10rem;
+		margin-right: 1rem;
+		opacity: 0.8;
+	}
+}
+
+.c-projects-old__content {
+	margin: 1rem 1rem 3rem 0;
+}
+
+.c-projects-old {
+
+	.h3 a {
+		text-transform: none;
+		letter-spacing: 0;
+		color: $black;
+		font-size: 1.4rem;
+	}
+}
+
+.c-projects-old__project {
+	opacity: 0.9;
+	transition: all 200ms;
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
+
+@media print, screen and (max-width: 40em) {
+	.c-projects-old__project {
+		text-align: center;
+	}
+
+	.c-projects-old__content {
+		max-width: 20rem;
+		margin: 1rem auto 3rem;
+	}
+}
+
+/* FAQ */
+
+.c-faq__item {
+	padding-bottom: 2rem;
+}
+
+.c-faq__item__answer {
+	line-height: 1.8rem;
+}
+
+.c-faq-tabs {
+
+}
+
+.calendar {
+	position: relative;
+	z-index: 1;
+}
+
+.loading {
+	display: block;
+	position: relative;
+
+	&:after {
+		z-index: -1;
+		content: "Loading...";
+		position: absolute;
+		top: 5rem;
+		text-align: center;
+		width: 20rem;
+		left: calc(50% - 10rem);
+	}
+}
+
+.loading.loading--calendar {
+	background-color: #E3EAFD;
+	width: 100%;
+	min-height: 780px;
+}
+
+.loading.loading--calendar:after {
+	content: "Loading calendar...";
+}
+
+.loading.loading--map:after {
+	content: "Loading map...";
+}

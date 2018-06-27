@@ -1,0 +1,67 @@
+/*
+** Tabs */
+
+.tabs-title {
+    padding: 1rem;
+}
+
+.tabs-title h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin: 0;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.tabs-title.is-active {
+    cursor: pointer;
+    position: relative;
+
+    &:after {
+        content: "";
+        position: absolute;
+        height: 4px;
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        background-color: $red;
+    }
+
+    h2 a {
+        color: $blue-dark;
+        text-decoration: none;
+    }
+}
+.tabs-content {
+    border-bottom: none !important;
+}
+
+.tabs.tabs--dropdown {
+    border-bottom: none;
+
+    li.tabs-title {
+        position: relative;
+        border-bottom: 1px solid $light-gray;
+        z-index: 1;
+
+        &:last-child {
+            border-right: none;
+        }
+
+        > a:focus,
+        > a[aria-selected='true'] {
+            background-color: transparent;
+            box-shadow: inset 0 -0.2rem 0 $red;
+        }
+
+        a:focus {
+            outline: none;
+        }
+
+        &.is-active {
+            border-bottom-color: $green;
+        }
+    }
+}

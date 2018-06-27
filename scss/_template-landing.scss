@@ -1,0 +1,74 @@
+.hero-intro {
+	padding: 3rem 0 3.5rem;
+	position: relative;
+	min-height: 60vh;
+
+	@include breakpoint(medium) {
+		padding: 4rem 0;
+		min-height: 60vh;
+	}
+
+	@include breakpoint(large) {
+		padding: 8vh 0;
+		min-height: 72vh;
+	}
+}
+
+.hero-themes {
+	position: relative;
+
+	a {
+		text-decoration: none;
+		position: relative;
+
+		&:hover {
+			background-color: $yellow;
+			color: $blue-dark;
+			border-color: $yellow;
+
+			&:before {
+			}
+		}
+	}
+
+	a:before {
+		content:"For ";
+
+		@include breakpoint(medium) {
+			display: block;
+		}
+	}
+
+	a:after {
+		content:"→";
+		padding-left: 0.5rem;
+		color: $red;
+		transition: all 200ms;
+		position: relative;
+		top: 2px;
+	}
+
+	a:hover:after {
+		color: inherit;
+		transform: translate3d(42px, -62px, -135px);
+	}
+
+
+	@include breakpoint(medium only) {
+		a {
+			text-decoration: underline;
+		}
+
+		a:after {
+			content: normal;
+		}
+	}
+
+	@include breakpoint(medium) {
+		padding-bottom: 3vh;
+	}
+
+	@include breakpoint(large) {
+		padding-bottom: 5vh;
+	}
+}

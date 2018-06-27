@@ -1,0 +1,23 @@
+.c-what {
+	// box-shadow: 0px 0px 10px $light-gray;
+	// border-bottom: 1px solid $lighter-gray;
+	background-color: $lighter-gray;
+}
+
+@include breakpoint(small) {
+	.c-what .cell:first-child {
+		padding: 1rem 0;
+	}
+}
+
+@include breakpoint(medium) {
+	.c-what .cell:first-child {
+		padding: 1rem 0.5rem;
+	}
+}
+
+@include breakpoint(large) {
+	.c-what .cell:first-child {
+		padding: 0 0.5rem;
+	}
+}

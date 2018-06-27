@@ -1,0 +1,68 @@
+.c-brag {
+	font-family: "Montserrat", sans-serif;
+	text-align: center;
+	padding: 2rem 0;
+
+	.cell {
+
+		&:first-child,
+		&:nth-child(5) {
+			.c-brag__component__number {
+				color: $red;
+			}
+		}
+
+		&:nth-child(2),
+		&:nth-child(6) {
+			.c-brag__component__number {
+				color: $green;
+			}
+		}
+
+		&:nth-child(3) {
+			.c-brag__component__number {
+				color: $yellow;
+			}
+		}
+	}
+
+	.c-brag__component {
+		margin: 1rem 0;
+	}
+
+	.c-brag__component__label {
+		margin-bottom: 0.2rem;
+	}
+
+	.c-brag__component__counter,
+	.c-brag__component__label {
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		white-space: nowrap;
+		font-size: 0.9rem;
+		color: $black;
+	}
+
+	.c-brag__component__number {
+		font-size: 3rem;
+		margin-bottom: 0;
+		font-weight: 800;
+		line-height: 1;
+		margin-bottom: 0.2rem;
+		color: $black;
+	}
+
+	@include breakpoint(medium only) {
+
+		.c-brag__component {
+			margin: 1.5rem 0;
+		}
+	}
+
+	@include breakpoint(large) {
+
+		.c-brag__component {
+			margin: 2.5rem 0;
+		}
+	}
+}

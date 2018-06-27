@@ -1,0 +1,45 @@
+/*
+** Padding */
+
+.grid-x.grid-x--equal-height {
+    display: flex;
+
+    > * {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+
+        .grid-x--equal-height__item {
+            flex: 1;
+        }
+    }
+}
+
+.cell {
+	transition: all 300ms;
+}
+
+.grid-x>.small-shrink {
+    @include breakpoint(small only) {
+        width: auto !important;
+    }
+}
+
+.cell.small-shrink {
+    @include breakpoint(small only) {
+        -ms-flex: 0 0 auto !important;
+        flex: 0 0 auto !important;
+    }
+}
+
+.grid-x>.small-auto {
+    @include breakpoint(small only) {
+        width: auto !important;
+    }
+}
+.cell.small-auto {
+    @include breakpoint(small only) {
+        -ms-flex: 1 1 0px !important;
+        flex: 1 1 0px !important;
+    }
+}

@@ -1,0 +1,48 @@
+.c-previous-editions {
+	text-align: center;
+	padding: 1.5rem 0;
+
+	img {
+		width: 100%;
+		max-width: 4rem;
+		display: block;
+		opacity: 0.7;
+		transition: all 200ms;
+		padding: 0.4rem 0.3rem 0.4rem 0.4rem;
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	.cell:first-child,
+	.cell:nth-child(4),
+	.cell:nth-child(7) {
+		img:hover {
+			background-color: $green;
+		}
+	}
+
+	.cell:nth-child(2),
+	.cell:nth-child(5) {
+		img:hover {
+			background-color: $yellow;
+		}
+	}
+
+	.cell:nth-child(3),
+	.cell:nth-child(6) {
+		img:hover {
+			background-color: $red;
+		}
+	}
+
+	@include breakpoint(medium) {
+		padding: 0 0 2rem;
+	}
+
+
+	@include breakpoint(large) {
+		padding: 0;
+	}
+}

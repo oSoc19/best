@@ -1,0 +1,99 @@
+
+/* shadows */
+
+.bs--lighter-gray {
+	z-index: 1;
+	position: relative;
+	box-shadow: 0px 0px 10px $lighter-gray;
+}
+
+.bs--light-gray{
+	z-index: 1;
+	position: relative;
+	box-shadow: 0px 0px 10px $light-gray;
+}
+
+.bs--medium-gray {
+	z-index: 1;
+	position: relative;
+	box-shadow: 2px 2px 10px $medium-gray;
+}
+
+.bs--darken-light {
+	z-index: 1;
+	position: relative;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* backgrounds */
+
+.bg-yellow {
+  background-color: $yellow;
+}
+
+.bg-blue-medium {
+	background-color: mix($blue-dark, $green, 87%);
+}
+
+.bg-blue-dark {
+  background-color: $blue-dark;
+}
+
+.bg-blue-darker {
+  background-color: darken($blue-dark, 5%);
+}
+
+.bg-red {
+  background-color: $red;
+  color: $white;
+}
+
+.bg-green {
+  background-color: $green;
+}
+
+.bg-blue-medium,
+.bg-blue-dark,
+.bg-blue-darker {
+  color: $white;
+
+  label,
+  a,
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+  	color: $white;
+  }
+
+  a:hover {
+  	color: $green;
+  }
+}
+
+.bg-lighter-gray {
+	background-color: $lighter-gray;
+}
+
+.bg-light-gray {
+	background-color: $light-gray;
+}
+
+.bg-medium-gray {
+	background-color: $medium-gray;
+}
+
+.bg-dark-gray {
+	background-color: $dark-gray;
+}
+
+.bg-black {
+	background-color: $black;
+}
+
+.bg-white {
+	background-color: $white;
+}

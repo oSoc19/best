@@ -1,0 +1,49 @@
+footer {
+	background-color: $light-gray;
+	padding: 3rem 0 3rem;
+
+	input:not(.button) {
+	  border: none;
+	  transition: all 300ms;
+	  height: 43px;
+
+	  &:hover {
+	    background-color: $white;
+	    transition: all 300ms;
+	    border: none;
+	  }
+
+	  &:focus {
+	  	border: none;
+	    outline: none;
+	    background-color: $white;
+	    box-shadow: inset 0 -2px 0 $green;
+	  }
+	}
+
+	@include breakpoint(small only) {
+		padding: 1.5rem;
+	}
+}
+
+footer ul {
+	list-style: none;
+	margin: 0;
+	font-weight: 500;
+}
+
+footer {
+	color: $black;
+
+	a,
+	p,
+	label,
+	.h1,
+	.h2,
+	.h3,
+	.h4,
+	.h5,
+	.h6 {
+		color: $black;
+	}
+}
