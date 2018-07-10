@@ -20,13 +20,33 @@ i.fas {
     }
 
     a {
+        background-color: $red;
+        color: $white;
+        border-radius: 100%;
+        width: 2.5rem;
+        padding: 0.17rem 0.2rem;
+        text-align: center;
+        height: 2.5rem;
+        text-decoration: none;
         display: block;
         margin-right: 1rem;
         &:last-of-type {
             margin-right: 0;
         }
+
         i {
-            font-size: 1.7rem;
+            font-size: 1.5rem;
+
+            &.fa-linkedin {
+                position: relative;
+                top: -0.1rem;
+                left: 0.05rem;
+            }
+
+            &.fa-github {
+                position: relative;
+                left: 0.02rem;
+            }
         }
     }
 }
