@@ -1,0 +1,32 @@
+i.fas {
+    font-family: 'FontAwesome';
+}
+
+.headshot-gallery {
+    text-align: center;
+}
+
+.headshot-detail {
+    margin-bottom: 2.6rem;
+
+    img {
+        border-radius: 50%;
+        margin-bottom: 1rem;
+    }
+
+    .student-social {
+        display: flex;
+        justify-content: center;
+    }
+
+    a {
+        display: block;
+        margin-right: 1rem;
+        &:last-of-type {
+            margin-right: 0;
+        }
+        i {
+            font-size: 1.7rem;
+        }
+    }
+}
