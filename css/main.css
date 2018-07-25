@@ -1,0 +1,26 @@
+/* main css */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.layout {
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+img {
+	width: 100%;
+}
+
+
+/* osoc colors
+
+Green: #44dba4;
+Blue: #0a0839;
+Yellow: #fcb70f;
+red: #f14a3b;
+
+ */

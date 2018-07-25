@@ -1,0 +1,164 @@
+/* General typography */
+* {
+	font-family: "Open sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+	font-family: "Montserrat", sans-serif;
+	color: #333;
+	margin-bottom: 0.5rem;
+}
+	@media only screen and (min-width: 48em) {
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		.h1,
+		.h2,
+		.h3,
+		.h4,
+		.h5,
+		.h6 {
+			margin-bottom: 1.5rem;
+		}
+	}
+
+h1,
+.h1 {
+	font-size: 2rem;
+	line-height: 1.1;
+}
+	@media only screen and (min-width: 48em) {
+		h1,
+		.h1 {
+			font-size: 3.5rem;
+			line-height: 1.1;
+		}
+	}
+
+h2,
+.h2 {
+	font-size: 1.9rem;
+}
+	@media only screen and (min-width: 30em) {
+
+		h2,
+		.h2 {
+			font-size: 3.1rem;
+			line-height: 1.1;
+		}
+	}
+
+h3,
+.h3 {
+	font-size: 1.8rem;
+}
+
+	@media only screen and (min-width: 30em) {
+
+		h3,
+		.h3 {
+			font-size: 2.8rem;
+			line-height: 1.1;
+		}
+	}
+
+h4,
+.h4 {
+	font-size: 1.7rem;
+}
+
+	@media only screen and (min-width: 30em) {
+
+		h4,
+		.h4 {
+			font-size: 2.4rem;
+			line-height: 1.1;
+		}
+	}
+
+h5,
+.h5 {
+	font-size: 1.6rem;
+}
+
+	@media only screen and (min-width: 30em) {
+
+		h5,
+		.h5 {
+			font-size: 2rem;
+			line-height: 1.1;
+		}
+	}
+
+h6,
+.h6 {
+	font-size: 1.5rem;
+	font-weight: normal;
+}
+
+	@media only screen and (min-width: 30em) {
+
+		h6,
+		.h6 {
+			font-size: 1.6rem;
+			line-height: 1.1;
+		}
+	}
+
+
+a {
+	color: #f14a3b;
+}
+
+	h1 a,
+	h2 a,
+	h3 a,
+	h4 a,
+	h5 a,
+	h6 a,
+	.h1 a,
+	.h2 a,
+	.h3 a,
+	.h4 a,
+	.h5 a,
+	.h6 a {
+		font-family: "Montserrat", sans-serif;
+	}
+
+p {
+	color: #333;
+	margin-bottom: 1rem;
+	line-height: 1.6;
+}
+
+strong {
+	font-weight: 700;
+}
+
+code, tt, kbd, samp {
+	font-family: monospace;
+}
+
+hr {
+	clear: both;
+	height: 0;
+	margin: 1.25rem auto 5rem;
+	border-top: 0;
+	border-right: 0;
+	border-bottom: 1px solid #cacaca;
+	border-left: 0;
+}

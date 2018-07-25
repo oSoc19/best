@@ -1,0 +1,42 @@
+.project-section > .row {
+	margin-bottom: 4rem;
+}
+
+/* ipad-ish image */
+
+.project-image {
+	padding: 1rem;
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 5px;
+	width: 100%;
+	background-color: rgba(0,0,0,0.03);
+	margin: 3rem 0 2rem;
+}
+
+	@media only screen and (min-width: 64em) {
+		.project-image {
+			padding: 1.5rem;
+			margin: 0;
+		}
+	}
+
+	.project-image img {
+		border: 1px solid rgba(0,0,0,0.3);
+		border-radius: 2px;
+		width: 100%;
+		background-color: white;
+	}
+
+/* team and partner section */
+
+
+.project-section .team,
+.project-section .partners {
+	margin-bottom: 3rem;
+}
+
+ul.team li,
+ul.partners li {
+	padding: 1rem 0;
+	list-style: none;
+}

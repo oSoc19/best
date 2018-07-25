@@ -1,0 +1,16 @@
+footer {
+	padding: 2rem 0;
+	background-color: #0a0839;
+}
+
+footer img {
+	max-width: 10rem;
+}
+
+footer a,
+footer p {
+	text-align: right;
+	color: white;
+}
+
+
