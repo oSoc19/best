@@ -24,7 +24,75 @@ def read_xml_files(paths):
 
     muncs = read_municipalities(br_munc)
     postal = read_postalinfos(br_postal)
-    print(postal)
+    streets = read_streetnames(br_street)
+
+    br_address = ET.iterparse(paths['BrusselsAddress'])
+    addresses = read_address_table(br_address, muncs, postal, streets)
+
+
+def read_address_table(addresses, municipalities, postcodes, streetnames):
+    add_list = []
+    for _, element in addresses:
+        if 'Address' in element.tag:
+            address = read_address(element)
+            address_join(address, municipalities, postcodes, streetnames)
+            add_list.append(read_address(element))
+    return add_list
+
+
+def address_join(address, municipalities, postcodes, streetnames):
+    if 'street_id' in address:
+        for key, val in streetnames[address['street_id']].items():
+            address[key] = val
+    if 'municipality_id' in address:
+        for key, val in municipalities[address['municipality_id']].items():
+            address[key] = val
+    if 'postcode' in address:
+        for key, val in postcodes[address['postcode']].items():
+            address[key] = val
+
+
+def read_address(element):
+    address = {}
+    for child in element:
+        if 'addressCode' in child.tag:
+            address['address_id'] = child.findtext(
+                '{http://vocab.belgif.be/ns/inspire/}objectIdentifier')
+        elif 'houseNumber' in child.tag:
+            address['house_number'] = child.text
+        elif 'hasStreetname' in child.tag:
+            address['street_id'] = child.findtext(
+                '{http://vocab.belgif.be/ns/inspire/}Streetname/{http://vocab.belgif.be/ns/inspire/}objectIdentifier')
+        elif 'hasMunicipality' in child.tag:
+            address['municipality_id'] = child.findtext(
+                '{http://vocab.belgif.be/ns/inspire/}Municipality/{http://vocab.belgif.be/ns/inspire/}objectIdentifier')
+        elif 'hasPostalInfo' in child.tag:
+            address['postcode'] = child.findtext(
+                '{http://vocab.belgif.be/ns/inspire/}PostalInfo/{http://vocab.belgif.be/ns/inspire/}objectIdentifier')
+    return address
+
+
+def read_streetnames(element):
+    streetnames = {}
+    for child in element:
+        if 'Streetname' in child.tag:
+            streetname = read_streetname(child)
+            streetnames[streetname['street_id']] = streetname
+    return streetnames
+
+
+def read_streetname(element):
+    streetname = {}
+    for child in element:
+        if 'streetnameCode' in child.tag:
+            streetname['street_id'] = child.findtext(
+                '{http://vocab.belgif.be/ns/inspire/}objectIdentifier')
+        elif 'streetname' in child.tag:
+            lang = child.findtext(
+                '{http://vocab.belgif.be/ns/inspire/}language')
+            streetname['streetname_{}'.format(
+                lang)] = child.findtext('{http://vocab.belgif.be/ns/inspire/}spelling')
+    return streetname
 
 
 def read_postalinfos(element):
