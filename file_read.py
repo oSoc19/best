@@ -41,6 +41,7 @@ def read_xml_files(paths):
         ET.iterparse(paths['WalloniaAddress'])
     )
 
+    # concat addresses to one big file
     addresses = pd.concat([br_addresses, vl_addresses, wa_addresses], axis=1)
     addresses.to_csv('full.csv')
 
@@ -61,6 +62,7 @@ def read_address_table(addresses, municipalities, postcodes, streetnames):
             address_join(address, municipalities, postcodes, streetnames)
             add_list.append(address)
             element.clear()
+    # convert to pandas dataframe to easily print csv later
     df = pd.DataFrame(add_list)
     return df
 
@@ -167,25 +169,6 @@ def read_muncipality(element):
             muncipality['municipality_name_{}'.format(
                 lang)] = child.findtext('{http://vocab.belgif.be/ns/inspire/}spelling')
     return muncipality
-
-
-def print_structure(root):
-    structure = get_structure(root)
-    print_structure_part(structure, 0)
-
-
-def print_structure_part(structure, level):
-    for key, val in structure.items():
-        print('\t' * level, key)
-        print_structure_part(val, level + 1)
-
-
-def get_structure(root):
-    structure = {}
-    for child in root:
-        if child.tag not in structure:
-            structure[child.tag] = get_structure(child)
-    return structure
 
 
 read_xml_files(paths)
