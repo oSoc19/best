@@ -2,38 +2,59 @@ import xml.etree.ElementTree as ET
 import pandas as pd
 import logging
 import argparse
+import os
+import sys
+import re
 
 from constants import *
 
-# Temporary file dictionary
-paths = {
-    'BrusselsAddress': '/home/theo/Downloads/bestdata/BrusselsAddress20190619/BrusselsAddress20190619L72.xml',
-    'BrusselsMunicipality': '/home/theo/Downloads/bestdata/BrusselsMunicipality20190619.xml',
-    'BrusselsPostalinfo': '/home/theo/Downloads/bestdata/BrusselsPostalinfo20190619.xml',
-    'BrusselsStreetname': '/home/theo/Downloads/bestdata/BrusselsStreetname20190619/BrusselsStreetname20190619L72.xml',
-    'FlandersAddress': '/home/theo/Downloads/bestdata/FlandersAddress20190616L72.xml',
-    'FlandersMunicipality': '/home/theo/Downloads/bestdata/FlandersMunicipality20190616L72.xml',
-    'FlandersPostalinfo': '/home/theo/Downloads/bestdata/FlandersPostalinfo20190616L72.xml',
-    'FlandersStreetname': '/home/theo/Downloads/bestdata/FlandersStreetname20190616L72.xml',
-    'WalloniaAddress': '/home/theo/Downloads/bestdata/WalloniaAddress20190610L72/WalloniaAddress20190610.xml',
-    'WalloniaMunicipality': '/home/theo/Downloads/bestdata/WalloniaMunicipality20190610.xml',
-    'WalloniaPartOfMunicipality': '/home/theo/Downloads/bestdata/WalloniaPartOfMunicipality20190610.xml',
-    'WalloniaPostalinfo': '/home/theo/Downloads/bestdata/WalloniaPostalinfo20190610.xml',
-    'WalloniaStreetname': '/home/theo/Downloads/bestdata/WalloniaStreetname20190610L72/WalloniaStreetname20190610.xml',
-}
-
 
 def converter(args):
-    addresses = read_xml_files(args, paths)
-    write_to_csv(addresses)
+    """Main entry point of the application
+    """
+    # create a dictionary of all paths to the files
+    paths = find_xml_files(args.input_dir)
+    # read the addresses from the files
+    addresses = read_xml_files(args.region, paths)
+    # write to csv
+    write_to_csv(addresses, args.region, args.output_dir)
 
 
-def read_xml_files(args, paths):
+def find_xml_files(input_dir):
+    """Find all the xml files in the given directory
+    """
+    keys = FILE_KEYS
+    paths = {}
+    for root, _, files in os.walk(input_dir):
+        for file in files:
+            if file.split('.')[-1] == 'xml':
+                m = re.search('^(.+?)[0-9]', file)
+                if m:
+                    key = m.group(1)
+                else:
+                    logging.warn(
+                        'The contents of file %s can not be read by this script', file)
+                if key in keys:
+                    keys.remove(key)
+                    paths[key] = os.path.join(root, file)
+                else:
+                    logging.warn(
+                        'The contents of file %s can not be read by this script', file)
+    if keys:
+        logging.error(
+            'File for data of type %s was not found in the input folder', keys)
+        sys.exit(1)
+    return paths
+
+
+def read_xml_files(region, paths):
+    """Read all XML files for the specified region
+    """
     logging.info('Started reading XML files')
 
     addresses = []
 
-    if args.region in ['all', 'brussels']:
+    if region in ['all', 'brussels']:
         br_addresses = read_region(
             ET.parse(paths['BrusselsMunicipality']).getroot(),
             ET.parse(paths['BrusselsPostalinfo']).getroot(),
@@ -43,7 +64,7 @@ def read_xml_files(args, paths):
         logging.info('Read the Brussels addresses')
         addresses += br_addresses
 
-    if args.region in ['all', 'flanders']:
+    if region in ['all', 'flanders']:
         vl_addresses = read_region(
             ET.parse(paths['FlandersMunicipality']).getroot(),
             ET.parse(paths['FlandersPostalinfo']).getroot(),
@@ -53,7 +74,7 @@ def read_xml_files(args, paths):
         logging.info('Read the Flanders addresses')
         addresses += vl_addresses
 
-    if args.region in ['all', 'wallonia']:
+    if region in ['all', 'wallonia']:
         wa_addresses = read_region(
             ET.parse(paths['WalloniaMunicipality']).getroot(),
             ET.parse(paths['WalloniaPostalinfo']).getroot(),
@@ -66,13 +87,17 @@ def read_xml_files(args, paths):
     return addresses
 
 
-def write_to_csv(addresses):
+def write_to_csv(addresses, region, output_dir):
+    """Write addresses to csv in the output directory
+    """
     # convert to pandas dataframe for easy csv writing
     addresses_df = pd.DataFrame(addresses)
-    addresses_df.to_csv('full.csv')
+    addresses_df.to_csv(os.path.join(output_dir, '%s_addresses.csv' % region))
 
 
 def read_region(muncipality_root, postalcode_root, streetname_root, address_iter):
+    """Read the XML files for a region
+    """
     municipalities = read_municipalities(muncipality_root)
     postalcodes = read_postalinfos(postalcode_root)
     streetnames = read_streetnames(streetname_root)
@@ -206,14 +231,15 @@ def read_muncipality(element):
 
 
 if __name__ == "__main__":
+    # Setup argument parser
     parser = argparse.ArgumentParser(
         description='Convert address XML files to other formats.')
     parser.add_argument(
         'input_dir', help='input directory of the xml files')
     parser.add_argument('output_dir', help='ouput directory')
     parser.add_argument('--log_dir', help='directory to write log files to')
-    parser.add_argument('--region', help='region to consider', default='all',
-                        choices=['all', 'brussels', 'flanders', 'wallonia'])
+    parser.add_argument('--region', help='region to consider', default='belgium',
+                        choices=['belgium', 'brussels', 'flanders', 'wallonia'])
 
     args = parser.parse_args()
     converter(args)

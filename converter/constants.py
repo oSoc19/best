@@ -16,3 +16,20 @@ NS = {
     'xlink': 'http://www.w3.org/1999/xlink',
     'pfx1': 'http://www.opengis.net/gml/3.3/ce'
 }
+
+# Keys for all the different xml files
+FILE_KEYS = [
+    'BrusselsAddress',
+    'BrusselsMunicipality',
+    'BrusselsPostalinfo',
+    'BrusselsStreetname',
+    'FlandersAddress',
+    'FlandersMunicipality',
+    'FlandersPostalinfo',
+    'FlandersStreetname',
+    'WalloniaAddress',
+    'WalloniaMunicipality',
+    'WalloniaPartOfMunicipality',
+    'WalloniaPostalinfo',
+    'WalloniaStreetname'
+]
