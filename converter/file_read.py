@@ -1,5 +1,8 @@
 import xml.etree.ElementTree as ET
 import pandas as pd
+import logging
+
+from constants import *
 
 # Temporary file dictionary
 paths = {
@@ -19,13 +22,20 @@ paths = {
 }
 
 
+def converter():
+    addresses = read_xml_files(paths)
+    write_to_csv(addresses)
+
+
 def read_xml_files(paths):
+    logging.info('Started reading XML files')
     br_addresses = read_region_to_table(
         ET.parse(paths['BrusselsMunicipality']).getroot(),
         ET.parse(paths['BrusselsPostalinfo']).getroot(),
         ET.parse(paths['BrusselsStreetname']).getroot(),
         ET.iterparse(paths['BrusselsAddress'])
     )
+    logging.info('Read the Brussels addresses')
 
     vl_addresses = read_region_to_table(
         ET.parse(paths['FlandersMunicipality']).getroot(),
@@ -33,6 +43,7 @@ def read_xml_files(paths):
         ET.parse(paths['FlandersStreetname']).getroot(),
         ET.iterparse(paths['FlandersAddress'])
     )
+    logging.info('Read the Flanders addresses')
 
     wa_addresses = read_region_to_table(
         ET.parse(paths['WalloniaMunicipality']).getroot(),
@@ -40,10 +51,17 @@ def read_xml_files(paths):
         ET.parse(paths['WalloniaStreetname']).getroot(),
         ET.iterparse(paths['WalloniaAddress'])
     )
+    logging.info('Read the Wallonia addresses')
 
-    # concat addresses to one big file
-    addresses = pd.concat([br_addresses, vl_addresses, wa_addresses], axis=1)
-    addresses.to_csv('full.csv')
+    addresses = br_addresses + vl_addresses + wa_addresses
+
+    return addresses
+
+
+def write_to_csv(addresses):
+    # convert to pandas dataframe for easy csv writing
+    addresses_df = pd.DataFrame(addresses)
+    addresses_df.to_csv('full.csv')
 
 
 def read_region_to_table(muncipality_root, postalcode_root, streetname_root, address_iter):
@@ -51,10 +69,10 @@ def read_region_to_table(muncipality_root, postalcode_root, streetname_root, add
     postalcodes = read_postalinfos(postalcode_root)
     streetnames = read_streetnames(streetname_root)
 
-    return read_address_table(address_iter, municipalities, postalcodes, streetnames)
+    return read_addresses(address_iter, municipalities, postalcodes, streetnames)
 
 
-def read_address_table(addresses, municipalities, postcodes, streetnames):
+def read_addresses(addresses, municipalities, postcodes, streetnames):
     add_list = []
     for _, element in addresses:
         if 'Address' == element.tag.split('}')[-1]:
@@ -62,9 +80,8 @@ def read_address_table(addresses, municipalities, postcodes, streetnames):
             address_join(address, municipalities, postcodes, streetnames)
             add_list.append(address)
             element.clear()
-    # convert to pandas dataframe to easily print csv later
-    df = pd.DataFrame(add_list)
-    return df
+
+    return add_list
 
 
 def address_join(address, municipalities, postcodes, streetnames):
@@ -84,21 +101,21 @@ def read_address(element):
     for child in element:
         if 'addressCode' == child.tag.split('}')[-1]:
             address['address_id'] = child.findtext(
-                '{http://vocab.belgif.be/ns/inspire/}objectIdentifier')
+                'com:objectIdentifier', namespaces=NS)
         elif 'addressPosition' == child.tag.split('}')[-1]:
             address['pos'] = child.findtext(
-                '{http://vocab.belgif.be/ns/inspire/}pointGeometry/{http://www.opengis.net/gml/3.2}Point/{http://www.opengis.net/gml/3.2}pos')
+                'com:pointGeometry/gml:Point/gml:pos', namespaces=NS)
         elif 'houseNumber' == child.tag.split('}')[-1]:
             address['house_number'] = child.text
         elif 'hasStreetname' == child.tag.split('}')[-1]:
             address['street_id'] = child.findtext(
-                '{http://vocab.belgif.be/ns/inspire/}Streetname/{http://vocab.belgif.be/ns/inspire/}objectIdentifier')
+                'com:Streetname/com:objectIdentifier', namespaces=NS)
         elif 'hasMunicipality' == child.tag.split('}')[-1]:
             address['municipality_id'] = child.findtext(
-                '{http://vocab.belgif.be/ns/inspire/}Municipality/{http://vocab.belgif.be/ns/inspire/}objectIdentifier')
+                'com:Municipality/com:objectIdentifier', namespaces=NS)
         elif 'hasPostalInfo' == child.tag.split('}')[-1]:
             address['postcode'] = child.findtext(
-                '{http://vocab.belgif.be/ns/inspire/}PostalInfo/{http://vocab.belgif.be/ns/inspire/}objectIdentifier')
+                'com:PostalInfo/com:objectIdentifier', namespaces=NS)
     return address
 
 
@@ -116,12 +133,12 @@ def read_streetname(element):
     for child in element:
         if 'streetnameCode' == child.tag.split('}')[-1]:
             streetname['street_id'] = child.findtext(
-                '{http://vocab.belgif.be/ns/inspire/}objectIdentifier')
+                'com:objectIdentifier', namespaces=NS)
         elif 'streetname' == child.tag.split('}')[-1]:
             lang = child.findtext(
-                '{http://vocab.belgif.be/ns/inspire/}language')
+                'com:language', namespaces=NS)
             streetname['streetname_{}'.format(
-                lang)] = child.findtext('{http://vocab.belgif.be/ns/inspire/}spelling')
+                lang)] = child.findtext('com:spelling', namespaces=NS)
     return streetname
 
 
@@ -139,12 +156,12 @@ def read_postalinfo(element):
     for child in element:
         if 'postcode' == child.tag.split('}')[-1]:
             postalinfo['postcode'] = child.findtext(
-                '{http://vocab.belgif.be/ns/inspire/}objectIdentifier')
+                'com:objectIdentifier', namespaces=NS)
         elif 'postname' == child.tag.split('}')[-1]:
             lang = child.findtext(
-                '{http://vocab.belgif.be/ns/inspire/}language')
+                'com:language', namespaces=NS)
             postalinfo['postname_{}'.format(
-                lang)] = child.findtext('{http://vocab.belgif.be/ns/inspire/}spelling')
+                lang)] = child.findtext('com:spelling', namespaces=NS)
     return postalinfo
 
 
@@ -162,13 +179,14 @@ def read_muncipality(element):
     for child in element:
         if 'municipalityCode' == child.tag.split('}')[-1]:
             muncipality['municipality_id'] = child.findtext(
-                '{http://vocab.belgif.be/ns/inspire/}objectIdentifier')
+                'com:objectIdentifier', namespaces=NS)
         elif 'municipalityName' == child.tag.split('}')[-1]:
             lang = child.findtext(
-                '{http://vocab.belgif.be/ns/inspire/}language')
+                'com:language', namespaces=NS)
             muncipality['municipality_name_{}'.format(
-                lang)] = child.findtext('{http://vocab.belgif.be/ns/inspire/}spelling')
+                lang)] = child.findtext('com:spelling', namespaces=NS)
     return muncipality
 
 
-read_xml_files(paths)
+if __name__ == "__main__":
+    converter()
