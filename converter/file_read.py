@@ -1,6 +1,7 @@
 import xml.etree.ElementTree as ET
 import pandas as pd
 import logging
+import argparse
 
 from constants import *
 
@@ -22,38 +23,45 @@ paths = {
 }
 
 
-def converter():
-    addresses = read_xml_files(paths)
+def converter(args):
+    addresses = read_xml_files(args, paths)
     write_to_csv(addresses)
 
 
-def read_xml_files(paths):
+def read_xml_files(args, paths):
     logging.info('Started reading XML files')
-    br_addresses = read_region_to_table(
-        ET.parse(paths['BrusselsMunicipality']).getroot(),
-        ET.parse(paths['BrusselsPostalinfo']).getroot(),
-        ET.parse(paths['BrusselsStreetname']).getroot(),
-        ET.iterparse(paths['BrusselsAddress'])
-    )
-    logging.info('Read the Brussels addresses')
 
-    vl_addresses = read_region_to_table(
-        ET.parse(paths['FlandersMunicipality']).getroot(),
-        ET.parse(paths['FlandersPostalinfo']).getroot(),
-        ET.parse(paths['FlandersStreetname']).getroot(),
-        ET.iterparse(paths['FlandersAddress'])
-    )
-    logging.info('Read the Flanders addresses')
+    addresses = []
 
-    wa_addresses = read_region_to_table(
-        ET.parse(paths['WalloniaMunicipality']).getroot(),
-        ET.parse(paths['WalloniaPostalinfo']).getroot(),
-        ET.parse(paths['WalloniaStreetname']).getroot(),
-        ET.iterparse(paths['WalloniaAddress'])
-    )
-    logging.info('Read the Wallonia addresses')
+    if args.region in ['all', 'brussels']:
+        br_addresses = read_region(
+            ET.parse(paths['BrusselsMunicipality']).getroot(),
+            ET.parse(paths['BrusselsPostalinfo']).getroot(),
+            ET.parse(paths['BrusselsStreetname']).getroot(),
+            ET.iterparse(paths['BrusselsAddress'])
+        )
+        logging.info('Read the Brussels addresses')
+        addresses += br_addresses
 
-    addresses = br_addresses + vl_addresses + wa_addresses
+    if args.region in ['all', 'flanders']:
+        vl_addresses = read_region(
+            ET.parse(paths['FlandersMunicipality']).getroot(),
+            ET.parse(paths['FlandersPostalinfo']).getroot(),
+            ET.parse(paths['FlandersStreetname']).getroot(),
+            ET.iterparse(paths['FlandersAddress'])
+        )
+        logging.info('Read the Flanders addresses')
+        addresses += vl_addresses
+
+    if args.region in ['all', 'wallonia']:
+        wa_addresses = read_region(
+            ET.parse(paths['WalloniaMunicipality']).getroot(),
+            ET.parse(paths['WalloniaPostalinfo']).getroot(),
+            ET.parse(paths['WalloniaStreetname']).getroot(),
+            ET.iterparse(paths['WalloniaAddress'])
+        )
+        logging.info('Read the Wallonia addresses')
+        addresses += wa_addresses
 
     return addresses
 
@@ -64,7 +72,7 @@ def write_to_csv(addresses):
     addresses_df.to_csv('full.csv')
 
 
-def read_region_to_table(muncipality_root, postalcode_root, streetname_root, address_iter):
+def read_region(muncipality_root, postalcode_root, streetname_root, address_iter):
     municipalities = read_municipalities(muncipality_root)
     postalcodes = read_postalinfos(postalcode_root)
     streetnames = read_streetnames(streetname_root)
@@ -88,12 +96,21 @@ def address_join(address, municipalities, postcodes, streetnames):
     if 'street_id' in address:
         for key, val in streetnames[address['street_id']].items():
             address[key] = val
+    else:
+        logging.warn('No street id was included address %s',
+                     address['address_id'])
     if 'municipality_id' in address:
         for key, val in municipalities[address['municipality_id']].items():
             address[key] = val
+    else:
+        logging.warn('No muncipality was included for address %s',
+                     address['address_id'])
     if 'postcode' in address:
         for key, val in postcodes[address['postcode']].items():
             address[key] = val
+    else:
+        logging.warn('No postcode was included for address %s',
+                     address['address_id'])
 
 
 def read_address(element):
@@ -189,4 +206,14 @@ def read_muncipality(element):
 
 
 if __name__ == "__main__":
-    converter()
+    parser = argparse.ArgumentParser(
+        description='Convert address XML files to other formats.')
+    parser.add_argument(
+        'input_dir', help='input directory of the xml files')
+    parser.add_argument('output_dir', help='ouput directory')
+    parser.add_argument('--log_dir', help='directory to write log files to')
+    parser.add_argument('--region', help='region to consider', default='all',
+                        choices=['all', 'brussels', 'flanders', 'wallonia'])
+
+    args = parser.parse_args()
+    converter(args)
