@@ -1,7 +1,6 @@
 import logging                  # for logging purposes
 import zipfile                  # for zipping/unzipping files
 import os                       # for os related stuff, like walking through direcory structures
-from pathlib  import Path       # object-oriented paths
 import argparse                 # for command-line argument parsing
 import requests
 
@@ -23,7 +22,7 @@ def unzip_recursive(zipped_file, to_folder, set_remove=True):
     Function that recursively goes through folders and unpacks zips inside them.
     All unzipped files are stored in the same folder (output_folder)
     """
-    logger.debug("Unzipping {}".format(zipped_file))
+    logger.debug("Unzipping {} to {}".format(zipped_file, to_folder))
     with zipfile.ZipFile(zipped_file, 'r') as zfile:
         #TODO catch exceptions
         zfile.extractall(path=to_folder)
@@ -32,17 +31,14 @@ def unzip_recursive(zipped_file, to_folder, set_remove=True):
         os.remove(zipped_file)
     # walk through the selected folder
     for dir_name, subdir_list, file_list in os.walk(to_folder):
-        logger.debug('Inside folder: {} Dir name: {}'.format(to_folder,dir_name))
-        logger.debug(file_list)
         for specific_file in file_list:
-            specific_file_path = Path(specific_file)
-            logger.debug('Specific file: {}'.format(specific_file_path))
             # look for zip-files
-            if (specific_file_path.suffix =='.zip'):
-                new_file_path = (Path(dir_name) / specific_file_path)
+            if (specific_file.endswith('.zip')):
+                new_file_path = os.path.join(dir_name, specific_file)
                 # if it is a zip file, extract its contents and enter the folder, then unzip and look for files again.
-                logger.debug("New file path: {} | To folder: {}".format(new_file_path,to_folder))
-                unzip_recursive(new_file_path,to_folder)
+                logger.debug("Zip file: {}".format(new_file_path))
+                unzip_recursive(new_file_path, os.path.dirname(specific_file))
+
 """
 # Download the file
 logger.info("Start download")
@@ -55,5 +51,5 @@ open('dataset.zip','wb').write(r.content)
 logger.info("Download done")
 
 logger.info("Start extraction")
-unzip_recursive(Path("/home/osoc19/best/foldertje.zip"),Path("/home/osoc19/best/foldertje"),False)
+unzip_recursive("/tmp/best/bf.zip","/tmp/out",False)
 logger.info("Done")
