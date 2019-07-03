@@ -42,11 +42,17 @@ def unzip_recursive(zipped_file, to_folder, set_remove=True):
                 # if it is a zip file, extract its contents and enter the folder, then unzip and look for files again.
                 unzip_recursive(new_file_path,to_folder)
 
+# Download the file
 logger.info("Start download")
+# This way the file is downloaded and completely saved in memory before writing to external storgae. Should this be avoided?
+url = 'https://opendata.bosa.be/download/best/best-full-latest.zip'
+r = requests.get(url, allow_redirects=True)
+open('dataset.zip','wb').write(r.content)
 
 logger.info("Download done")
 
 logger.info("Start extraction")
+"""
 # create the output directory
 output_directory = Path("/home/osoc19/best/unzip_output")
 try:
@@ -54,4 +60,5 @@ try:
 except FileExistsError:
     logger.error("Output directory already exists")
 unzip_recursive(Path("/home/osoc19/best/foldertje.zip"),Path("/home/osoc19/best/foldertje"),False)
+"""
 logger.info("Done")
