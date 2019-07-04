@@ -1,5 +1,4 @@
-import logging                  # for logging purposes
-import zipfile                  # for zipping/unzipping files
+import logging                  # for logging purposes import zipfile                  # for zipping/unzipping files
 import os                       # for os related stuff, like walking through direcory structures
 import argparse                 # for command-line argument parsing
 import requests
@@ -39,17 +38,25 @@ def unzip_recursive(zipped_file, to_folder, set_remove=True):
                 logger.debug("Zip file: {}".format(new_file_path))
                 unzip_recursive(new_file_path, os.path.dirname(specific_file))
 
-"""
-# Download the file
-logger.info("Start download")
-# This way the file is downloaded and completely saved in memory before writing to external storgae. Should this be avoided?
-url = 'https://opendata.bosa.be/download/best/best-full-latest.zip'
-r = requests.get(url, allow_redirects=True)
-open('dataset.zip','wb').write(r.content)
+def downloadfile(url, file_name):
+    # This way the file is downloaded and completely saved in memory before writing to external storgae. Should this be avoided?
+    r = requests.get(url, allow_redirects=True)
+    open(,'wb').write(r.content)
 
-"""
-logger.info("Download done")
+def main():
+    # Download the file
+    logger.info("Start download")
+    file_name = 'dataset.zip'
+    url = 'https://opendata.bosa.be/download/best/best-full-latest.zip'
+    downloadfile(url,file_name):
+    """
+    logger.info("Download done")
+    input_zip = "/home/osoc19/best/dataset.zip"
+    output_dir = "/home/osoc19/best/out"
+    logger.info("Start extraction")
+    unzip_recursive(input_zip,output_dir,False)
+    """
+    logger.info("Done")
 
-logger.info("Start extraction")
-unzip_recursive("/tmp/best/bf.zip","/tmp/out",False)
-logger.info("Done")
+# call main
+main()
