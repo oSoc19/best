@@ -1,4 +1,5 @@
-import logging                  # for logging purposes import zipfile                  # for zipping/unzipping files
+import logging                  # for logging purposes import zipfile                  
+import zipfile                  # for zipping/unzipping files
 import os                       # for os related stuff, like walking through direcory structures
 import argparse                 # for command-line argument parsing
 import requests
@@ -66,7 +67,7 @@ if __name__ == "__main__":
     parser.add_argument('--file_name', type=str, help="use this option to change the file name", default="dataset.zip")
     parser.add_argument('--log_name', type=str, help="use this option to change the log file name", default="download.log")
     parser.add_argument('--verbose', action="store_true", help="toggle verbose output",  default=False)
-    args = parser.parse_arguments()
+    args = parser.parse_args()
     # Make the logger
     logger = get_best_logger(args.verbose)
     # Download the file
@@ -74,5 +75,5 @@ if __name__ == "__main__":
     downloadfile(args.url,args.file_name,logger)
     logger.info("Download done")
     logger.info("Start extraction")
-    unzip_recursive(args.file_name,args.output_dir,False)
+    unzip_recursive(args.file_name,args.output_dir,logger,False)
     logger.info("Done")
