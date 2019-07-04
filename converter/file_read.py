@@ -7,7 +7,8 @@ import sys
 import re
 import pyproj
 
-from constants import *
+from constants import (TRANSFORMER, NS, FILE_KEYS)
+from writer import CSVWriter
 
 
 def converter(args):
@@ -15,10 +16,11 @@ def converter(args):
     """
     # create a dictionary of all paths to the files
     paths = find_xml_files(args.input_dir)
+    # create writer
+    writer = CSVWriter(os.path.join(
+        args.output_dir, '%s_addresses.csv' % args.region))
     # read the addresses from the files
-    addresses = read_xml_files(args.region, paths)
-    # write to csv
-    write_to_csv(addresses, args.region, args.output_dir)
+    read_xml_files(args.region, paths, writer)
 
 
 def find_xml_files(input_dir):
@@ -48,44 +50,40 @@ def find_xml_files(input_dir):
     return paths
 
 
-def read_xml_files(region, paths):
+def read_xml_files(region, paths, writer):
     """Read all XML files for the specified region
     """
     logging.info('Started reading XML files')
 
-    addresses = []
-
     if region in ['belgium', 'brussels']:
-        br_addresses = read_region(
+        read_region(
             ET.parse(paths['BrusselsMunicipality']).getroot(),
             ET.parse(paths['BrusselsPostalinfo']).getroot(),
             ET.parse(paths['BrusselsStreetname']).getroot(),
-            ET.iterparse(paths['BrusselsAddress'])
+            ET.iterparse(paths['BrusselsAddress']),
+            writer
         )
         logging.info('Read the Brussels addresses')
-        addresses += br_addresses
 
     if region in ['belgium', 'flanders']:
-        vl_addresses = read_region(
+        read_region(
             ET.parse(paths['FlandersMunicipality']).getroot(),
             ET.parse(paths['FlandersPostalinfo']).getroot(),
             ET.parse(paths['FlandersStreetname']).getroot(),
-            ET.iterparse(paths['FlandersAddress'])
+            ET.iterparse(paths['FlandersAddress']),
+            writer
         )
         logging.info('Read the Flanders addresses')
-        addresses += vl_addresses
 
     if region in ['belgium', 'wallonia']:
-        wa_addresses = read_region(
+        read_region(
             ET.parse(paths['WalloniaMunicipality']).getroot(),
             ET.parse(paths['WalloniaPostalinfo']).getroot(),
             ET.parse(paths['WalloniaStreetname']).getroot(),
-            ET.iterparse(paths['WalloniaAddress'])
+            ET.iterparse(paths['WalloniaAddress']),
+            writer
         )
         logging.info('Read the Wallonia addresses')
-        addresses += wa_addresses
-
-    return addresses
 
 
 def write_to_csv(addresses, region, output_dir):
@@ -96,26 +94,24 @@ def write_to_csv(addresses, region, output_dir):
     addresses_df.to_csv(os.path.join(output_dir, '%s_addresses.csv' % region))
 
 
-def read_region(muncipality_root, postalcode_root, streetname_root, address_iter):
+def read_region(muncipality_root, postalcode_root, streetname_root, address_iter, writer):
     """Read the XML files for a region
     """
     municipalities = read_municipalities(muncipality_root)
     postalcodes = read_postalinfos(postalcode_root)
     streetnames = read_streetnames(streetname_root)
 
-    return read_addresses(address_iter, municipalities, postalcodes, streetnames)
+    read_addresses(address_iter, municipalities,
+                   postalcodes, streetnames, writer)
 
 
-def read_addresses(addresses, municipalities, postcodes, streetnames):
-    add_list = []
+def read_addresses(addresses, municipalities, postcodes, streetnames, writer):
     for _, element in addresses:
         if 'Address' == element.tag.split('}')[-1]:
             address = read_address(element)
             address_join(address, municipalities, postcodes, streetnames)
-            add_list.append(address)
+            writer.write_address(address)
             element.clear()
-
-    return add_list
 
 
 def address_join(address, municipalities, postcodes, streetnames):
