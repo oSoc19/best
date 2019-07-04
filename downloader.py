@@ -4,13 +4,13 @@ import os                       # for os related stuff, like walking through dir
 import argparse                 # for command-line argument parsing
 import requests
 
-def get_best_logger(verbose):
+def get_best_logger(log_file, verbose):
     # Setup logger - (Python logger breaks PEP8 by default)
     logger = logging.getLogger(__name__)
     if verbose:
         logger.setLevel('DEBUG')
     # file_handler logs to file, stream_handler to console
-    file_handler = logging.FileHandler('downloader.log')
+    file_handler = logging.FileHandler(log_file)
     stream_handler = logging.StreamHandler()
     # formatter sets log format
     formatter = logging.Formatter('%(asctime)s - %(name)s : %(levelname)s - %(message)s')
@@ -22,7 +22,7 @@ def get_best_logger(verbose):
     logger.addHandler(stream_handler)
     return logger
 
-def unzip_recursive(zipped_file, to_folder, logger, set_remove=True):
+def unzip_recursive(zipped_file, to_folder, set_remove=True):
     """
     Function that recursively goes through folders and unpacks zips inside them.
     All unzipped files are stored in the same folder (output_folder)
@@ -42,9 +42,9 @@ def unzip_recursive(zipped_file, to_folder, logger, set_remove=True):
                 new_file_path = os.path.join(dir_name, specific_file)
                 # if it is a zip file, extract its contents and enter the folder, then unzip and look for files again.
                 logger.debug("Zip file: {}".format(new_file_path))
-                unzip_recursive(new_file_path, os.path.dirname(specific_file), logger)
+                unzip_recursive(new_file_path, os.path.dirname(specific_file))
 
-def downloadfile(url, file_name, logger):
+def downloadfile(url, file_name):
     # This way the file is downloaded and completely saved in memory before writing to external storage. Should this be avoided?
     try:
         r = requests.get(url, allow_redirects=True)
@@ -69,11 +69,11 @@ if __name__ == "__main__":
     parser.add_argument('--verbose', action="store_true", help="toggle verbose output",  default=False)
     args = parser.parse_args()
     # Make the logger
-    logger = get_best_logger(args.verbose)
+    logger = get_best_logger(args.log_name, args.verbose)
     # Download the file
     logger.info("Start download")
-    downloadfile(args.url,args.file_name,logger)
+    downloadfile(args.url,args.file_name)
     logger.info("Download done")
     logger.info("Start extraction")
-    unzip_recursive(args.file_name,args.output_dir,logger,False)
+    unzip_recursive(args.file_name,args.output_dir,False)
     logger.info("Done")
