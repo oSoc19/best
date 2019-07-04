@@ -3,20 +3,24 @@ import os                       # for os related stuff, like walking through dir
 import argparse                 # for command-line argument parsing
 import requests
 
-# Setup logger - (Python logger breaks PEP8 by default)
-logger = logging.getLogger(__name__)
-logger.setLevel('DEBUG')
-# file_handler logs to file, stream_handler to console
-file_handler = logging.FileHandler('downloader.log')
-stream_handler = logging.StreamHandler()
-formatter = logging.Formatter('%(name)s : %(levelname)s - %(message)s')
-file_handler.setFormatter(formatter)
-stream_handler.setFormatter(formatter)
+def get_best_logger():
+    # Setup logger - (Python logger breaks PEP8 by default)
+    logger = logging.getLogger(__name__)
+    logger.setLevel('DEBUG')
+    # file_handler logs to file, stream_handler to console
+    file_handler = logging.FileHandler('downloader.log')
+    stream_handler = logging.StreamHandler()
+    # formatter sets log format
+    formatter = logging.Formatter('%(asctime)s - %(name)s : %(levelname)s - %(message)s')
+    # add formatter to both handlers
+    file_handler.setFormatter(formatter)
+    stream_handler.setFormatter(formatter)
+    # add both handlers to logger
+    logger.addHandler(file_handler)
+    logger.addHandler(stream_handler)
+    return logger
 
-logger.addHandler(file_handler)
-logger.addHandler(stream_handler)
-
-def unzip_recursive(zipped_file, to_folder, set_remove=True):
+def unzip_recursive(zipped_file, to_folder, logger, set_remove=True):
     """
     Function that recursively goes through folders and unpacks zips inside them.
     All unzipped files are stored in the same folder (output_folder)
@@ -36,19 +40,23 @@ def unzip_recursive(zipped_file, to_folder, set_remove=True):
                 new_file_path = os.path.join(dir_name, specific_file)
                 # if it is a zip file, extract its contents and enter the folder, then unzip and look for files again.
                 logger.debug("Zip file: {}".format(new_file_path))
-                unzip_recursive(new_file_path, os.path.dirname(specific_file))
+                unzip_recursive(new_file_path, os.path.dirname(specific_file), logger)
 
-def downloadfile(url, file_name):
+def downloadfile(url, file_name, logger):
     # This way the file is downloaded and completely saved in memory before writing to external storgae. Should this be avoided?
-    r = requests.get(url, allow_redirects=True)
-    open(,'wb').write(r.content)
+    try:
+        r = requests.get(url, allow_redirects=True)
+        open(file_name,'wb').write(r.content)
+    except requests.exceptions.ConnectionError as ce:
+        logger.fatal(ce)
+        
 
 def main():
     # Download the file
     logger.info("Start download")
     file_name = 'dataset.zip'
     url = 'https://opendata.bosa.be/download/best/best-full-latest.zip'
-    downloadfile(url,file_name):
+    downloadfile(url,file_name,logger)
     """
     logger.info("Download done")
     input_zip = "/home/osoc19/best/dataset.zip"
