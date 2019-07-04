@@ -54,7 +54,7 @@ def read_xml_files(region, paths):
 
     addresses = []
 
-    if region in ['all', 'brussels']:
+    if region in ['belgium', 'brussels']:
         br_addresses = read_region(
             ET.parse(paths['BrusselsMunicipality']).getroot(),
             ET.parse(paths['BrusselsPostalinfo']).getroot(),
@@ -64,7 +64,7 @@ def read_xml_files(region, paths):
         logging.info('Read the Brussels addresses')
         addresses += br_addresses
 
-    if region in ['all', 'flanders']:
+    if region in ['belgium', 'flanders']:
         vl_addresses = read_region(
             ET.parse(paths['FlandersMunicipality']).getroot(),
             ET.parse(paths['FlandersPostalinfo']).getroot(),
@@ -74,7 +74,7 @@ def read_xml_files(region, paths):
         logging.info('Read the Flanders addresses')
         addresses += vl_addresses
 
-    if region in ['all', 'wallonia']:
+    if region in ['belgium', 'wallonia']:
         wa_addresses = read_region(
             ET.parse(paths['WalloniaMunicipality']).getroot(),
             ET.parse(paths['WalloniaPostalinfo']).getroot(),
@@ -149,6 +149,8 @@ def read_address(element):
                 'com:pointGeometry/gml:Point/gml:pos', namespaces=NS)
         elif 'houseNumber' == child.tag.split('}')[-1]:
             address['house_number'] = child.text
+        elif 'boxNumber' == child.tag.split('}')[-1]:
+            address['box_number'] = child.text
         elif 'hasStreetname' == child.tag.split('}')[-1]:
             address['street_id'] = child.findtext(
                 'com:Streetname/com:objectIdentifier', namespaces=NS)
@@ -236,7 +238,7 @@ if __name__ == "__main__":
         description='Convert address XML files to other formats.')
     parser.add_argument(
         'input_dir', help='input directory of the xml files')
-    parser.add_argument('output_dir', help='ouput directory')
+    parser.add_argument('output_dir', help='output directory')
     parser.add_argument('--log_dir', help='directory to write log files to')
     parser.add_argument('--region', help='region to consider', default='belgium',
                         choices=['belgium', 'brussels', 'flanders', 'wallonia'])
