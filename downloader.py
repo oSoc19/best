@@ -43,15 +43,26 @@ def unzip_recursive(zipped_file, to_folder, logger, set_remove=True):
                 unzip_recursive(new_file_path, os.path.dirname(specific_file), logger)
 
 def downloadfile(url, file_name, logger):
-    # This way the file is downloaded and completely saved in memory before writing to external storgae. Should this be avoided?
+    # This way the file is downloaded and completely saved in memory before writing to external storage. Should this be avoided?
+    '''
     try:
         r = requests.get(url, allow_redirects=True)
-        open(file_name,'wb').write(r.content)
-    except requests.exceptions.ConnectionError as ce:
-        logger.fatal(ce)
-        
+    # Stop when there are connection issues
+    except requests.exceptions.RequestException as re:
+        logger.fatal(re)
+        exit(1)
+        '''
+    try:
+        with open(file_name,'wb') as f:
+            f.write(r.content)
+    # Stop when the file cannot be opened or written.
+    except IOError as ioe:
+        logger.fatal(ioe)
+        exit(1)
 
 def main():
+    # Make the logger
+    logger = get_best_logger()
     # Download the file
     logger.info("Start download")
     file_name = 'dataset.zip'
