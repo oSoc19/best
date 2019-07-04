@@ -5,6 +5,7 @@ import argparse
 import os
 import sys
 import re
+import pyproj
 
 from constants import *
 
@@ -145,8 +146,12 @@ def read_address(element):
             address['address_id'] = child.findtext(
                 'com:objectIdentifier', namespaces=NS)
         elif 'addressPosition' == child.tag.split('}')[-1]:
-            address['pos'] = child.findtext(
-                'com:pointGeometry/gml:Point/gml:pos', namespaces=NS)
+            lambert_72 = tuple(map(float, child.findtext(
+                'com:pointGeometry/gml:Point/gml:pos', namespaces=NS).split(' ')))
+            wgs_84 = TRANSFORMER.transform(*lambert_72)
+
+            address['EPSG:31370_x'], address['EPSG:31370_y'] = lambert_72
+            address['EPSG:4326_x'], address['EPSG:4326_y'] = wgs_84
         elif 'houseNumber' == child.tag.split('}')[-1]:
             address['house_number'] = child.text
         elif 'boxNumber' == child.tag.split('}')[-1]:
