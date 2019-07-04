@@ -1,0 +1,83 @@
+{http://fsb.belgium.be/mappingservices/FullDownload/v1_00}Source
+{http://fsb.belgium.be/mappingservices/FullDownload/v1_00}TimeStamp
+{http://fsb.belgium.be/mappingservices/FullDownload/v1_00}PostalInfo
+	{http://vocab.belgif.be/ns/inspire/}postcode
+		{http://vocab.belgif.be/ns/inspire/}namespace
+		{http://vocab.belgif.be/ns/inspire/}objectIdentifier
+		{http://vocab.belgif.be/ns/inspire/}versionIdentifier
+	{http://vocab.belgif.be/ns/inspire/}postname
+		{http://vocab.belgif.be/ns/inspire/}language
+		{http://vocab.belgif.be/ns/inspire/}spelling
+
+{http://fsb.belgium.be/mappingservices/FullDownload/v1_00}Source
+{http://fsb.belgium.be/mappingservices/FullDownload/v1_00}TimeStamp
+{http://fsb.belgium.be/mappingservices/FullDownload/v1_00}Municipality
+	{http://vocab.belgif.be/ns/inspire/}municipalityCode
+		{http://vocab.belgif.be/ns/inspire/}namespace
+		{http://vocab.belgif.be/ns/inspire/}objectIdentifier
+		{http://vocab.belgif.be/ns/inspire/}versionIdentifier
+	{http://vocab.belgif.be/ns/inspire/}municipalityName
+		{http://vocab.belgif.be/ns/inspire/}language
+		{http://vocab.belgif.be/ns/inspire/}spelling
+
+{http://fsb.belgium.be/mappingservices/FullDownload/v1_00}Source
+{http://fsb.belgium.be/mappingservices/FullDownload/v1_00}TimeStamp
+{http://fsb.belgium.be/mappingservices/FullDownload/v1_00}Streetname
+	{http://vocab.belgif.be/ns/inspire/}streetnameCode
+		{http://vocab.belgif.be/ns/inspire/}namespace
+		{http://vocab.belgif.be/ns/inspire/}objectIdentifier
+		{http://vocab.belgif.be/ns/inspire/}versionIdentifier
+	{http://vocab.belgif.be/ns/inspire/}streetname
+		{http://vocab.belgif.be/ns/inspire/}language
+		{http://vocab.belgif.be/ns/inspire/}spelling
+	{http://vocab.belgif.be/ns/inspire/}streetnameStatus
+		{http://vocab.belgif.be/ns/inspire/}status
+		{http://vocab.belgif.be/ns/inspire/}validFrom
+	{http://vocab.belgif.be/ns/inspire/}streetnameType
+	{http://vocab.belgif.be/ns/inspire/}isAssignedBy
+		{http://vocab.belgif.be/ns/inspire/}Municipality
+			{http://vocab.belgif.be/ns/inspire/}namespace
+			{http://vocab.belgif.be/ns/inspire/}objectIdentifier
+			{http://vocab.belgif.be/ns/inspire/}versionIdentifier
+
+{http://fsb.belgium.be/mappingservices/FullDownload/v1_00}Source
+{http://fsb.belgium.be/mappingservices/FullDownload/v1_00}TimeStamp
+{http://fsb.belgium.be/mappingservices/FullDownload/v1_00}Address
+	{http://vocab.belgif.be/ns/inspire/}addressCode
+		{http://vocab.belgif.be/ns/inspire/}namespace
+		{http://vocab.belgif.be/ns/inspire/}objectIdentifier
+		{http://vocab.belgif.be/ns/inspire/}versionIdentifier
+	{http://vocab.belgif.be/ns/inspire/}addressPosition
+		{http://vocab.belgif.be/ns/inspire/}pointGeometry
+			{http://www.opengis.net/gml/3.2}Point
+				{http://www.opengis.net/gml/3.2}metaDataProperty
+					{http://www.opengis.net/gml/3.2}GenericMetaData
+						auto-generated_for_wildcard
+				{http://www.opengis.net/gml/3.2}description
+				{http://www.opengis.net/gml/3.2}descriptionReference
+				{http://www.opengis.net/gml/3.2}identifier
+				{http://www.opengis.net/gml/3.2}name
+				{http://www.opengis.net/gml/3.2}pos
+		{http://vocab.belgif.be/ns/inspire/}positionGeometryMethod
+		{http://vocab.belgif.be/ns/inspire/}positionSpecification
+	{http://vocab.belgif.be/ns/inspire/}addressSortfield
+	{http://vocab.belgif.be/ns/inspire/}addressStatus
+		{http://vocab.belgif.be/ns/inspire/}status
+		{http://vocab.belgif.be/ns/inspire/}validFrom
+	{http://vocab.belgif.be/ns/inspire/}houseNumber
+	{http://vocab.belgif.be/ns/inspire/}officiallyAssigned
+	{http://vocab.belgif.be/ns/inspire/}hasStreetname
+		{http://vocab.belgif.be/ns/inspire/}Streetname
+			{http://vocab.belgif.be/ns/inspire/}namespace
+			{http://vocab.belgif.be/ns/inspire/}objectIdentifier
+			{http://vocab.belgif.be/ns/inspire/}versionIdentifier
+	{http://vocab.belgif.be/ns/inspire/}hasMunicipality
+		{http://vocab.belgif.be/ns/inspire/}Municipality
+			{http://vocab.belgif.be/ns/inspire/}namespace
+			{http://vocab.belgif.be/ns/inspire/}objectIdentifier
+			{http://vocab.belgif.be/ns/inspire/}versionIdentifier
+	{http://vocab.belgif.be/ns/inspire/}hasPostalInfo
+		{http://vocab.belgif.be/ns/inspire/}PostalInfo
+			{http://vocab.belgif.be/ns/inspire/}namespace
+			{http://vocab.belgif.be/ns/inspire/}objectIdentifier
+			{http://vocab.belgif.be/ns/inspire/}versionIdentifier
