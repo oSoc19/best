@@ -36,5 +36,26 @@ FILE_KEYS = [
     'WalloniaStreetname'
 ]
 
+CSV_HEADER = [
+    'EPSG:31370_x',
+    'EPSG:31370_y',
+    'EPSG:4326_x',
+    'EPSG:4326_y',
+    'address_id',
+    'box_number',
+    'house_number',
+    'municipality_id',
+    'municipality_name_de',
+    'municipality_name_fr',
+    'municipality_name_nl',
+    'postcode',
+    'postname_fr',
+    'postname_nl',
+    'street_id',
+    'streetname_de',
+    'streetname_fr',
+    'streetname_nl'
+]
+
 # Transformer for the Lambert 72 coordinates to WGS 84
 TRANSFORMER = Transformer.from_crs(31370, 4326)
