@@ -141,23 +141,24 @@ def address_join(address, municipalities, postcodes, streetnames):
 def read_address(element):
     address = {}
     for child in element:
-        if 'addressCode' == child.tag.split('}')[-1]:
+        tag = child.tag.split('}')[-1]
+        if 'addressCode' == tag:
             address['address_id'] = child.findtext(
                 'com:objectIdentifier', namespaces=NS)
-        elif 'addressPosition' == child.tag.split('}')[-1]:
+        elif 'addressPosition' == tag:
             address['pos'] = child.findtext(
                 'com:pointGeometry/gml:Point/gml:pos', namespaces=NS)
-        elif 'houseNumber' == child.tag.split('}')[-1]:
+        elif 'houseNumber' == tag:
             address['house_number'] = child.text
-        elif 'boxNumber' == child.tag.split('}')[-1]:
+        elif 'boxNumber' == tag:
             address['box_number'] = child.text
-        elif 'hasStreetname' == child.tag.split('}')[-1]:
+        elif 'hasStreetname' == tag:
             address['street_id'] = child.findtext(
                 'com:Streetname/com:objectIdentifier', namespaces=NS)
-        elif 'hasMunicipality' == child.tag.split('}')[-1]:
+        elif 'hasMunicipality' == tag:
             address['municipality_id'] = child.findtext(
                 'com:Municipality/com:objectIdentifier', namespaces=NS)
-        elif 'hasPostalInfo' == child.tag.split('}')[-1]:
+        elif 'hasPostalInfo' == tag:
             address['postcode'] = child.findtext(
                 'com:PostalInfo/com:objectIdentifier', namespaces=NS)
     return address
@@ -175,10 +176,11 @@ def read_streetnames(element):
 def read_streetname(element):
     streetname = {}
     for child in element:
-        if 'streetnameCode' == child.tag.split('}')[-1]:
+        tag = child.tag.split('}')[-1]
+        if 'streetnameCode' == tag:
             streetname['street_id'] = child.findtext(
                 'com:objectIdentifier', namespaces=NS)
-        elif 'streetname' == child.tag.split('}')[-1]:
+        elif 'streetname' == tag:
             lang = child.findtext(
                 'com:language', namespaces=NS)
             streetname['streetname_{}'.format(
@@ -198,10 +200,11 @@ def read_postalinfos(element):
 def read_postalinfo(element):
     postalinfo = {}
     for child in element:
-        if 'postcode' == child.tag.split('}')[-1]:
+        tag = child.tag.split('}')[-1]
+        if 'postcode' == tag:
             postalinfo['postcode'] = child.findtext(
                 'com:objectIdentifier', namespaces=NS)
-        elif 'postname' == child.tag.split('}')[-1]:
+        elif 'postname' == tag:
             lang = child.findtext(
                 'com:language', namespaces=NS)
             postalinfo['postname_{}'.format(
@@ -221,10 +224,11 @@ def read_municipalities(element):
 def read_muncipality(element):
     muncipality = {}
     for child in element:
-        if 'municipalityCode' == child.tag.split('}')[-1]:
+        tag = child.tag.split('}')[-1]
+        if 'municipalityCode' == tag:
             muncipality['municipality_id'] = child.findtext(
                 'com:objectIdentifier', namespaces=NS)
-        elif 'municipalityName' == child.tag.split('}')[-1]:
+        elif 'municipalityName' == tag:
             lang = child.findtext(
                 'com:language', namespaces=NS)
             muncipality['municipality_name_{}'.format(
