@@ -3,10 +3,11 @@ import os                       # for os related stuff, like walking through dir
 import argparse                 # for command-line argument parsing
 import requests
 
-def get_best_logger():
+def get_best_logger(verbose):
     # Setup logger - (Python logger breaks PEP8 by default)
     logger = logging.getLogger(__name__)
-    logger.setLevel('DEBUG')
+    if verbose:
+        logger.setLevel('DEBUG')
     # file_handler logs to file, stream_handler to console
     file_handler = logging.FileHandler('downloader.log')
     stream_handler = logging.StreamHandler()
@@ -44,14 +45,12 @@ def unzip_recursive(zipped_file, to_folder, logger, set_remove=True):
 
 def downloadfile(url, file_name, logger):
     # This way the file is downloaded and completely saved in memory before writing to external storage. Should this be avoided?
-    '''
     try:
         r = requests.get(url, allow_redirects=True)
     # Stop when there are connection issues
     except requests.exceptions.RequestException as re:
         logger.fatal(re)
         exit(1)
-        '''
     try:
         with open(file_name,'wb') as f:
             f.write(r.content)
@@ -60,22 +59,20 @@ def downloadfile(url, file_name, logger):
         logger.fatal(ioe)
         exit(1)
 
-def main():
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Download and unzip the BeST-dataset")
+    parser.add_argument('output_dir', type=str, help="location to store the xml-files")
+    parser.add_argument('--url', type=str, help="url to download location of dataset", default="https://opendata.bosa.be/download/best/best-full-latest.zip")
+    parser.add_argument('--file_name', type=str, help="use this option to change the file name", default="dataset.zip")
+    parser.add_argument('--log_name', type=str, help="use this option to change the log file name", default="download.log")
+    parser.add_argument('--verbose', action="store_true", help="toggle verbose output",  default=False)
+    args = parser.parse_arguments()
     # Make the logger
-    logger = get_best_logger()
+    logger = get_best_logger(args.verbose)
     # Download the file
     logger.info("Start download")
-    file_name = 'dataset.zip'
-    url = 'https://opendata.bosa.be/download/best/best-full-latest.zip'
-    downloadfile(url,file_name,logger)
-    """
+    downloadfile(args.url,args.file_name,logger)
     logger.info("Download done")
-    input_zip = "/home/osoc19/best/dataset.zip"
-    output_dir = "/home/osoc19/best/out"
     logger.info("Start extraction")
-    unzip_recursive(input_zip,output_dir,False)
-    """
+    unzip_recursive(args.file_name,args.output_dir,False)
     logger.info("Done")
-
-# call main
-main()
