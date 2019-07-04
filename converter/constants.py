@@ -1,3 +1,5 @@
+from pyproj import Transformer
+
 # Namespaces of the xml files
 NS = {
     'tns': 'http://fsb.belgium.be/mappingservices/FullDownload/v1_00',
@@ -33,3 +35,6 @@ FILE_KEYS = [
     'WalloniaPostalinfo',
     'WalloniaStreetname'
 ]
+
+# Transformer for the Lambert 72 coordinates to WGS 84
+TRANSFORMER = Transformer.from_crs(31370, 4326)
