@@ -29,8 +29,11 @@ def unzip_recursive(zipped_file, to_folder, set_remove=True):
     """
     logger.debug("Unzipping {} to {}".format(zipped_file, to_folder))
     with zipfile.ZipFile(zipped_file, 'r') as zfile:
-        #TODO catch exceptions
-        zfile.extractall(path=to_folder)
+        try:
+            zfile.extractall(path=to_folder)
+        except (zipfile.BadZipFile, IOError) as ziperror:
+            logger.fatal("Tried unzipping {} but got stuck: {}".format(zipped_file, ziperror))
+            exit(0)
     # if set_remove is True, remove the original zip file after extraction
     if (set_remove):
         os.remove(zipped_file)
