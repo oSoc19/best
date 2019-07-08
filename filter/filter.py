@@ -18,8 +18,19 @@ def filter_file(args):
     if args.postcode:
         result = file[file['postcode'] == args.postcode]
 
+    if args.out_fmt == 'street':
+        result = result.drop(
+            ['EPSG:31370_x',
+             'EPSG:31370_y',
+             'EPSG:4326_x',
+             'EPSG:4326_y',
+             'address_id',
+             'house_number',
+             'box_number'
+             ], axis=1).drop_duplicates()
+
     try:
-        result.to_csv(args.output_file)
+        result.to_csv(args.output_file, index=False)
     except IOError as io:
         logging.fatal(io)
         sys.exit(1)
@@ -32,7 +43,10 @@ if __name__ == "__main__":
     parser.add_argument(
         'input_file', help='input address file')
     parser.add_argument('output_file', help='output file')
-    parser.add_argument('--postcode', help='postcode to filter on')
+    parser.add_argument('--out_fmt', default='address', choices=[
+                        'address', 'street'], help='Contents of the output, either full addresses or streetnames')
+    parser.add_argument('--postcode', type=int, help='postcode to filter on')
+    parser.add_argument('--bbox', help='bounding box')
 
     args = parser.parse_args()
     filter_file(args)
