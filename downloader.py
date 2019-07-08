@@ -92,7 +92,11 @@ if __name__ == "__main__":
                 logger.warning("Your system is apparently susceptible to symlink attacks." +
                                "Consider not using the --force option, or upgrading your system.")
             logger.warning("Removing output directory and all files within")
-            shutil.rmtree(args.output_dir)
+            try:
+                shutil.rmtree(args.output_dir)
+            except IOError as ioe:
+                logger.fatal("Could not delete output directory {}".format(ioe))
+                exit(0)
             logger.info("Done")
         else:
             logger.fatal("Output directory already contains files." +
