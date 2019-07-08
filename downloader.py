@@ -34,15 +34,16 @@ def unzip_recursive(zipped_file, to_folder, set_remove=True):
     # if set_remove is True, remove the original zip file after extraction
     if (set_remove):
         os.remove(zipped_file)
+        return
     # walk through the selected folder
     for dir_name, subdir_list, file_list in os.walk(to_folder):
         for specific_file in file_list:
-            # look for zip-files
+            # look for zip-file
             if (specific_file.endswith('.zip')):
                 new_file_path = os.path.join(dir_name, specific_file)
                 # if it is a zip file, extract its contents and enter the folder, then unzip and look for files again.
                 logger.debug("Zip file: {}".format(new_file_path))
-                unzip_recursive(new_file_path, os.path.dirname(specific_file))
+                unzip_recursive(new_file_path, os.path.dirname(new_file_path))
 
 def downloadfile(url, file_name):
     # This way the file is downloaded and completely saved in memory before writing to external storage. Should this be avoided?
