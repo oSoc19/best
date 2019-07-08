@@ -2,7 +2,8 @@ import logging                  # for logging purposes import zipfile
 import zipfile                  # for zipping/unzipping files
 import os                       # for os related stuff, like walking through direcory structures
 import argparse                 # for command-line argument parsing
-import requests
+import requests                 # for downloading files over HTTP
+import shutil                   # for removing non-empty directories
 
 def get_best_logger(log_file, verbose):
     # Setup logger - (Python logger breaks PEP8 by default)
@@ -29,8 +30,11 @@ def unzip_recursive(zipped_file, to_folder, set_remove=True):
     """
     logger.debug("Unzipping {} to {}".format(zipped_file, to_folder))
     with zipfile.ZipFile(zipped_file, 'r') as zfile:
-        #TODO catch exceptions
-        zfile.extractall(path=to_folder)
+        try:
+            zfile.extractall(path=to_folder)
+        except (zipfile.BadZipFile, IOError) as ziperror:
+            logger.fatal("Tried unzipping {} but got stuck: {}".format(zipped_file, ziperror))
+            exit(0)
     # if set_remove is True, remove the original zip file after extraction
     if (set_remove):
         os.remove(zipped_file)
@@ -46,7 +50,7 @@ def unzip_recursive(zipped_file, to_folder, set_remove=True):
                 unzip_recursive(new_file_path, os.path.dirname(new_file_path))
 
 def downloadfile(url, file_name):
-    # This way the file is downloaded and completely saved in memory before writing to external storage. Should this be avoided?
+    # This way the file is downloaded and completely saved in memory before writing to external storage.
     try:
         r = requests.get(url, allow_redirects=True)
     # Stop when there are connection issues
@@ -61,6 +65,7 @@ def downloadfile(url, file_name):
         logger.fatal(ioe)
         exit(1)
 
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Download and unzip the BeST-dataset")
     parser.add_argument('output_dir', type=str, help="location to store the xml-files")
@@ -68,13 +73,34 @@ if __name__ == "__main__":
     parser.add_argument('--file_name', type=str, help="use this option to change the file name", default="dataset.zip")
     parser.add_argument('--log_name', type=str, help="use this option to change the log file name", default="download.log")
     parser.add_argument('--verbose', action="store_true", help="toggle verbose output",  default=False)
+    parser.add_argument('--no_download', action="store_true", help="Don't download file, only extract", default=False)
+    parser.add_argument('--force', action="store_true", help="Clean up files in output directory if it (still) contains files")
     args = parser.parse_args()
     # Make the logger
     logger = get_best_logger(args.log_name, args.verbose)
     # Download the file
-    logger.info("Start download")
-    downloadfile(args.url,args.file_name)
-    logger.info("Download done")
+    if not args.no_download:
+        logger.info("Start download")
+        downloadfile(args.url,args.file_name)
+        logger.info("Download done")
     logger.info("Start extraction")
+    # Check if the folder is empty
+    if os.path.exists(args.output_dir) and os.path.isdir(args.output_dir):
+        # when --force is used, delete the folder an its contents
+        if os.listdir(args.output_dir) and args.force:
+            if not shutil.rmtree.avoids_symlink_attacks:
+                logger.warning("Your system is apparently susceptible to symlink attacks." +
+                               "Consider not using the --force option, or upgrading your system.")
+            logger.warning("Removing output directory and all files within")
+            try:
+                shutil.rmtree(args.output_dir)
+            except IOError as ioe:
+                logger.fatal("Could not delete output directory {}".format(ioe))
+                exit(0)
+            logger.info("Done")
+        else:
+            logger.fatal("Output directory already contains files." +
+                         " To automatically remove all files in the output directory, use --force")
+            exit(0)
     unzip_recursive(args.file_name,args.output_dir,False)
     logger.info("Done")
