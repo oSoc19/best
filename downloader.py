@@ -71,13 +71,15 @@ if __name__ == "__main__":
     parser.add_argument('--file_name', type=str, help="use this option to change the file name", default="dataset.zip")
     parser.add_argument('--log_name', type=str, help="use this option to change the log file name", default="download.log")
     parser.add_argument('--verbose', action="store_true", help="toggle verbose output",  default=False)
+    parser.add_argument('--no_download', action="store_true", help="Don't download file, only extract", default=False)
     args = parser.parse_args()
     # Make the logger
     logger = get_best_logger(args.log_name, args.verbose)
     # Download the file
-    logger.info("Start download")
-    downloadfile(args.url,args.file_name)
-    logger.info("Download done")
+    if not args.no_download:
+        logger.info("Start download")
+        downloadfile(args.url,args.file_name)
+        logger.info("Download done")
     logger.info("Start extraction")
     unzip_recursive(args.file_name,args.output_dir,False)
     logger.info("Done")
