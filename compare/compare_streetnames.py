@@ -1,12 +1,18 @@
 import pandas as pd
 import argparse
+import logging
+import sys
 
 
 def compare_streetnames(args):
     """Compare the streetnames of two cities and write the exact matches to the output file
     """
-    # read and select the relevant cities
-    file = pd.read_csv(args.input_file)
+    try:
+        file = pd.read_csv(args.input_file)
+    except IOError as io:
+        logging.fatal(io)
+        sys.exit(1)
+    # select the relevant cities
     city_1 = get_city(file, args.city_1)
     city_2 = get_city(file, args.city_2)
 
@@ -16,9 +22,13 @@ def compare_streetnames(args):
     streets_1 = set([tuple(map(str, el)) for el in city_1[keys].values])
     streets_2 = set([tuple(map(str, el)) for el in city_2[keys].values])
 
-    # take intersection and write to output file
-    out = pd.DataFrame(streets_1 & streets_2, columns=keys)
-    out.to_csv(args.output_file)
+    try:
+        # take intersection and write to output file
+        out = pd.DataFrame(streets_1 & streets_2, columns=keys)
+        out.to_csv(args.output_file)
+    except IOError as io:
+        logging.fatal(io)
+        sys.exit(1)
 
 
 def get_city(file, city):
