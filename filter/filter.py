@@ -28,7 +28,7 @@ def filter_file(args):
         ]
 
     # if we only need streetnames, drop the unnecessary attributes
-    if args.out_fmt == 'street':
+    if args.output_type == 'street':
         result = result.drop(
             ['EPSG:31370_x',
              'EPSG:31370_y',
