@@ -124,5 +124,6 @@ dmypy.json
 .pyre/
 
 .vscode/
-
+.idea/
 *.csv
+
