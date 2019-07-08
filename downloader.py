@@ -88,7 +88,7 @@ if __name__ == "__main__":
     if os.path.exists(args.output_dir) and os.path.isdir(args.output_dir):
         # when --force is used, delete the folder an its contents
         if os.listdir(args.output_dir) and args.force:
-            if shutil.rmtree.avoids_symlink_attacks:
+            if not shutil.rmtree.avoids_symlink_attacks:
                 logger.warning("Your system is apparently susceptible to symlink attacks." +
                                "Consider not using the --force option, or upgrading your system.")
             logger.warning("Removing output directory and all files within")
