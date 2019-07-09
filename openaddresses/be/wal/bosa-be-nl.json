@@ -22,7 +22,11 @@
         "street": "streetname_nl",
         "city":  "muncipality_name_nl",
         "postcode": "postcode",
-        "id": "address_id",
+        "id": {
+            "function": "join",
+            "fields": ["region_code","address_id"],
+            "separator": ":"
+        },
         "unit": "box_number",
         "lon": "EPSG:4326_x",
         "lat": "EPSG:4326_y"
