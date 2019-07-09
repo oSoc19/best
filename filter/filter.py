@@ -48,10 +48,11 @@ def filter_file(args):
     if args.bbox:
         logger.info('Filtering on bounding box')
         result = result[
-            (args.bbox[0] <= result['EPSG:4326_lat']) &
-            (result['EPSG:4326_lat'] <= args.bbox[1]) &
-            (args.bbox[2] <= result['EPSG:4326_lon']) &
-            (result['EPSG:4326_lon'] <= args.bbox[3])
+            (args.bbox[0] <= result['EPSG:4326_lon']) &
+            (args.bbox[1] <= result['EPSG:4326_lat']) &
+            (result['EPSG:4326_lon'] <= args.bbox[2]) &
+            (result['EPSG:4326_lat'] <= args.bbox[3])
+
         ]
 
     # if we only need streetnames, drop the unnecessary attributes
@@ -83,7 +84,7 @@ def write_csv(file, output_file):
 def write_geojson(file, output_file):
     features = []
     for _, row in file.iterrows():
-        point = Point((row['EPSG:4326_y'], row['EPSG:4326_x']))
+        point = Point((row['EPSG:4326_lon'], row['EPSG:4326_lat']))
         properties = {key: val for key,
                       val in row.to_dict().items() if not pd.isnull(val) and 'EPSG:' not in key}
         features.append(Feature(geometry=point, properties=properties))
@@ -106,7 +107,7 @@ if __name__ == "__main__":
     parser.add_argument('--postcode', nargs='*', type=int,
                         help='postcode(s) to filter on')
     parser.add_argument(
-        '--bbox', type=float, nargs=4, help='Bounding box to filter on, format: min_x max_x min_y max_y (in EPSG:4326 coordinates)')
+        '--bbox', type=float, nargs=4, help='Bounding box to filter on, format: left bottom right top (in EPSG:4326 coordinates)')
     parser.add_argument('--log_name', default="filter.log",
                         help='name of the log file')
     parser.add_argument('--verbose', action="store_true",
