@@ -16,7 +16,7 @@ def filter_file(args):
     result = file
     # select the addresses for a certain postcode
     if args.postcode:
-        result = result[result['postcode'] == args.postcode]
+        result = result[result['postcode'].isin(args.postcode)]
 
     # Select the addresses in a bounding box
     if args.bbox:
@@ -55,7 +55,8 @@ if __name__ == "__main__":
     parser.add_argument('output_file', help='output file')
     parser.add_argument('--output_type', default='address', choices=[
                         'address', 'street'], help='Contents of the output, either full addresses or streetnames')
-    parser.add_argument('--postcode', type=int, help='postcode to filter on')
+    parser.add_argument('--postcode', nargs='*', type=int,
+                        help='postcode(s) to filter on')
     parser.add_argument(
         '--bbox', type=float, nargs=4, help='Bounding box to filter on, format: min_x max_x min_y max_y (in EPSG:4326 coordinates)')
 
