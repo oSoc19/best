@@ -1,14 +1,34 @@
 import xml.etree.ElementTree as ET
 import pandas as pd
-import logging
 import argparse
 import os
 import sys
 import re
 import pyproj
+import logging
 
 from constants import (TRANSFORMER, NS, FILE_KEYS)
 from writer import CSVWriter
+
+
+def get_best_logger(log_file, verbose):
+    # Setup logger - (Python logger breaks PEP8 by default)
+    logger = logging.getLogger(__name__)
+    if verbose:
+        logger.setLevel('DEBUG')
+    # file_handler logs to file, stream_handler to console
+    file_handler = logging.FileHandler(log_file)
+    stream_handler = logging.StreamHandler()
+    # formatter sets log format
+    formatter = logging.Formatter(
+        '%(asctime)s - %(name)s : %(levelname)s - %(message)s')
+    # add formatter to both handlers
+    file_handler.setFormatter(formatter)
+    stream_handler.setFormatter(formatter)
+    # add both handlers to logger
+    logger.addHandler(file_handler)
+    logger.addHandler(stream_handler)
+    return logger
 
 
 def converter(args):
@@ -17,10 +37,17 @@ def converter(args):
     # create a dictionary of all paths to the files
     paths = find_xml_files(args.input_dir)
     # create writer
-    writer = CSVWriter(os.path.join(
-        args.output_dir, '%s_addresses.csv' % args.region))
+    try:
+        writer = CSVWriter(args.output_file)
+    except IOError as io:
+        logger.fatal(io)
+        sys.exit(1)
     # read the addresses from the files
-    read_xml_files(args.region, paths, writer)
+    try:
+        read_xml_files(args.region, paths, writer)
+    except IOError as io:
+        logger.fatal(io)
+        sys.exit(1)
 
 
 def find_xml_files(input_dir):
@@ -35,16 +62,16 @@ def find_xml_files(input_dir):
                 if m:
                     key = m.group(1)
                 else:
-                    logging.warn(
+                    logger.warn(
                         'The contents of file %s can not be read by this script', file)
                 if key in keys:
                     keys.remove(key)
                     paths[key] = os.path.join(root, file)
                 else:
-                    logging.warn(
+                    logger.warn(
                         'The contents of file %s can not be read by this script', file)
     if keys:
-        logging.error(
+        logger.error(
             'File for data of type %s was not found in the input folder', keys)
         sys.exit(1)
     return paths
@@ -53,7 +80,7 @@ def find_xml_files(input_dir):
 def read_xml_files(region, paths, writer):
     """Read all XML files for the specified region
     """
-    logging.info('Started reading XML files')
+    logger.info('Started reading XML files')
 
     if region in ['belgium', 'brussels']:
         read_region(
@@ -63,7 +90,7 @@ def read_xml_files(region, paths, writer):
             ET.iterparse(paths['BrusselsAddress']),
             writer
         )
-        logging.info('Read the Brussels addresses')
+        logger.info('Read the Brussels addresses')
 
     if region in ['belgium', 'flanders']:
         read_region(
@@ -73,7 +100,7 @@ def read_xml_files(region, paths, writer):
             ET.iterparse(paths['FlandersAddress']),
             writer
         )
-        logging.info('Read the Flanders addresses')
+        logger.info('Read the Flanders addresses')
 
     if region in ['belgium', 'wallonia']:
         read_region(
@@ -83,7 +110,7 @@ def read_xml_files(region, paths, writer):
             ET.iterparse(paths['WalloniaAddress']),
             writer
         )
-        logging.info('Read the Wallonia addresses')
+        logger.info('Read the Wallonia addresses')
 
 
 def write_to_csv(addresses, region, output_dir):
@@ -119,20 +146,20 @@ def address_join(address, municipalities, postcodes, streetnames):
         for key, val in streetnames[address['street_id']].items():
             address[key] = val
     else:
-        logging.warn('No street id was included address %s',
-                     address['address_id'])
+        logger.warn('No street id was included address %s',
+                    address['address_id'])
     if 'municipality_id' in address:
         for key, val in municipalities[address['municipality_id']].items():
             address[key] = val
     else:
-        logging.warn('No muncipality was included for address %s',
-                     address['address_id'])
+        logger.warn('No muncipality was included for address %s',
+                    address['address_id'])
     if 'postcode' in address:
         for key, val in postcodes[address['postcode']].items():
             address[key] = val
     else:
-        logging.warn('No postcode was included for address %s',
-                     address['address_id'])
+        logger.warn('No postcode was included for address %s',
+                    address['address_id'])
 
 
 def read_address(element):
@@ -243,10 +270,15 @@ if __name__ == "__main__":
         description='Convert address XML files to other formats.')
     parser.add_argument(
         'input_dir', help='input directory of the xml files')
-    parser.add_argument('output_dir', help='output directory')
-    parser.add_argument('--log_dir', help='directory to write log files to')
+    parser.add_argument('output_file', help='output file')
+    parser.add_argument('--log_name', default="conversion.log",
+                        help='name of the log file')
     parser.add_argument('--region', help='region to consider', default='belgium',
                         choices=['belgium', 'brussels', 'flanders', 'wallonia'])
-
+    parser.add_argument('--verbose', action="store_true",
+                        help="toggle verbose output",  default=False)
     args = parser.parse_args()
+
+    logger = get_best_logger(args.log_name, args.verbose)
+
     converter(args)
