@@ -68,10 +68,15 @@ def filter_file(args):
              ], axis=1).drop_duplicates()
 
     try:
+        logger.info('Writing to output file')
         if args.output_format == 'csv':
             write_csv(result, args.output_file)
-        else:
+        elif args.output_format == 'geojson' and args.output_type == 'address':
             write_geojson(result, args.output_file)
+        else:
+            logger.error(
+                'output_type street is only supported for output_format csv')
+            sys.exit(1)
     except IOError as io:
         logger.fatal(io)
         sys.exit(1)
