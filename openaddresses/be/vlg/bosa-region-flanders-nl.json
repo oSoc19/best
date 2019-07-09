@@ -13,7 +13,6 @@
     "conform": {
         "format": "csv",
         "srs": "EPSG:4326",
-        "file": "flanders_addresses.csv",
         "encoding": "utf-8",
         "accuracy": "3",
         "number": "house_number",
