@@ -2,6 +2,9 @@ import pandas as pd
 import argparse
 import logging
 import sys
+import geojson
+import numpy as np
+from geojson import Point, Feature, FeatureCollection
 
 
 def get_best_logger(log_file, verbose):
@@ -45,10 +48,11 @@ def filter_file(args):
     if args.bbox:
         logger.info('Filtering on bounding box')
         result = result[
-            (args.bbox[0] <= result['EPSG:4326_lat']) &
-            (result['EPSG:4326_lat'] <= args.bbox[1]) &
-            (args.bbox[2] <= result['EPSG:4326_lon']) &
-            (result['EPSG:4326_lon'] <= args.bbox[3])
+            (args.bbox[0] <= result['EPSG:4326_lon']) &
+            (args.bbox[1] <= result['EPSG:4326_lat']) &
+            (result['EPSG:4326_lon'] <= args.bbox[2]) &
+            (result['EPSG:4326_lat'] <= args.bbox[3])
+
         ]
 
     # if we only need streetnames, drop the unnecessary attributes
@@ -64,10 +68,34 @@ def filter_file(args):
              ], axis=1).drop_duplicates()
 
     try:
-        result.to_csv(args.output_file, index=False)
+        logger.info('Writing to output file')
+        if args.output_format == 'csv':
+            write_csv(result, args.output_file)
+        elif args.output_format == 'geojson' and args.output_type == 'address':
+            write_geojson(result, args.output_file)
+        else:
+            logger.error(
+                'output_type street is only supported for output_format csv')
+            sys.exit(1)
     except IOError as io:
         logger.fatal(io)
         sys.exit(1)
+
+
+def write_csv(file, output_file):
+    file.to_csv(output_file, index=False)
+
+
+def write_geojson(file, output_file):
+    features = []
+    for _, row in file.iterrows():
+        point = Point((row['EPSG:4326_lon'], row['EPSG:4326_lat']))
+        properties = {key: val for key,
+                      val in row.to_dict().items() if not pd.isnull(val) and 'EPSG:' not in key}
+        features.append(Feature(geometry=point, properties=properties))
+    collection = FeatureCollection(features)
+    with open(output_file, 'w') as out:
+        out.write(geojson.dumps(collection))
 
 
 if __name__ == "__main__":
@@ -79,10 +107,12 @@ if __name__ == "__main__":
     parser.add_argument('output_file', help='output file')
     parser.add_argument('--output_type', default='address', choices=[
                         'address', 'street'], help='Contents of the output, either full addresses or streetnames')
+    parser.add_argument('--output_format', default='csv',
+                        choices=['csv', 'geojson'], help='Format of the output')
     parser.add_argument('--postcode', nargs='*', type=int,
                         help='postcode(s) to filter on')
     parser.add_argument(
-        '--bbox', type=float, nargs=4, help='Bounding box to filter on, format: min_x max_x min_y max_y (in EPSG:4326 coordinates)')
+        '--bbox', type=float, nargs=4, help='Bounding box to filter on, format: left bottom right top (in EPSG:4326 coordinates)')
     parser.add_argument('--log_name', default="filter.log",
                         help='name of the log file')
     parser.add_argument('--verbose', action="store_true",
