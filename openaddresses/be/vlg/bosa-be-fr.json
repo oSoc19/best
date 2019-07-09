@@ -20,7 +20,11 @@
         "street": "streetname_fr",
         "city":  "muncipality_name_fr",
         "postcode": "postcode",
-        "id": "address_id",
+        "id": {
+            "function": "join",
+            "fields": ["region_code","address_id"],
+            "separator": ":"
+        },
         "unit": "box_number",
         "lon": "EPSG:4326_x",
         "lat": "EPSG:4326_y"
