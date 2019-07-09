@@ -88,6 +88,7 @@ def read_xml_files(region, paths, writer):
             ET.parse(paths['BrusselsPostalinfo']).getroot(),
             ET.parse(paths['BrusselsStreetname']).getroot(),
             ET.iterparse(paths['BrusselsAddress']),
+            'BE-BRU',
             writer
         )
         logger.info('Read the Brussels addresses')
@@ -98,6 +99,7 @@ def read_xml_files(region, paths, writer):
             ET.parse(paths['FlandersPostalinfo']).getroot(),
             ET.parse(paths['FlandersStreetname']).getroot(),
             ET.iterparse(paths['FlandersAddress']),
+            'BE-FLA',
             writer
         )
         logger.info('Read the Flanders addresses')
@@ -108,6 +110,7 @@ def read_xml_files(region, paths, writer):
             ET.parse(paths['WalloniaPostalinfo']).getroot(),
             ET.parse(paths['WalloniaStreetname']).getroot(),
             ET.iterparse(paths['WalloniaAddress']),
+            'BE-WAL',
             writer
         )
         logger.info('Read the Wallonia addresses')
@@ -121,7 +124,7 @@ def write_to_csv(addresses, region, output_dir):
     addresses_df.to_csv(os.path.join(output_dir, '%s_addresses.csv' % region))
 
 
-def read_region(muncipality_root, postalcode_root, streetname_root, address_iter, writer):
+def read_region(muncipality_root, postalcode_root, streetname_root, address_iter, region_code, writer):
     """Read the XML files for a region
     """
     municipalities = read_municipalities(muncipality_root)
@@ -129,14 +132,15 @@ def read_region(muncipality_root, postalcode_root, streetname_root, address_iter
     streetnames = read_streetnames(streetname_root)
 
     read_addresses(address_iter, municipalities,
-                   postalcodes, streetnames, writer)
+                   postalcodes, streetnames, region_code, writer)
 
 
-def read_addresses(addresses, municipalities, postcodes, streetnames, writer):
+def read_addresses(addresses, municipalities, postcodes, streetnames, region_code, writer):
     for _, element in addresses:
         if 'Address' == element.tag.split('}')[-1]:
             address = read_address(element)
             address_join(address, municipalities, postcodes, streetnames)
+            address['region_code'] = region_code
             writer.write_address(address)
             element.clear()
 
