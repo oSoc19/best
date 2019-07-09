@@ -20,7 +20,8 @@
         "number": "house_number",
         "street": "streetname_nl",
         "city":  "muncipality_name_nl",
-        "postcode": "postcode"
+        "postcode": "postcode",
+        "id": "address_id"
     },
     "compression": "zip",
     "language": "nl",
