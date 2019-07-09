@@ -26,8 +26,8 @@
             "separator": ":"
         },
         "unit": "box_number",
-        "lon": "EPSG:4326_x",
-        "lat": "EPSG:4326_y"
+        "lon": "EPSG:4326_lon",
+        "lat": "EPSG:4326_lat"
     },
     "compression": "zip",
     "language": "de",
