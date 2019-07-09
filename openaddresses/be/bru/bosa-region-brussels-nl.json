@@ -8,7 +8,7 @@
              "country": "Belgium"
          },
          "country": "be",
-         "state": "brussels-capital region",
+         "state": "brussels-capital region"
     },
     "conform": {
         "format": "csv",
@@ -38,5 +38,5 @@
         "name": "Federal Public Service Policy and Support" ,
         "email": "opendata@belgium.be",
         "address": "Simon Bolivarlaan 30, WTC III, 1000 Brussels"
-    },
+    }
 }
