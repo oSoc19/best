@@ -45,19 +45,19 @@ def filter_file(args):
     if args.bbox:
         logger.info('Filtering on bounding box')
         result = result[
-            (args.bbox[0] <= result['EPSG:4326_x']) &
-            (result['EPSG:4326_x'] <= args.bbox[1]) &
-            (args.bbox[2] <= result['EPSG:4326_y']) &
-            (result['EPSG:4326_y'] <= args.bbox[3])
+            (args.bbox[0] <= result['EPSG:4326_lat']) &
+            (result['EPSG:4326_lat'] <= args.bbox[1]) &
+            (args.bbox[2] <= result['EPSG:4326_lon']) &
+            (result['EPSG:4326_lon'] <= args.bbox[3])
         ]
 
     # if we only need streetnames, drop the unnecessary attributes
     if args.output_type == 'street':
         result = result.drop(
-            ['EPSG:31370_x',
-             'EPSG:31370_y',
-             'EPSG:4326_x',
-             'EPSG:4326_y',
+            ['EPSG:31370_lat',
+             'EPSG:31370_lon',
+             'EPSG:4326_lat',
+             'EPSG:4326_lon',
              'address_id',
              'house_number',
              'box_number'
