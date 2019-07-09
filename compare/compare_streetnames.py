@@ -25,7 +25,7 @@ def compare_streetnames(args):
     try:
         # take intersection and write to output file
         out = pd.DataFrame(streets_1 & streets_2, columns=keys)
-        out.to_csv(args.output_file)
+        out.to_csv(args.output_file, index=False)
     except IOError as io:
         logging.fatal(io)
         sys.exit(1)
