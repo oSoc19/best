@@ -37,10 +37,10 @@ FILE_KEYS = [
 ]
 
 CSV_HEADER = [
-    'EPSG:31370_x',
-    'EPSG:31370_y',
-    'EPSG:4326_x',
-    'EPSG:4326_y',
+    'EPSG:31370_lat',
+    'EPSG:31370_lon',
+    'EPSG:4326_lat',
+    'EPSG:4326_lon',
     'address_id',
     'box_number',
     'house_number',
