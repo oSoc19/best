@@ -2,6 +2,9 @@ import pandas as pd
 import argparse
 import logging
 import sys
+import geojson
+import numpy as np
+from geojson import Point, Feature, FeatureCollection
 
 
 def get_best_logger(log_file, verbose):
@@ -64,10 +67,29 @@ def filter_file(args):
              ], axis=1).drop_duplicates()
 
     try:
-        result.to_csv(args.output_file, index=False)
+        if args.output_format == 'csv':
+            write_csv(result, args.output_file)
+        else:
+            write_geojson(result, args.output_file)
     except IOError as io:
         logger.fatal(io)
         sys.exit(1)
+
+
+def write_csv(file, output_file):
+    file.to_csv(output_file, index=False)
+
+
+def write_geojson(file, output_file):
+    features = []
+    for _, row in file.iterrows():
+        point = Point((row['EPSG:4326_y'], row['EPSG:4326_x']))
+        properties = {key: val for key,
+                      val in row.to_dict().items() if not pd.isnull(val) and 'EPSG:' not in key}
+        features.append(Feature(geometry=point, properties=properties))
+    collection = FeatureCollection(features)
+    with open(output_file, 'w') as out:
+        out.write(geojson.dumps(collection))
 
 
 if __name__ == "__main__":
@@ -79,6 +101,8 @@ if __name__ == "__main__":
     parser.add_argument('output_file', help='output file')
     parser.add_argument('--output_type', default='address', choices=[
                         'address', 'street'], help='Contents of the output, either full addresses or streetnames')
+    parser.add_argument('--output_format', default='csv',
+                        choices=['csv', 'geojson'], help='Format of the output')
     parser.add_argument('--postcode', nargs='*', type=int,
                         help='postcode(s) to filter on')
     parser.add_argument(
