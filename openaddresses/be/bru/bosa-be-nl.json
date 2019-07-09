@@ -21,7 +21,10 @@
         "street": "streetname_nl",
         "city":  "muncipality_name_nl",
         "postcode": "postcode",
-        "id": "address_id"
+        "id": "address_id",
+        "unit": "box_number",
+        "lon": "EPSG:4326_x",
+        "lat": "EPSG:4326_y"
     },
     "compression": "zip",
     "language": "nl",
