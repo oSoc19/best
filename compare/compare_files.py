@@ -60,7 +60,8 @@ def compare_addresses(args):
     for i, row in enumerate(bosa.values):
         if i % 10_000 == 0:
             logger.info('Processed %i / %i addresses', i, len(bosa))
-        address_dict[tuple(row[bosa_ids])] = row
+        address_dict[tuple(el.lower() if type(
+            el) == str else el for el in row[bosa_ids])] = row
 
     extended = perform_exact_matching(
         bosa, comparison, address_dict, comp_keys)
@@ -85,7 +86,8 @@ def perform_exact_matching(bosa, comparison, address_dict, comp_keys):
         if i % 10_000 == 0:
             logger.info('Matched %i / %i addresses', i, len(comparison))
         try:
-            key = tuple(row[comp_keys])
+            key = tuple(el.lower() if type(el) ==
+                        str else el for el in row[comp_keys])
         except KeyError as ke:
             logger.error('Column %s not found in the comparison file', ke)
             sys.exit(1)
@@ -113,9 +115,9 @@ if __name__ == "__main__":
         'input_file_2', help='Address file to compare to BOSA address file, in csv format')
     parser.add_argument('output_file', help='Name of file to write output to')
     parser.add_argument('--mode', default='exact',
-                        choices=['exact', 'fuzzy'], help='How to compare the addresses')
+                        choices=['exact'], help='How to compare the addresses.')
     parser.add_argument(
-        '--mapping', type=json.loads, help='Column names to consider in the comparison and how they map to the \
+        '--mapping', default={}, type=json.loads, help='Column names to consider in the comparison and how they map to the \
             column names of the BOSA address file. (as a json dict of {comparison_key: bosa_key})')
     parser.add_argument('--log_name', default="compare.log",
                         help='name of the log file')
