@@ -44,6 +44,43 @@ def compare_addresses(args):
         logger.fatal(io)
         sys.exit(1)
 
+    comp_keys = []
+    bosa_keys = []
+    for comp_key, bosa_key in args.mapping.items():
+        comp_keys.append(comp_key)
+        bosa_keys.append(bosa.columns.get_loc(bosa_key))
+
+    address_dict = {}
+    logger.info('Building data structure to perform matching')
+    for i, row in enumerate(bosa.values):
+        if i % 10_000 == 0:
+            logger.info('Processed %i / %i addresses', i, len(bosa))
+        address_dict[tuple(row[bosa_keys])] = row
+
+    addr_id = bosa.columns.get_loc('address_id')
+    lon_id = bosa.columns.get_loc('EPSG:4326_lon')
+    lat_id = bosa.columns.get_loc('EPSG:4326_lat')
+
+    extended = []
+    logger.info('Performing matching')
+    for i, row in comparison.iterrows():
+        if i % 10_000 == 0:
+            logger.info('Matched %i / %i addresses', i, len(comparison))
+        key = tuple(row[comp_keys])
+        if key in address_dict:
+            data = address_dict[key]
+            row['address_id'] = data[addr_id]
+            row['EPSG:4326_lon'] = data[lon_id]
+            row['EPSG:4326_lat'] = data[lat_id]
+        extended.append(row)
+    extended = pd.DataFrame(extended)
+
+    try:
+        extended.to_csv(args.output_file, index=False)
+    except IOError as io:
+        logger.fatal(io)
+        sys.exit(1)
+
 
 def get_city(file, city):
     return file[file['postcode'] == city]
