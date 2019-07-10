@@ -45,18 +45,36 @@ def compare_addresses(args):
         sys.exit(1)
 
     comp_keys = []
-    bosa_keys = []
+    bosa_ids = []
     for comp_key, bosa_key in args.mapping.items():
-        comp_keys.append(comp_key)
-        bosa_keys.append(bosa.columns.get_loc(bosa_key))
+        try:
+            comp_keys.append(comp_key)
+            bosa_ids.append(bosa.columns.get_loc(bosa_key))
+        except KeyError as ke:
+            logger.error(
+                'Column %s of column mapping (%s -> %s) not found in BOSA file', ke, comp_key, bosa_key)
+            sys.exit(1)
 
     address_dict = {}
     logger.info('Building data structure to perform matching')
     for i, row in enumerate(bosa.values):
         if i % 10_000 == 0:
             logger.info('Processed %i / %i addresses', i, len(bosa))
-        address_dict[tuple(row[bosa_keys])] = row
+        address_dict[tuple(row[bosa_ids])] = row
 
+    extended = perform_exact_matching(
+        bosa, comparison, address_dict, comp_keys)
+
+    try:
+        extended.to_csv(args.output_file, index=False)
+    except IOError as io:
+        logger.fatal(io)
+        sys.exit(1)
+
+
+def perform_exact_matching(bosa, comparison, address_dict, comp_keys):
+    """Match the addresses in the comparison file and add address_id and coordinates when matched
+    """
     addr_id = bosa.columns.get_loc('address_id')
     lon_id = bosa.columns.get_loc('EPSG:4326_lon')
     lat_id = bosa.columns.get_loc('EPSG:4326_lat')
@@ -66,24 +84,23 @@ def compare_addresses(args):
     for i, row in comparison.iterrows():
         if i % 10_000 == 0:
             logger.info('Matched %i / %i addresses', i, len(comparison))
-        key = tuple(row[comp_keys])
+        try:
+            key = tuple(row[comp_keys])
+        except KeyError as ke:
+            logger.error('Column %s not found in the comparison file', ke)
+            sys.exit(1)
         if key in address_dict:
+            # If the address is matched add address_id and coordinates to it
             data = address_dict[key]
             row['address_id'] = data[addr_id]
             row['EPSG:4326_lon'] = data[lon_id]
             row['EPSG:4326_lat'] = data[lat_id]
         extended.append(row)
     extended = pd.DataFrame(extended)
+    # Convert column to int type that can handle NaN
+    extended['address_id'] = extended['address_id'].astype('Int64')
 
-    try:
-        extended.to_csv(args.output_file, index=False)
-    except IOError as io:
-        logger.fatal(io)
-        sys.exit(1)
-
-
-def get_city(file, city):
-    return file[file['postcode'] == city]
+    return extended
 
 
 if __name__ == "__main__":
