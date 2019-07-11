@@ -11,7 +11,7 @@ usage: converter.py [-h] [--log_name LOG_NAME]
                     [--verbose]
                     input_dir output_file
 
-Convert address XML files to other formats.
+Convert address XML files to a csv file.
 
 positional arguments:
   input_dir             input directory of the xml files
