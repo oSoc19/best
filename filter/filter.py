@@ -109,7 +109,7 @@ if __name__ == "__main__":
                         'address', 'street'], help='Contents of the output, either full addresses or streetnames')
     parser.add_argument('--output_format', default='csv',
                         choices=['csv', 'geojson'], help='Format of the output')
-    parser.add_argument('--postcode', nargs='*', type=int,
+    parser.add_argument('--postcode', nargs='+', type=int,
                         help='postcode(s) to filter on')
     parser.add_argument(
         '--bbox', type=float, nargs=4, help='Bounding box to filter on, format: left bottom right top (in EPSG:4326 coordinates)')
