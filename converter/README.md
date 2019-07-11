@@ -29,7 +29,34 @@ optional arguments:
 The script can output all the addresses of Belgium or of a region in Belgium (Brussels, Flanders, Wallonia)
 
 The output csv file has the following columns:
-* EPSG:31370_lat,EPSG:31370_lon,EPSG:4326_lat,EPSG:4326_lon,address_id,box_number,house_number,municipality_id,municipality_name_de,municipality_name_fr,municipality_name_nl,postcode,postname_fr,postname_nl,street_id,streetname_de,streetname_fr,streetname_nl,region_code
+* **EPSG:31370_lat**: Latitude of address in the Lambert 72 coordinate system
+* **EPSG:31370_lon**: Longitude of address in the Lambert 72 coordinate system
+* **EPSG:4326_lat**: Latitude of address in the WGS 84 coordinate system
+* **EPSG:4326_lon**: Longitude of address in the WGS 84 coordinate system
+* **address_id**: BOSA address ID
+* **box_number**: The box number of the address
+* **house_number**: The house number of the address
+* **municipality_id**: BOSA municipality ID
+* **municipality_name_de**: The name of the municipality in German
+* **municipality_name_fr**: The name of the municipality in French
+* **municipality_name_nl**: The name of the municipaltiy in Dutch
+* **postcode**: The postalcode of the address
+* **postname_fr**: The name of the village/city in French
+* **postname_nl**: The name of the village/city in Dutch
+* **street_id**: BOSA street ID
+* **streetname_de**: The name of the street in German
+* **streetname_fr**: The name of the street in French
+* **streetname_nl**: The name of the street in Dutch
+* **region_code**: The ISO region code of the region in which the address is located (BE-VLG, BE-BRU or BE-WAL)
 
 
 ## Examples
+Converting the XML files for all addresses in Belgium.
+```bash
+python converter.py <directory of xml files> belgium_addresses.csv 
+```
+
+Converting the XML files for the Brussels region.
+```bash
+python converter.py <directory of xml files> brussels_addresses.csv --region brussels
+```
