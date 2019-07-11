@@ -271,7 +271,7 @@ def read_muncipality(element):
 if __name__ == "__main__":
     # Setup argument parser
     parser = argparse.ArgumentParser(
-        description='Convert address XML files to other formats.')
+        description='Convert address XML files to a csv file.')
     parser.add_argument(
         'input_dir', help='input directory of the xml files')
     parser.add_argument('output_file', help='output file')

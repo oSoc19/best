@@ -38,7 +38,7 @@ optional arguments:
 The script can output the full addresses or only the streetnames. When outputting streetnames coordinates and address data are stripped from the result.
 ## Filtering
 ### Filter on postcode
-Using the `--postcode` argument multiple postcodes can be specified to be included in the result.
+Using the `--postcode` argument multiple postcodes separated by spaces can be specified to be included in the result.
 
 ### Filter on region
 Using the `--bbox` argument a bounding box can be specified. For this box the left, bottom, right and top boundary are specified respectively seperated by spaces. The values should be in [EPSG:4326](https://epsg.io/4326) coordinate system.
@@ -47,3 +47,19 @@ Using the `--bbox` argument a bounding box can be specified. For this box the le
 ## Conversion
 By default the output file is a csv file, but other formats can be specified. Supported formats are:
 * [GeoJSON](https://geojson.org/) (`geojson`): GeoJSON is a geospatial data interchange format based on JavaScript Object Notation (JSON).
+
+## Examples
+Outputting the streetnames for specific postcodes.
+```bash
+python filter.py <path to addressfile> streets.csv --output_type street --postcode 9980 9981 9982 9988
+```
+
+Outputting the addresses within a bounding box.
+```bash
+python filter.py <path to addressfile> addresses.csv --bbox
+```
+
+Converting to geojson.
+```bash
+python filter.py <path to addressfile> result.geojson --output_format geojson
+```
