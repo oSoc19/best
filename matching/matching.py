@@ -58,7 +58,7 @@ def compare_addresses(args):
     address_dict = {}
     logger.info('Building data structure to perform matching')
     for i, row in enumerate(bosa.values):
-        if i % 10_000 == 0:
+        if i % 50_000 == 0:
             logger.info('Processed %i / %i addresses', i, len(bosa))
         address_dict[tuple(el.lower() if type(
             el) == str else el for el in row[bosa_ids])] = row
@@ -83,7 +83,7 @@ def perform_exact_matching(bosa, comparison, address_dict, comp_keys):
     extended = []
     logger.info('Performing matching')
     for i, row in comparison.iterrows():
-        if i % 10_000 == 0:
+        if i % 50_000 == 0:
             logger.info('Matched %i / %i addresses', i, len(comparison))
         try:
             key = tuple(el.lower() if type(el) ==

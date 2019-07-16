@@ -88,7 +88,9 @@ def write_csv(file, output_file):
 
 def write_geojson(file, output_file):
     features = []
-    for _, row in file.iterrows():
+    for i, row in file.iterrows():
+        if i % 50_000 == 0:
+            logger.info('Processed %s / %s adresses', i, len(file))
         point = Point((row['EPSG:4326_lon'], row['EPSG:4326_lat']))
         properties = {key: val for key,
                       val in row.to_dict().items() if not pd.isnull(val) and 'EPSG:' not in key}
