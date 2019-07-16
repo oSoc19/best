@@ -35,8 +35,8 @@ def compare_streetnames(args):
         logger.fatal(io)
         sys.exit(1)
     # select the relevant cities
-    city_1 = get_city(file, args.city_1)
-    city_2 = get_city(file, args.city_2)
+    city_1 = get_city(file, args.postcode_1)
+    city_2 = get_city(file, args.postcode_2)
 
     keys = [column for column in file.columns if 'streetname' in column]
 
@@ -55,7 +55,7 @@ def compare_streetnames(args):
 
 
 def get_city(file, city):
-    return file[file['postcode'] == city]
+    return file[file['postcode'].isin(city)]
 
 
 if __name__ == "__main__":
@@ -65,8 +65,8 @@ if __name__ == "__main__":
     parser.add_argument(
         'input_file', help='input address file')
     parser.add_argument('output_file', help='output file')
-    parser.add_argument('city_1', type=int, help='Postcode of first city')
-    parser.add_argument('city_2', type=int, help='Postcode of second city')
+    parser.add_argument('--postcode_1', nargs='+', type=int, help='Postcode(s) of first city')
+    parser.add_argument('--postcode_2', nargs='+', type=int, help='Postcode(s) of second city')
     parser.add_argument('--log_name', default="compare.log",
                         help='name of the log file')
     parser.add_argument('--verbose', action="store_true",
