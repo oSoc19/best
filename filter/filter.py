@@ -73,6 +73,8 @@ def filter_file(args):
             write_csv(result, args.output_file)
         elif args.output_format == 'geojson' and args.output_type == 'address':
             write_geojson(result, args.output_file)
+        elif args.output_format == 'shapefile' and args.output_type == 'address':
+            write_shapefile(result, args.output_file)
         else:
             logger.error(
                 'output_type street is only supported for output_format csv')
@@ -97,6 +99,8 @@ def write_geojson(file, output_file):
     with open(output_file, 'w') as out:
         out.write(geojson.dumps(collection))
 
+def write_shapefile(file, output_file):
+    return 0
 
 if __name__ == "__main__":
     # Setup argument parser
@@ -108,7 +112,7 @@ if __name__ == "__main__":
     parser.add_argument('--output_type', default='address', choices=[
                         'address', 'street'], help='Contents of the output, either full addresses or streetnames')
     parser.add_argument('--output_format', default='csv',
-                        choices=['csv', 'geojson'], help='Format of the output')
+                        choices=['csv', 'geojson', 'shapefile'], help='Format of the output')
     parser.add_argument('--postcode', nargs='+', type=int,
                         help='postcode(s) to filter on')
     parser.add_argument(
