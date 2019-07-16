@@ -85,9 +85,9 @@ if __name__ == "__main__":
         logger.info("Download done")
     logger.info("Start extraction")
     # Check if the folder is empty
-    if os.path.exists(args.output_dir) and os.path.isdir(args.output_dir):
+    if os.path.exists(args.output_dir) and os.path.isdir(args.output_dir) and os.listdir(args.output_dir):
         # when --force is used, delete the folder an its contents
-        if os.listdir(args.output_dir) and args.force:
+        if args.force:
             if not shutil.rmtree.avoids_symlink_attacks:
                 logger.warning("Your system is apparently susceptible to symlink attacks." +
                                "Consider not using the --force option, or upgrading your system.")
