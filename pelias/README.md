@@ -1,6 +1,8 @@
 # Belgium area
 
-This project is configured to download/prepare/build a complete Pelias installation for Belgium.
+This project is configured to download/prepare/build a complete Pelias installation for Belgium 
+using the BOSA open address database. 
+This guide was adapted from https://github.com/pelias/docker/tree/master/projects/belgium .
 
 # Setup
 
@@ -9,6 +11,10 @@ Please refer to the instructions at <https://github.com/pelias/docker> in order 
 The minimum configuration required in order to run this project are [installing prerequisites](https://github.com/pelias/docker#prerequisites), [install the pelias command](https://github.com/pelias/docker#installing-the-pelias-command) and [configure the environment](https://github.com/pelias/docker#configure-environment).
 
 Please ensure that's all working fine before continuing.
+
+# Download BOSA data
+
+At the time of writing, the dataset of bosa
 
 # Run a Build
 
