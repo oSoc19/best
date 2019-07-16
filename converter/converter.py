@@ -136,13 +136,17 @@ def read_region(muncipality_root, postalcode_root, streetname_root, address_iter
 
 
 def read_addresses(addresses, municipalities, postcodes, streetnames, region_code, writer):
+    count = 0
     for _, element in addresses:
         if 'Address' == element.tag.split('}')[-1]:
+            if count % 50_000 == 0:
+                logger.info('Read %s addresses of %s region', count, region_code)
             address = read_address(element)
             address_join(address, municipalities, postcodes, streetnames)
             address['region_code'] = region_code
             writer.write_address(address)
             element.clear()
+            count += 1
 
 
 def address_join(address, municipalities, postcodes, streetnames):
