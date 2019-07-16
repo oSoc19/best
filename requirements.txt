@@ -2,3 +2,4 @@ pandas
 pyproj
 geojson
 numpy
+pyshp

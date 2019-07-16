@@ -5,6 +5,36 @@ import sys
 import geojson
 import numpy as np
 from geojson import Point, Feature, FeatureCollection
+import shapefile
+
+# Datatype mapping for shapefiles
+DTYPE = {
+    np.dtype('int64'): 'N',
+    np.dtype('float64'): 'F',
+    np.dtype('object'): 'C',
+}
+# Column name mapping for shapefiles as they dont allow names that are longer than 10 characters
+COL_NAME = {
+    'EPSG:31370_lat': 'E:31370_y' ,
+    'EPSG:31370_lon': 'E:31370_x',
+    'EPSG:4326_lat': 'E:4326_y' ,
+    'EPSG:4326_lon': 'E:4326_x',
+    'address_id': 'address_id',
+    'box_number': 'box',
+    'house_number': 'house',
+    'municipality_id': 'munc_id',
+    'municipality_name_de': 'munc_de',
+    'municipality_name_fr': 'munc_fr',
+    'municipality_name_nl': 'munc_nl',
+    'postcode': 'postcode',
+    'postname_fr': 'postname_fr',
+    'postname_nl': 'postname_nl',
+    'street_id': 'street_id',
+    'streetname_de': 'street_de',
+    'streetname_fr': 'street_fr',
+    'streetname_nl': 'street_nl',
+    'region_code': 'region_code'
+}
 
 
 def get_best_logger(log_file, verbose):
@@ -73,6 +103,8 @@ def filter_file(args):
             write_csv(result, args.output_file)
         elif args.output_format == 'geojson' and args.output_type == 'address':
             write_geojson(result, args.output_file)
+        elif args.output_format == 'shapefile' and args.output_type == 'address':
+            write_shapefile(result, args.output_file)
         else:
             logger.error(
                 'output_type street is only supported for output_format csv')
@@ -99,6 +131,15 @@ def write_geojson(file, output_file):
     with open(output_file, 'w') as out:
         out.write(geojson.dumps(collection))
 
+def write_shapefile(file, output_file):
+    with shapefile.Writer(output_file) as shp:
+        for col_name, dtype in file.dtypes.iteritems():
+            shp.field(COL_NAME[col_name], DTYPE[dtype])
+        for _, row in file.iterrows():
+            shp.point(row['EPSG:4326_lon'], row['EPSG:4326_lat'])
+            sanitized = [None if pd.isnull(el) else el for el in row.values]
+            shp.record(*sanitized)
+        
 
 if __name__ == "__main__":
     # Setup argument parser
@@ -110,7 +151,7 @@ if __name__ == "__main__":
     parser.add_argument('--output_type', default='address', choices=[
                         'address', 'street'], help='Contents of the output, either full addresses or streetnames')
     parser.add_argument('--output_format', default='csv',
-                        choices=['csv', 'geojson'], help='Format of the output')
+                        choices=['csv', 'geojson', 'shapefile'], help='Format of the output')
     parser.add_argument('--postcode', nargs='+', type=int,
                         help='postcode(s) to filter on')
     parser.add_argument(

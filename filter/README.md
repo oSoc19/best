@@ -47,6 +47,8 @@ Using the `--bbox` argument a bounding box can be specified. For this box the le
 ## Conversion
 By default the output file is a csv file, but other formats can be specified. Supported formats are:
 * [GeoJSON](https://geojson.org/) (`geojson`): GeoJSON is a geospatial data interchange format based on JavaScript Object Notation (JSON).
+* [Shapefile](https://www.esri.com/library/whitepapers/pdfs/shapefile.pdf) (`shapefile`): A binary spatial data format.
+
 
 ## Examples
 Outputting the streetnames for specific postcodes.
