@@ -15,8 +15,8 @@ DTYPE = {
 }
 # Column name mapping for shapefiles as they dont allow names that are longer than 10 characters
 COL_NAME = {
-    'EPSG:31370_lat': 'E:31370_y' ,
-    'EPSG:31370_lon': 'E:31370_x',
+    'EPSG:31370_x': 'E:31370_x' ,
+    'EPSG:31370_y': 'E:31370_y',
     'EPSG:4326_lat': 'E:4326_y' ,
     'EPSG:4326_lon': 'E:4326_x',
     'address_id': 'address_id',
@@ -88,8 +88,8 @@ def filter_file(args):
     # if we only need streetnames, drop the unnecessary attributes
     if args.output_type == 'street':
         result = result.drop(
-            ['EPSG:31370_lat',
-             'EPSG:31370_lon',
+            ['EPSG:31370_x',
+             'EPSG:31370_y',
              'EPSG:4326_lat',
              'EPSG:4326_lon',
              'address_id',

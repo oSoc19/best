@@ -1,0 +1,7 @@
+datashader
+colorcet
+dask
+holoviews
+functools
+cloudpickle
+fastparquet

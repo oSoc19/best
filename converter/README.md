@@ -29,8 +29,8 @@ optional arguments:
 The script can output all the addresses of Belgium or of a region in Belgium (Brussels, Flanders, Wallonia)
 
 The output csv file has the following columns:
-* **EPSG:31370_lat**: Latitude of address in the Lambert 72 coordinate system
-* **EPSG:31370_lon**: Longitude of address in the Lambert 72 coordinate system
+* **EPSG:31370_x**: Latitude of address in the Lambert 72 coordinate system
+* **EPSG:31370_y**: Longitude of address in the Lambert 72 coordinate system
 * **EPSG:4326_lat**: Latitude of address in the WGS 84 coordinate system
 * **EPSG:4326_lon**: Longitude of address in the WGS 84 coordinate system
 * **address_id**: BOSA address ID
