@@ -130,3 +130,6 @@ dmypy.json
 *.csv
 
 *.zip
+
+visualizations/models
+*.xml
