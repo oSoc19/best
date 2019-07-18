@@ -12,5 +12,11 @@ RUN apk add git --no-cache &&\
     apk del git &&\
     apk del build-base
 
+# You should always create a separate user for Dockerfiles!
+RUN addgroup -g 1000 appuser && \
+    adduser -S  -u 1000 -g appuser appuser
+USER appuser
+
+
 
 
