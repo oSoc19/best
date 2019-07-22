@@ -15,7 +15,7 @@ renderer = hv.renderer('bokeh')
 df = pd.read_csv('../../data/belgium_addresses.csv',
                  usecols=['EPSG:31370_x', 'EPSG:31370_y'])
 
-# Convert to web coordinator to match the tiles
+# Convert to web coordinates to match the tiles
 web_co_trans = Transformer.from_crs(31370, 3857)
 x_id = df.columns.get_loc('EPSG:31370_x')
 y_id = df.columns.get_loc('EPSG:31370_y')
