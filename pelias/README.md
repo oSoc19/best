@@ -29,27 +29,53 @@ The minimum configuration required in order to run this project are [installing 
 
 Please ensure that's all working fine before continuing.
 
-# Download BOSA data
 
-At the time of writing, the dataset of bosa
 
 # Run a Build
 
 To run a complete build, execute the following commands:
 
 ```bash
-pelias compose pull
-pelias elastic start
-pelias elastic wait
-pelias elastic create
-pelias download all
+pelias compose pull   # will pull all necessary docker containers
+pelias elastic start  # will start the elastic search container
+pelias elastic wait   # waits for the elastic server to be setup (useful for scripts)
+pelias elastic create # create an instance of elastic search
+pelias download all   # download all the datasets
+```
+At the time of writing, the dataset of bosa was not available through http://openaddresses.io and thus did not get downloaded with the `pelias download all` command. A workaround is needed:
+Download following files on your server, the most recent versions are listed on http://results.openaddresses.io/?runs=all#runs (click on `zip`):
+```
+https://s3.amazonaws.com/data.openaddresses.io/runs/655500/be/wal/bosa-region-wallonia-fr.zip
+https://s3.amazonaws.com/data.openaddresses.io/runs/655501/be/vlg/bosa-region-flanders-nl.zip
+https://s3.amazonaws.com/data.openaddresses.io/runs/655502/be/bru/bosa-region-brussels-fr.zip
+https://s3.amazonaws.com/data.openaddresses.io/runs/655503/be/bru/bosa-region-brussels-nl.zip
+```
+This guide will expect all downloaded files to be in the `/data`-folder of your system.
+All the files that you download must also be unzipped:
+```bash
+unzip /data/bosa-region-brussels-fr.zip
+unzip /data/bosa-region-brussels-nl.zip
+unzip /data/bosa-region-flanders-nl.zip
+unzip /data/bosa-region-wallonia-nl.zip
+```
+You have to make sure the files are located as follows (location of the xml-files is not important):
+```
+/data/openaddresses
+└── be
+    ├── bru
+    │   ├── bosa-region-brussels-fr.csv
+    │   └── bosa-region-brussels-nl.csv
+    ├── vlg
+    │   └── bosa-region-flanders-nl.csv
+    └── wal
+        └── bosa-region-wallonia-fr.csv
+```
+Then you can continue setting up the service as follows:
+```bash
 pelias prepare all
 pelias import all
 pelias compose up
 ```
-
-# Make an Example Query
-
 You can now make queries against your new Pelias build:
-
-<http://localhost:4000/v1/search?text=Brussels>
+<http://localhost:4000/v1/search?text=Brussels>.
+If you set the containers up on a server you can replace `localhost` with the server's ip-addres.
