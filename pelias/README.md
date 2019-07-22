@@ -1,24 +1,24 @@
 # Setup guide for Pelias geocoding service.
 
-This guide explains how we set up the geocoding service for https://best.osoc.be.
+This guide explains how we set up the geocoding service for <https://best.osoc.be>.
 
 This folder contains configuration files to download/prepare/build a complete Pelias installation for Belgium
 using the BOSA open address database and various other open data sources.
-It also describes how to set up an apache webserver as a proxy and to make the service serve over [https with certbot](https://certbot.eff.org/).
-This guide was adapted from https://github.com/pelias/docker/tree/master/projects/belgium .
+It also describes how to set up an apache webserver as a proxy and to make the service serve over https with [certbot](https://certbot.eff.org/).
+This guide was adapted from <https://github.com/pelias/docker/tree/master/projects/belgium> .
 
 # Why Pelias?
 
 We chose pelias for a couple of reasons:
 * It is open source.
 * It offers a very useful API for forward and reverse geocoding, and even for autocompletion.
-* It provides easy [openaddresses.io](https:openaddresses.io) integration. Which makes it particulary interesting for our project.
+* It provides easy [openaddresses.io](https://openaddresses.io) integration. Which makes it particulary interesting for our project.
 * It is well documented.
 * It also offers data from other data sources, which makes it useful in all kinds of applications. It provides more than just address lookup.
 * Setup with this guide should be pretty straightforward. You can get a Belgian instance of Pelias running in about an hour (depending on your computer/server specs).
 
 Other (open source) geocoding systems that could also be used with our data, but that are not discussed here:
-* [Addok](https://github.com/addok/addok) (made by French and used on https://adresse.data.gouv.fr/map)
+* [Addok](https://github.com/addok/addok) (made by French and used on <https://adresse.data.gouv.fr/map>)
 * [Photon](https://github.com/komoot/photon)
 
 # Setup
@@ -28,8 +28,6 @@ Please refer to the instructions at <https://github.com/pelias/docker> in order 
 The minimum configuration required in order to run this project are [installing prerequisites](https://github.com/pelias/docker#prerequisites), [install the pelias command](https://github.com/pelias/docker#installing-the-pelias-command) and [configure the environment](https://github.com/pelias/docker#configure-environment).
 
 Please ensure that's all working fine before continuing.
-
-
 
 # Run a Build
 
@@ -56,8 +54,8 @@ pelias download all   # download all the datasets
 The `pelias compose pull` and `pelias download all` commands can easily take up half an hour.
 It depends on your network speed.
 
-At the time of writing, the dataset of bosa was not available through http://openaddresses.io and thus did not get downloaded with the `pelias download all` command. A workaround is needed:
-Download following files on your server, the most recent versions are listed on http://results.openaddresses.io/?runs=all#runs (click on `zip`):
+At the time of writing, the dataset of bosa was not available through <https://openaddresses.io> and thus did not get downloaded with the `pelias download all` command. A workaround is needed:
+Download following files on your server, the most recent versions are listed on <http://results.openaddresses.io/?runs=all#runs> (click on `zip`):
 ```
 https://s3.amazonaws.com/data.openaddresses.io/runs/655500/be/wal/bosa-region-wallonia-fr.zip
 https://s3.amazonaws.com/data.openaddresses.io/runs/655501/be/vlg/bosa-region-flanders-nl.zip
@@ -128,12 +126,12 @@ Restart the apache server:
 systemctl restart apache2
 ```
 ## Enable HTTPS
-We use certbot to setup HTTPS. The easiest and most up-to-date instructions can be found on https://certbot.eff.org/instructions.
+We use certbot to set up HTTPS. The easiest and most up-to-date instructions can be found on <https://certbot.eff.org/instructions>.
 Setting this up should take about 5 minutes.
 
 # Useful commands
 
-* A full list of available pelias commands is available on: https://github.com/pelias/docker#cli-commands
+* A full list of available pelias commands is available on: <https://github.com/pelias/docker#cli-commands>
 * `pelias compose ps` list all currently running docker containers. Should output something like this:
 ```
 Name                      Command               State                        Ports                     
