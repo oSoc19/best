@@ -53,6 +53,9 @@ pelias elastic wait   # waits for the elastic server to be setup (useful for scr
 pelias elastic create # create an instance of elastic search
 pelias download all   # download all the datasets
 ```
+The `pelias compose pull` and `pelias download all` commands can easily take up half an hour.
+It depends on your network speed.
+
 At the time of writing, the dataset of bosa was not available through http://openaddresses.io and thus did not get downloaded with the `pelias download all` command. A workaround is needed:
 Download following files on your server, the most recent versions are listed on http://results.openaddresses.io/?runs=all#runs (click on `zip`):
 ```
@@ -81,11 +84,12 @@ You have to make sure the files are located as follows (location of the `.vrt`-f
     └── wal
         └── bosa-region-wallonia-fr.csv
 ```
-Then you can continue setting up the service as follows:
+Then you can continue setting up the service as follows.
+The `prepare all` and `import all` can easily take up 30 minutes, depending on your hardware.
 ```bash
-pelias prepare all
-pelias import all
-pelias compose up
+pelias prepare all  # build all service that require preparation
+pelias import all   # import all data
+pelias compose up   # start up all necessary containers
 ```
 You can now make queries against your new Pelias build:
 <http://localhost:4000/v1/search?text=Brussels>.
