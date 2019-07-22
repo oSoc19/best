@@ -2,8 +2,8 @@
 
 This guide explains how we set up the geocoding service for <https://best.osoc.be>.
 
-This folder contains configuration files to download/prepare/build a complete Pelias installation for Belgium
-using the BOSA open address database and various other open data sources.
+This folder contains configuration files to download/prepare/build a complete Pelias installation for Belgium.
+using the [BOSA open address database](https://opendata.bosa.be) and various other open data sources.
 It also describes how to set up an apache webserver as a proxy and to make the service serve over https with [certbot](https://certbot.eff.org/).
 This guide was adapted from <https://github.com/pelias/docker/tree/master/projects/belgium> .
 
