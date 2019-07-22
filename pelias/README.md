@@ -1,8 +1,25 @@
-# Belgium area
+# Setup guide for Pelias geocoding service.
 
-This project is configured to download/prepare/build a complete Pelias installation for Belgium 
-using the BOSA open address database. 
+This guide explains how we set up the geocoding service for https://best.osoc.be.
+
+This folder contains configuration files to download/prepare/build a complete Pelias installation for Belgium
+using the BOSA open address database and various other open data sources.
+It also describes how to set up an apache webserver as a proxy and to make the service serve over [https with certbot](https://certbot.eff.org/).
 This guide was adapted from https://github.com/pelias/docker/tree/master/projects/belgium .
+
+# Why Pelias?
+
+We chose pelias for a couple of reasons:
+* It is open source.
+* It offers a very useful API for forward and reverse geocoding, and even for autocompletion.
+* It provides easy [openaddresses.io](https:openaddresses.io) integration. Which makes it particulary interesting for our project.
+* It is well documented.
+* It also offers data from other data sources, which makes it useful in all kinds of applications. It provides more than just address lookup.
+* Setup with this guide should be pretty straightforward. You can get a Belgian instance of Pelias running in about an hour (depending on your computer/server specs).
+
+Other (open source) geocoding systems that could also be used with our data, but that are not discussed here:
+* [Addok](https://github.com/addok/addok) (made by French and used on https://adresse.data.gouv.fr/map)
+* [Photon](https://github.com/komoot/photon)
 
 # Setup
 
