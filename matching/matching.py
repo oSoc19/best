@@ -1,8 +1,10 @@
 import pandas as pd
+import numpy as np
 import argparse
 import logging
 import sys
 import json
+from fuzzywuzzy import process
 
 
 def get_best_logger(log_file, verbose):
@@ -63,14 +65,53 @@ def compare_addresses(args):
         address_dict[tuple(el.lower() if type(
             el) == str else el for el in row[bosa_ids])] = row
 
-    extended = perform_exact_matching(
-        bosa, comparison, address_dict, comp_keys)
+    if args.mode == 'exact':
+        extended = perform_exact_matching(
+            bosa, comparison, address_dict, comp_keys)
+    else:
+        extended = perform_fuzzy_matching(
+            bosa, comparison, address_dict, comp_keys)
 
     try:
         extended.to_csv(args.output_file, index=False)
     except IOError as io:
         logger.fatal(io)
         sys.exit(1)
+
+
+def perform_fuzzy_matching(bosa, comparison, address_dict, comp_keys):
+    """Brute force fuzzy match of the addresses
+    """
+    comp_keys = [comparison.columns.get_loc(el) for el in comp_keys]
+
+    extended = []
+    logger.info('Performing matching')
+    matcher = ['+'.join(list(map(str, el))) for el in address_dict.values()]
+    for i, row in enumerate(comparison.values):
+        if i % 10 == 0:
+            logger.info('Matched %i / %i addresses', i, len(comparison))
+        try:
+            key = tuple(el.lower() if type(el) ==
+                        str else el for el in row[comp_keys])
+        except KeyError as ke:
+            logger.error('Column %s not found in the comparison file', ke)
+            sys.exit(1)
+        if key in address_dict:
+            # If the address is matched add address_id and coordinates to it
+            data = address_dict[key]
+            row = np.concatenate([row, data, [1.0]])
+        else:
+            match = tuple(process.extractOne(
+                '+'.join(list(map(str, key))), matcher).split('+'))
+            data = address_dict[match[0]]
+            row = np.concatenate([row, data, [match[1]]])
+        extended.append(row)
+    extended = pd.DataFrame(
+        extended, columns=comparison.columns + bosa.columns + ['match_ratio'])
+    # Convert column to int type that can handle NaN
+    extended['address_id'] = extended['address_id'].astype('Int64')
+
+    return extended
 
 
 def perform_exact_matching(bosa, comparison, address_dict, comp_keys):
@@ -115,7 +156,7 @@ if __name__ == "__main__":
         'input_file_2', help='Address file to compare to BOSA address file, in csv format')
     parser.add_argument('output_file', help='Name of file to write output to')
     parser.add_argument('--mode', default='exact',
-                        choices=['exact'], help='How to compare the addresses.')
+                        choices=['exact', 'fuzzy'], help='How to compare the addresses. Fuzzy matching adds an extra column expressing the quality of the match.')
     parser.add_argument(
         '--mapping', default={}, type=json.loads, help='Column names to consider in the comparison and how they map to the \
             column names of the BOSA address file. (as a json dict of {comparison_key: bosa_key})')

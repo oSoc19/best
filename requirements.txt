@@ -4,3 +4,5 @@ geojson
 numpy
 pyshp
 requests
+fuzzywuzzy
+python-Levenshtein
