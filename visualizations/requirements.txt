@@ -1,5 +1,8 @@
 datashader
 colorcet
+pandas
+seaborn
+
 dask
 holoviews
 functools
