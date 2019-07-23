@@ -182,7 +182,7 @@ def read_address(element):
                 'com:pointGeometry/gml:Point/gml:pos', namespaces=NS).split(' ')))
             wgs_84 = TRANSFORMER.transform(*lambert_72)
 
-            address['EPSG:31370_lat'], address['EPSG:31370_lon'] = lambert_72
+            address['EPSG:31370_x'], address['EPSG:31370_y'] = lambert_72
             address['EPSG:4326_lat'], address['EPSG:4326_lon'] = wgs_84
         elif 'houseNumber' == tag:
             address['house_number'] = child.text
