@@ -6,6 +6,14 @@ import sys
 import json
 from fuzzywuzzy import process
 
+"""
+Fuzzy matching Ideas
+structured -> first on columns that have the least unique entries
+create dict of dicts to structure the data
+fuzzy match on first key and traverse down
+pruning of unnecessary branches as total ratio is the avg of all ratios of parts
+"""
+
 
 def get_best_logger(log_file, verbose):
     # Setup logger - (Python logger breaks PEP8 by default)
@@ -57,20 +65,20 @@ def compare_addresses(args):
                 'Column %s of column mapping (%s -> %s) not found in BOSA file', ke, comp_key, bosa_key)
             sys.exit(1)
 
-    address_dict = {}
-    logger.info('Building data structure to perform matching')
-    for i, row in enumerate(bosa.values):
-        if i % 50_000 == 0:
-            logger.info('Processed %i / %i addresses', i, len(bosa))
-        address_dict[tuple(el.lower() if type(
-            el) == str else el for el in row[bosa_ids])] = row
-
     if args.mode == 'exact':
+        address_dict = {}
+        logger.info('Building data structure to perform matching')
+        for i, row in enumerate(bosa.values):
+            if i % 50_000 == 0:
+                logger.info('Processed %i / %i addresses', i, len(bosa))
+            address_dict[tuple(el.lower() if type(
+                el) == str else el for el in row[bosa_ids])] = row
+
         extended = perform_exact_matching(
             bosa, comparison, address_dict, comp_keys)
     else:
-        extended = perform_fuzzy_matching(
-            bosa, comparison, address_dict, comp_keys)
+        extended = perform_fuzzy_matching_branch_bound(
+            bosa, comparison, bosa_ids, [comparison.columns.get_loc(el) for el in comp_keys])
 
     try:
         extended.to_csv(args.output_file, index=False)
@@ -79,7 +87,11 @@ def compare_addresses(args):
         sys.exit(1)
 
 
-def perform_fuzzy_matching(bosa, comparison, address_dict, comp_keys):
+def perform_fuzzy_matching_branch_bound(bosa, comparison, bosa_ids, comp_ids):
+    return 0
+
+
+def perform_fuzzy_matching_brute_force(bosa, comparison, address_dict, comp_keys):
     """Brute force fuzzy match of the addresses
     """
     comp_keys = [comparison.columns.get_loc(el) for el in comp_keys]
