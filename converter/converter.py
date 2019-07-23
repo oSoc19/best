@@ -99,7 +99,7 @@ def read_xml_files(region, paths, writer):
             ET.parse(paths['FlandersPostalinfo']).getroot(),
             ET.parse(paths['FlandersStreetname']).getroot(),
             ET.iterparse(paths['FlandersAddress']),
-            'BE-FLA',
+            'BE-VLG',
             writer
         )
         logger.info('Read the Flanders addresses')
@@ -140,7 +140,8 @@ def read_addresses(addresses, municipalities, postcodes, streetnames, region_cod
     for _, element in addresses:
         if 'Address' == element.tag.split('}')[-1]:
             if count % 50_000 == 0:
-                logger.info('Read %s addresses of %s region', count, region_code)
+                logger.info('Read %s addresses of %s region',
+                            count, region_code)
             address = read_address(element)
             address_join(address, municipalities, postcodes, streetnames)
             address['region_code'] = region_code
