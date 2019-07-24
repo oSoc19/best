@@ -13,7 +13,7 @@ It should be constructed as described in [the OpenAddresses contribution guide](
 This metadata is a description of where the OpenAddresses data service can find the data and how it should process it.
 
 The metadata has to be uploaded to github.
-If you make a pull request ([like this one](https://github.com/openaddresses/openaddresses/pull/4582)) and it gets accepted, the [OpenAddresses data service](https://results.openaddresses.io/jobs) will start processing your data.
+If you make a pull request ([like this one](https://github.com/openaddresses/openaddresses/pull/4582)) and it gets accepted, the [OpenAddresses data service](http://results.openaddresses.io/jobs) will start processing your data.
 The service will then also post a nice visualization in the comments of your pull request.
 
 ## Use the OpenAddresses data
