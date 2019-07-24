@@ -9,6 +9,7 @@ import holoviews.operation.datashader as hd
 hd.shade.cmap = fire
 hv.extension("bokeh")
 renderer = hv.renderer('bokeh')
+renderer.webgl = True
 
 # Read the address file
 df = pd.read_csv('../../data/belgium_addresses.csv',
