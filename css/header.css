@@ -1,7 +1,7 @@
 /* hero */
 
 .hero {
-	background-color: rgba(0,0,0,0.05);
+	background-color: #008aab;
 	margin-bottom: 5rem;
 }
 
@@ -71,7 +71,7 @@
 		height: 50rem;
 		position: absolute;
 		z-index: -1;
-		background-image: url("../img/osoc-emblem.png");
+		/*background-image: url("../img/osoc-emblem.png");*/
 		background-size: contain;
 		background-repeat: no-repeat;
 		right: -25rem;

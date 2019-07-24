@@ -82,10 +82,9 @@
                 <h1 class="h1 hero-title">Open BeSt Addresses</h1>
               </div>
               <div class="col-xs-12 col-sm-8 col-md-7 col-lg-7">
-                <p class="hero-intro">If you want to use this template, fork it to your /gh-pages branch, break it, fix
-                  it, ship it!</p>
-                <p class="hero-intro">Replace the title with your project name. Write <strong>in once sentence</strong>
-                  what your project does. Your tagline or Unique Selling Proposition is suitable.</p>
+                <p class="hero-intro">BeSt-Add (Belgian Streets & Addresses) are available as open data in XML. With
+                  this project we made this dataset more accessible to the general public, converted it to
+                  other formats and promoted the use of it.</p>
               </div>
               <div class="col-xs-12 col-sm-10 col-md-7 col-lg-8">
                 <div class="button-group">
@@ -101,75 +100,78 @@
 
     <div class="container container-fluid project-section">
       <div class="row">
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-5 col-md-offset-0 col-lg-6">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-0 col-lg-5">
           <div class="project-image">
-            <img src="img/osoc-screen.png">
+            <img src="img/banner.png">
           </div>
         </div>
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-lg-5 col-md-offset-1">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-7 col-lg-6 col-md-offset-1">
           <h2 class="h4">The project</h2>
-          <p>Replace the image on the left with an image of the project you've made. Explain the project a bit better,
-            with a <strong>short and clear</strong>. You can reuse the introduction you wrote for the <a
-              href="https://docs.google.com/document/d/1a6zGpDaUci-ti7ft3ZbuarvNUiwp7WJeR0eoDo4K4-Y/edit?usp=sharing"
-              target="_blank">handover document</a>.</p>
-          <p>Make sure your document has a <strong>short introduction about the project</strong>. You can reuse the
-            introduction you wrote for the <a
-              href="https://docs.google.com/document/d/1a6zGpDaUci-ti7ft3ZbuarvNUiwp7WJeR0eoDo4K4-Y/edit?usp=sharing"
-              target="_blank">handover document</a>.</p>
-          <!-- replace these text boxes with your project description-->
+          <p>In June 2019, <a href="https://bosa.belgium.be" target="_blank">FOD BOSA DT</a> published the BeSt data
+            set, a collection of XML files in which all addresses of Belgium are displayed with their respective
+            geolocation. This data offers many possible applications, such as checking addresses or creating
+            applications with geocoding. To make the XML data accessible for other applications, we created Open Source
+            tools that enable smooth conversions of data. The converted dataset has been added to
+            <a href="https://openaddresses.io" target="_blank">openaddresses.io</a>, a global open
+            address file that is already used by many applications. With this, we were able to set up a Geocoder service
+            in no time.</p>
         </div>
       </div>
       <!-- script + docker information -->
       <div class="row">
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0 col-lg-5">
-          <p>Want to know how this grid works, what the headers look like and what kind of buttons we have? Go to the <a
-              href="styleguide.html">styleguide</a>. Before you ship, don't forget to remove "styleguide-remove-me.css",
-            and replace all the favicons.</p>
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-0 col-lg-8">
+          <h2 class="h5">The tools</h2>
+          <p>To promote the use of the BeSt Addresses dataset we created a variety of Python tools to convert, filter
+            and use the data. These tools are bundled in a Dockerfile, for which the installation instructions are
+            provided on our <a href="https://github.com/oSoc19/best/blob/master/DOCKER.md">Github repository</a>.</p>
+          <p>With these tools we can easily...</p>
+          <p><strong>Download</strong> the zipped dataset of the addresses. <strong>Extract</strong> the xml files to a
+            directory.
+            <strong>Convert</strong> to the csv
+            format or other formats such as GeoJSON and Shapefiles. <strong>Filter</strong> the file on postalcode,
+            region and
+            bounding box. <strong>Use</strong> the
+            addresses to match and complete other address datasets. </p>
           <div class="button-group">
-            <a class="button button--narrow" href="http://osoc.be" target="_blank">View project</a>
-            <a class="button button--narrow button--alt" href="https://github.com/oSoc18/website"
-              target="_blank">Contribute</a>
+            <a class="button button--narrow" href="https://github.com/oSoc19/best/blob/master/README.md"
+              target="_blank">View
+              documentation</a>
           </div>
         </div>
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-5 col-lg-6 col-md-offset-1">
-          <div class="project-image">
-            <img src="img/osoc-screen.png">
-          </div>
+        <div class="col-xs-10 col-sm-8 col-sm-offset-1 col-md-3 col-lg-3 col-md-offset-1">
+          <img src="img/tools.png">
         </div>
       </div>
       <!-- geocoder -->
       <div class="row">
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0 col-lg-5">
+        <div class="col-xs-10 col-sm-8 col-sm-offset-1 col-md-5 col-md-offset-0 col-lg-4">
           <div class="project-image">
-            <img src="img/osoc-screen.png">
+            <img src="img/pelias.jpg">
           </div>
         </div>
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-5 col-lg-6 col-md-offset-1">
-          <p>Want to know how this grid works, what the headers look like and what kind of buttons we have? Go to the <a
-              href="styleguide.html">styleguide</a>. Before you ship, don't forget to remove "styleguide-remove-me.css",
-            and replace all the favicons.</p>
-          <div class="button-group">
-            <a class="button button--narrow" href="http://osoc.be" target="_blank">View project</a>
-            <a class="button button--narrow button--alt" href="https://github.com/oSoc18/website"
-              target="_blank">Contribute</a>
-          </div>
-
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-lg-7 col-md-offset-1">
+          <h2 class="h5">The geocoder</h2>
+          <p>We managed to get the address data of Belgium uploaded into <a href="https://openaddresses.io"
+              target="_blank">openaddresses.io</a>, which is a global address collection. This dataset then can power
+            many other applications, one of which is a geocoder</p>
+          <p>We set up a <a href="https://github.com/pelias/pelias">pelias</a> geocoder without much trouble and before
+            long we were providing geocoding services to other oSoc19 teams. The process to setup a geocoder using the
+            Belgian address data is documented in our <a
+              href="https://github.com/oSoc19/best/blob/master/pelias/README.md">Github repository</a>.</p>
         </div>
       </div>
 
       <!-- notebooks -->
       <div class="row">
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0 col-lg-5">
-          <p>Want to know how this grid works, what the headers look like and what kind of buttons we have? Go to the <a
-              href="styleguide.html">styleguide</a>. Before you ship, don't forget to remove "styleguide-remove-me.css",
-            and replace all the favicons.</p>
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0 col-lg-6">
+          <h2 class="h5">The notebooks</h2>
+          <p>With the address data converted by our tools it became much easier to explore it. This allowed us to make
+            a collection of Jupyter notebooks using the address data in fun and interesting ways</p>
           <div class="button-group">
-            <a class="button button--narrow" href="http://osoc.be" target="_blank">View project</a>
-            <a class="button button--narrow button--alt" href="https://github.com/oSoc18/website"
-              target="_blank">Contribute</a>
+            <a class="button button--block" href="notebooks">View notebooks</a>
           </div>
         </div>
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-5 col-lg-6 col-md-offset-1">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-5 col-lg-5 col-md-offset-1">
           <div class="project-image">
             <img src="img/belgium_addresses.png">
           </div>
@@ -202,6 +204,15 @@
           </ul>
         </div>
         <div class="col-xs-12 col-sm-6 col-sm-offset-1 col-md-5 col-lg-5 col-lg-offset-2">
+          <h3 class="h5">The coaches</h3>
+          <ul class="team">
+            <li>
+              <h4 class="h6"><a href="https://www.linkedin.com/in/bertjehoul/" target="_blank">Bert Jehoul</a></h4>
+            </li>
+            <li>
+              <h4 class="h6"><a href="https://www.linkedin.com/in/barthanssens/" target="_blank">Bart Hanssens</a></h4>
+            </li>
+          </ul>
           <h3 class="h5">Our partners</h3>
           <ul class="partners">
             <li class="row middle-xs">
