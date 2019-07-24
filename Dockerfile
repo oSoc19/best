@@ -20,5 +20,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 #    apk del build-base
 # Make an output directory for bind mount (so the files from this container are accessible to the host machine)
 RUN mkdir out
+RUN chown -R appuser:appuser /home/appuser 
 USER appuser
 WORKDIR /home/appuser
