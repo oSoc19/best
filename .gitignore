@@ -49,3 +49,5 @@ dist
 node_modules
 *.map
 vendor
+
+*.ipynb
