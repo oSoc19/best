@@ -13,7 +13,12 @@ WORKDIR /home/appuser
 RUN git clone https://github.com/oSoc19/best
 WORKDIR best 
 RUN pip install --no-cache-dir -r requirements.txt
+# Maybe it is useful to implement these commands later, to make the final image smaller.
+# Note: All the RUN commands in this dockerfile should be merged into one command (RUN command_1 && command_2 ...) , 
+# otherwise an extra layer is created that marks the file removal, instead of actually removing these parts of the image.
 #    apk del git &&\
 #    apk del build-base
+# Make an output directory for bind mount (so the files from this container are accessible to the host machine)
+RUN mkdir out
 USER appuser
 WORKDIR /home/appuser
