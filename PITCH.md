@@ -8,6 +8,8 @@ It is the authentic dataset that contains all the adresses registered in our cou
 
 The problem with the dataset is that it is formatted in a difficult way. 
 That is why we here at osoc did our best to format the data in a useful way for many applications.
-Now everyone can check if the address you are mailing to exists. Or you can even look for the geographical coordinates of a place with nothing but open data and open source tools.
+Now everyone can check if the address you are mailing to exists.
+Or you can even look for the geographical coordinates of a place with nothing but open data and open source tools.
+With our project we already set up a service that does exactly this for other osoc projects, namely the hopper and road report app.
 
 We have only scratched the surface. We can’t wait to see what you will do with this authentic data source. Thank you!
