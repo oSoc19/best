@@ -62,7 +62,7 @@ View the [documentation](compare/README.md)
 ## Marketing
 A collection of marketing and communication assets are prepared for the promotion of the dataset and other similar datasets in the future.
 
-They can be found [here](marketing/README.md)
+They can be found [here]([marketing/README.md](https://github.com/oSoc19/best/tree/master/marketing))
 
 ## Notebooks
 Using the csv data a few notebooks were created using the data in fun and interesting ways.
