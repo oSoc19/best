@@ -58,18 +58,19 @@ def find_xml_files(input_dir):
     for root, _, files in os.walk(input_dir):
         for file in files:
             if file.split('.')[-1] == 'xml':
-                m = re.search('^(.+?)[0-9]', file)
+                m = re.search('^([a-zA-Z]+)[0-9]?', file)
                 if m:
                     key = m.group(1)
+                    if key in keys:
+                        keys.remove(key)
+                        paths[key] = os.path.join(root, file)
+                    else:
+                        logger.warning(
+                            'The contents of file %s can not be read by this script', file)
                 else:
-                    logger.warn(
+                    logger.warning(
                         'The contents of file %s can not be read by this script', file)
-                if key in keys:
-                    keys.remove(key)
-                    paths[key] = os.path.join(root, file)
-                else:
-                    logger.warn(
-                        'The contents of file %s can not be read by this script', file)
+
     if keys:
         logger.error(
             'File for data of type %s was not found in the input folder', keys)
@@ -155,20 +156,20 @@ def address_join(address, municipalities, postcodes, streetnames):
         for key, val in streetnames[address['street_id']].items():
             address[key] = val
     else:
-        logger.warn('No street id was included address %s',
-                    address['address_id'])
+        logger.warning('No street id was included address %s',
+                       address['address_id'])
     if 'municipality_id' in address:
         for key, val in municipalities[address['municipality_id']].items():
             address[key] = val
     else:
-        logger.warn('No muncipality was included for address %s',
-                    address['address_id'])
+        logger.warning('No muncipality was included for address %s',
+                       address['address_id'])
     if 'postcode' in address:
         for key, val in postcodes[address['postcode']].items():
             address[key] = val
     else:
-        logger.warn('No postcode was included for address %s',
-                    address['address_id'])
+        logger.warning('No postcode was included for address %s',
+                       address['address_id'])
 
 
 def read_address(element):
