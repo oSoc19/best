@@ -79,6 +79,5 @@ The `mv` command will throw an error, but you can ignore this.
 
 ## Issues
 
-* The example above does not work, since there are apparently still some permission issues
 * The current Dockerfile uses alpine linux as its base image. Consequently the build time is very long. This can be optimised further by using a slightly bigger minimal ubuntu image for example for which precompiled libraries exist.
 * The current Dockerfile contains a lot of `RUN` statements, this does not allow for minimal image size. The reason why this is not implemented is because the dockerfile is still in development, and the multiple run statements allow for caching during build time.
