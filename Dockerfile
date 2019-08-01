@@ -13,11 +13,13 @@ RUN apt-get update &&\
     # Go inside best repository to install requirements
     cd best &&\
     pip3 install --no-cache-dir -r requirements.txt &&\
+    # Do not remove these packages in the following statement, by marking them as manually installed
+    apt-mark manual python3-idna
     # After installation of the packages and the cloning of the repository, remove git and pip
     apt-get autoremove -y git python3-pip &&\
     # Make an output directory for bind mount (so the files from this container are accessible to the host machine)
     mkdir out &&\
     # Give appuser ownership of everything inside its home folder
     chown -R appuser:appuser /home/appuser
-USER appuser
+#USER appuser
 WORKDIR /home/appuser/best
