@@ -164,3 +164,8 @@ bcbe545eba55        pelias/api:master             "./bin/start"            9 day
   * `docker stop pelias_api`
   * Do your changes in the `pelias.json` file.
   * `pelias compose up` to restart the `pelias_api` container.
+
+# Start using your service
+
+At oSoc19 we gave a presentation to the other projects on how to use the geocoding service we set up.
+This presentation is available [here](https://github.com/oSoc19/best/blob/master/docs/BeSt%40%20geocoding.pdf).
