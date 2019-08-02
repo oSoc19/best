@@ -55,14 +55,21 @@ View the [documentation](compare/README.md)
 
 ## Docker
 
+
 ## Openaddresses
+Contains the metadata for our upload to the [openaddresses.io](https://openaddresses.io) global open address repository, and some more information on the process.
+
+View the [documentation](openaddresses/README.md).
 
 ## Pelias
+Contains information on how to set up a pelias geocoding service that uses the BeSt data.
+
+View the [documentation](pelias/README.md)
 
 ## Marketing
 A collection of marketing and communication assets are prepared for the promotion of the dataset and other similar datasets in the future.
 
-They can be found [here]([marketing/README.md](https://github.com/oSoc19/best/tree/master/marketing))
+They can be found [here](marketing/README.md)
 
 ## Notebooks
 Using the csv data a few notebooks were created using the data in fun and interesting ways.
