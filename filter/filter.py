@@ -62,7 +62,7 @@ def filter_file(args):
     """
     logger.info('Started reading input file')
     try:
-        file = pd.read_csv(args.input_file)
+        file = pd.read_csv(args.input_file, dtype='unicode')
         logger.info('Read input file')
     except IOError as io:
         logger.fatal(io)
