@@ -55,7 +55,8 @@ CSV_HEADER = [
     'streetname_de',
     'streetname_fr',
     'streetname_nl',
-    'region_code'
+    'region_code',
+    'status'
 ]
 
 # Transformer for the Lambert 72 coordinates to WGS 84
