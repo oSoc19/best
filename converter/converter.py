@@ -190,6 +190,9 @@ def read_address(element):
             address['house_number'] = child.text
         elif 'boxNumber' == tag:
             address['box_number'] = child.text
+        elif 'addressStatus' == tag:
+            address['status'] = child.findtext(
+                'com:status', namespaces=NS)
         elif 'hasStreetname' == tag:
             address['street_id'] = child.findtext(
                 'com:Streetname/com:objectIdentifier', namespaces=NS)
