@@ -86,6 +86,7 @@ def read_xml_files(region, paths, writer):
     if region in ['belgium', 'brussels']:
         read_region(
             ET.parse(paths['BrusselsMunicipality']).getroot(),
+            None,
             ET.parse(paths['BrusselsPostalinfo']).getroot(),
             ET.parse(paths['BrusselsStreetname']).getroot(),
             ET.iterparse(paths['BrusselsAddress']),
@@ -97,6 +98,7 @@ def read_xml_files(region, paths, writer):
     if region in ['belgium', 'flanders']:
         read_region(
             ET.parse(paths['FlandersMunicipality']).getroot(),
+            None,
             ET.parse(paths['FlandersPostalinfo']).getroot(),
             ET.parse(paths['FlandersStreetname']).getroot(),
             ET.iterparse(paths['FlandersAddress']),
@@ -108,6 +110,7 @@ def read_xml_files(region, paths, writer):
     if region in ['belgium', 'wallonia']:
         read_region(
             ET.parse(paths['WalloniaMunicipality']).getroot(),
+            ET.parse(paths['WalloniaPartOfMunicipality']).getroot(),
             ET.parse(paths['WalloniaPostalinfo']).getroot(),
             ET.parse(paths['WalloniaStreetname']).getroot(),
             ET.iterparse(paths['WalloniaAddress']),
@@ -125,18 +128,19 @@ def write_to_csv(addresses, region, output_dir):
     addresses_df.to_csv(os.path.join(output_dir, '%s_addresses.csv' % region))
 
 
-def read_region(muncipality_root, postalcode_root, streetname_root, address_iter, region_code, writer):
+def read_region(muncipality_root, partofmunicipality_root, postalcode_root, streetname_root, address_iter, region_code, writer):
     """Read the XML files for a region
     """
     municipalities = read_municipalities(muncipality_root)
+    partsofmunicipalities = read_partsofmunicipalities(partofmunicipality_root)
     postalcodes = read_postalinfos(postalcode_root)
     streetnames = read_streetnames(streetname_root)
 
-    read_addresses(address_iter, municipalities,
+    read_addresses(address_iter, municipalities, partsofmunicipalities,
                    postalcodes, streetnames, region_code, writer)
 
 
-def read_addresses(addresses, municipalities, postcodes, streetnames, region_code, writer):
+def read_addresses(addresses, municipalities, partsofmunicipalities, postcodes, streetnames, region_code, writer):
     count = 0
     for _, element in addresses:
         if 'Address' == element.tag.split('}')[-1]:
@@ -144,14 +148,14 @@ def read_addresses(addresses, municipalities, postcodes, streetnames, region_cod
                 logger.info('Read %s addresses of %s region',
                             count, region_code)
             address = read_address(element)
-            address_join(address, municipalities, postcodes, streetnames)
+            address_join(address, municipalities, partsofmunicipalities, postcodes, streetnames)
             address['region_code'] = region_code
             writer.write_address(address)
             element.clear()
             count += 1
 
 
-def address_join(address, municipalities, postcodes, streetnames):
+def address_join(address, municipalities, partsofmunicipalities, postcodes, streetnames):
     if 'street_id' in address:
         for key, val in streetnames[address['street_id']].items():
             address[key] = val
@@ -164,6 +168,9 @@ def address_join(address, municipalities, postcodes, streetnames):
     else:
         logger.warning('No muncipality was included for address %s',
                        address['address_id'])
+    if 'partofmunicipality_id' in address:
+        for key, val in partsofmunicipalities[address['partofmunicipality_id']].items():
+            address[key] = val
     if 'postcode' in address:
         for key, val in postcodes[address['postcode']].items():
             address[key] = val
@@ -202,6 +209,9 @@ def read_address(element):
         elif 'hasPostalInfo' == tag:
             address['postcode'] = child.findtext(
                 'com:PostalInfo/com:objectIdentifier', namespaces=NS)
+        elif 'isSituatedIn' == tag:
+            address['partofmunicipality_id'] = child.findtext(
+                'com:PartOfMunicipality/com:objectIdentifier', namespaces=NS)
     return address
 
 
@@ -251,6 +261,31 @@ def read_postalinfo(element):
             postalinfo['postname_{}'.format(
                 lang)] = child.findtext('com:spelling', namespaces=NS)
     return postalinfo
+
+
+def read_partsofmunicipalities(element):
+    partsofmunicipalities = {}
+    if element is not None:
+        for child in element:
+            if 'PartOfMunicipality' == child.tag.split('}')[-1]:
+                partofmunicipality = read_partofmunicipality(child)
+                partsofmunicipalities[partofmunicipality['partofmunicipality_id']] = partofmunicipality
+    return partsofmunicipalities
+
+
+def read_partofmunicipality(element):
+    partofmunicipality = {}
+    for child in element:
+        tag = child.tag.split('}')[-1]
+        if 'partOfMunicipalityCode' == tag:
+            partofmunicipality['partofmunicipality_id'] = child.findtext(
+                'com:objectIdentifier', namespaces=NS)
+        elif 'partOfMunicipalityName' == tag:
+            lang = child.findtext(
+                'com:language', namespaces=NS)
+            partofmunicipality['partofmunicipality_name_{}'.format(
+                lang)] = child.findtext('com:spelling', namespaces=NS)
+    return partofmunicipality
 
 
 def read_municipalities(element):
